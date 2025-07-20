@@ -12,6 +12,7 @@
       padding: 0;
       text-align: center;
     }
+
     .btn {
       display: block;
       width: 80%;
@@ -26,9 +27,11 @@
       border-radius: 10px;
       text-decoration: none;
     }
+
     .btn-blue {
       background-color: #007bff;
     }
+
     .section {
       background: #fff;
       margin: 20px;
@@ -36,6 +39,7 @@
       border-radius: 15px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     .ram-option {
       background-color: #eee;
       border-radius: 8px;
@@ -43,20 +47,35 @@
       margin: 4px 0;
       display: inline-block;
     }
+
     .title {
       font-size: 22px;
       font-weight: bold;
       margin-top: 20px;
     }
+
     .qris-img {
       max-width: 100%;
       border-radius: 12px;
       margin-top: 10px;
     }
+
+    /* RGB Pelangi Animasi */
     .admin-contact {
-      color: rgb(255, 0, 128);
       font-weight: bold;
       margin-top: 15px;
+      font-size: 18px;
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 1600% 1600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowText 5s linear infinite;
+    }
+
+    @keyframes rainbowText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
