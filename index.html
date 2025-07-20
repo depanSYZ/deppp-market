@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>List Panel & Donasi</title>
+  <title>Panel & Donasi</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,12 +14,13 @@
     }
     h1 {
       text-shadow: 0 0 10px cyan;
+      font-size: 30px;
     }
     .promo {
       color: magenta;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      margin: 10px 0;
+      margin: 15px 0;
       text-shadow: 0 0 10px magenta;
     }
     .button {
@@ -38,98 +39,81 @@
       box-shadow: 0 0 15px cyan;
       text-decoration: none;
     }
-    img {
-      max-width: 80%;
+    .hidden {
+      display: none;
       margin-top: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
-    }
-    .section {
-      margin-top: 30px;
     }
     .price-list {
       white-space: pre-wrap;
       font-family: monospace;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+    img {
+      max-width: 80%;
       margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
     }
     .admin-contact {
       margin-top: 30px;
     }
-    .donasi-section, .panel-pay {
-      margin-top: 40px;
-    }
-    .donate-methods, .panel-methods {
-      display: none;
-      margin-top: 10px;
+    .note {
+      margin-top: 20px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <h1>LIST PANEL & DONASI<br>DEPPP TAMPAN</h1>
-
+  <h1>LIST PANEL & DONASI</h1>
   <div class="promo">PROMO!!! Reseller panel cuma 10k 🤩</div>
 
-  <!-- Tombol Bayar Panel -->
-  <button class="button" onclick="togglePanel()">💳 Bayar Panel</button>
+  <button class="button" onclick="togglePembayaran()">💳 Bayar Panel</button>
+  <button class="button" onclick="toggleDonasi()">❤️ Donate di sini</button>
 
-  <!-- Tombol Donasi -->
-  <button class="button" onclick="toggleDonasi()">❤️ DONATE DI SINI</button>
-
-  <!-- Bagian Bayar Panel -->
-  <div class="panel-pay">
-    <div id="panel-methods" class="panel-methods">
-      <a class="button" href="https://link.dana.id/transfer?phone=6282221744770" target="_blank">Bayar via DANA</a>
-      <a class="button" href="https://link.gopay.id/transfer?phone=6282221744770" target="_blank">Bayar via GoPay</a>
-      <a class="button" href="https://files.catbox.moe/vtgud1.jpg" target="_blank">Bayar via QRIS</a>
-    </div>
-  </div>
-
-  <!-- Bagian Info Panel -->
-  <div class="section">
-    <p><strong>*List panel mulai dari 2.000, panel permanen dan murah loh!*</strong></p>
-    <p><strong>*SPEK SERVER*</strong><br>
-    &gt; Server: Private<br>
-    &gt; Spek: RAM 32GB – 8 Core CPU</p>
-
-    <div class="price-list">
-*RAM dan List Harga*
-RAM 2GB   / Rp1.000  
-RAM 4GB   / Rp2.000  
-RAM 5GB   / Rp3.000  
-RAM 6GB   / Rp4.000  
-RAM 7GB   / Rp5.000  
-RAM 8GB   / Rp6.000  
-RAM 9GB   / Rp8.000  
-RAM 10GB  / Rp9.000  
-RAM UNLI  / Rp6.000
-    </div>
-  </div>
-
-  <!-- Bagian Donasi -->
-  <div id="donasi" class="donasi-section">
-    <div id="donate-methods" class="donate-methods">
-      <p>Donasi kamu sangat berarti 🙏</p>
-      <a class="button" href="https://link.dana.id/transfer?phone=6282221744770" target="_blank">Donasi via DANA</a>
-      <a class="button" href="https://link.gopay.id/transfer?phone=6282221744770" target="_blank">Donasi via GoPay</a>
+  <!-- BAYAR PANEL -->
+  <div id="panel" class="hidden">
+    <button class="button" onclick="salin('6282221744770')">Salin Dana: 6282221744770</button>
+    <button class="button" onclick="salin('6282221744770')">Salin Gopay: 6282221744770</button>
+    <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
+    <div id="qris" class="hidden">
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-      <div class="thank">Terima kasih atas dukunganmu! ❤️</div>
     </div>
   </div>
 
-  <!-- Kontak Admin -->
+  <!-- DONASI -->
+  <div id="donasi" class="hidden">
+    <button class="button" onclick="salin('6282221744770')">Donasi via Dana</button>
+    <button class="button" onclick="salin('6282221744770')">Donasi via Gopay</button>
+    <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
+    <div id="qris" class="hidden">
+      <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    </div>
+  </div>
+
+  <p class="note">📩 Kirim bukti TF ke admin setelah pembayaran</p>
+
   <div class="admin-contact">
-    <a class="button" href="https://wa.me/6282221744770" target="_blank">Kontak Admin 1</a>
-    <a class="button" href="https://wa.me/6285853233164" target="_blank">Kontak Admin 2</a>
+    <a class="button" href="https://wa.me/6282221744770" target="_blank">WA Admin 1: 6282221744770</a>
+    <a class="button" href="https://wa.me/6285853233164" target="_blank">WA Admin 2: 6285853233164</a>
   </div>
 
   <script>
-    function toggleDonasi() {
-      var x = document.getElementById("donate-methods");
-      x.style.display = x.style.display === "block" ? "none" : "block";
+    function toggleQRIS() {
+      const qris = document.querySelectorAll("#qris");
+      qris.forEach(el => el.classList.toggle("hidden"));
     }
-    function togglePanel() {
-      var x = document.getElementById("panel-methods");
-      x.style.display = x.style.display === "block" ? "none" : "block";
+    function salin(teks) {
+      navigator.clipboard.writeText(teks);
+      alert("Nomor berhasil disalin: " + teks);
+    }
+    function togglePembayaran() {
+      document.getElementById("panel").classList.toggle("hidden");
+      document.getElementById("donasi").classList.add("hidden");
+    }
+    function toggleDonasi() {
+      document.getElementById("donasi").classList.toggle("hidden");
+      document.getElementById("panel").classList.add("hidden");
     }
   </script>
 </body>
