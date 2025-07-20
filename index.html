@@ -1,122 +1,134 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Admin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>List Panel & Pembayaran DEPPP</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
       margin: 0;
       padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #00f7ff;
       text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow: 0 0 12px #00f7ff;
+      margin-bottom: 30px;
     }
 
     .btn {
       display: block;
       width: 80%;
       max-width: 300px;
-      margin: 10px auto;
-      padding: 12px;
-      font-size: 16px;
+      margin: 15px auto;
+      padding: 14px;
+      background-color: #111;
+      color: white;
+      border: 2px solid #00f7ff;
+      border-radius: 12px;
       font-weight: bold;
-      color: #fff;
-      background-color: #28a745;
-      border: none;
-      border-radius: 10px;
       text-decoration: none;
+      box-shadow: 0 0 10px #00f7ff;
+      transition: 0.3s;
     }
 
-    .btn-blue {
-      background-color: #007bff;
+    .btn:hover {
+      background-color: #00f7ff;
+      color: #000;
+    }
+
+    .btn-small {
+      display: inline-block;
+      margin: 10px 10px;
+      padding: 10px 20px;
+      background-color: #000;
+      border: 2px solid #00f7ff;
+      border-radius: 10px;
+      color: #00f7ff;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00f7ff;
+    }
+
+    .btn-small:hover {
+      background-color: #00f7ff;
+      color: #000;
     }
 
     .section {
-      background: #fff;
-      margin: 20px;
+      background-color: #111;
+      margin: 30px auto;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .ram-option {
-      background-color: #eee;
-      border-radius: 8px;
-      padding: 6px 12px;
-      margin: 4px 0;
-      display: inline-block;
-    }
-
-    .title {
-      font-size: 22px;
-      font-weight: bold;
-      margin-top: 20px;
+      max-width: 90%;
+      box-shadow: 0 0 10px #00f7ff50;
+      color: #00f7ff;
+      font-size: 15px;
+      line-height: 1.8;
     }
 
     .qris-img {
-      max-width: 100%;
+      display: none;
+      max-width: 90%;
       border-radius: 12px;
-      margin-top: 10px;
-    }
-
-    /* RGB Pelangi Animasi */
-    .admin-contact {
-      font-weight: bold;
       margin-top: 15px;
-      font-size: 18px;
-      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
-      background-size: 1600% 1600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbowText 5s linear infinite;
-    }
-
-    @keyframes rainbowText {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      box-shadow: 0 0 15px #00f7ff;
     }
   </style>
+  <script>
+    function toggleQRIS() {
+      const img = document.getElementById("qris");
+      img.style.display = img.style.display === "none" ? "block" : "none";
+    }
+  </script>
 </head>
 <body>
 
-  <h1>Gabung Grup atau Hubungi Admin</h1>
-  <a href="https://chat.whatsapp.com/IFGCTutOaUw3f" class="btn">Gabung Grup WhatsApp</a>
-  <a href="https://wa.me/6282221744770" class="btn">Chat Admin via WhatsApp</a>
-  <a href="https://t.me/depansyz" class="btn btn-blue">Chat Admin via Telegram</a>
+  <div class="container">
+    <h1>LIST PANEL DAN PEMBAYARAN DEPPP TAMPAN</h1>
 
-  <div class="section">
-    <p><strong>*Mulai dari 2.000, panel permanen dan murah loh!*<br>Reseller Panel 15K!</strong></p>
-    <h2>💻 SPEK SERVER</h2>
-    <p><strong>Server:</strong> Private<br><strong>Spek:</strong> RAM 32GB – 8 Core CPU</p>
+    <a href="#" class="btn">DANA</a>
+    <a href="#" class="btn">GOPAY</a>
+    <a href="#" class="btn" onclick="toggleQRIS()">QRIS (klik untuk tampilkan)</a>
 
-    <h2>📦 RAM & List Harga</h2>
-    <div class="ram-option">RAM 2GB / Rp1.000</div><br>
-    <div class="ram-option">RAM 4GB / Rp2.000</div><br>
-    <div class="ram-option">RAM 5GB / Rp3.000</div><br>
-    <div class="ram-option">RAM 6GB / Rp4.000</div><br>
-    <div class="ram-option">RAM 7GB / Rp5.000</div><br>
-    <div class="ram-option">RAM 8GB / Rp6.000</div><br>
-    <div class="ram-option">RAM 9GB / Rp8.000</div><br>
-    <div class="ram-option">RAM 10GB / Rp9.000</div><br>
-    <div class="ram-option">RAM UNLI / Rp6.000</div><br>
+    <div class="section">
+      <strong>*List panel mulai dari 2.000, panel permanen dan murah loh!*</strong><br><br>
 
-    <h3 style="margin-top: 40px;">🚀 Buy via WhatsApp / Telegram</h3>
-    <p><strong>Telegram:</strong> <a href="https://t.me/depansyz">@depansyz</a><br>
-    <strong>WhatsApp:</strong> <a href="https://wa.me/6282221744770">6282221744770</a></p>
+      <strong>*SPEK SERVER*</strong><br>
+      &gt; Server: Private<br>
+      &gt; Spek: RAM 32GB – 8 Core CPU<br><br>
 
-    <h3 style="margin-top: 40px;">🔻 Pembayaran di bawah 🔻</h3>
-    <h2>💳 Pembayaran</h2>
+      <strong>*RAM dan List Harga*</strong><br>
+      <code>RAM 2GB / Rp1.000</code><br>
+      <code>RAM 4GB / Rp2.000</code><br>
+      <code>RAM 5GB / Rp3.000</code><br>
+      <code>RAM 6GB / Rp4.000</code><br>
+      <code>RAM 7GB / Rp5.000</code><br>
+      <code>RAM 8GB / Rp6.000</code><br>
+      <code>RAM 9GB / Rp8.000</code><br>
+      <code>RAM 10GB / Rp9.000</code><br>
+      <code>RAM UNLI / Rp6.000</code><br><br>
 
-    <p class="admin-contact">Kirim bukti tf ke nomer admin di atas</p>
+      <strong>🚀 Buy via WhatsApp & Telegram</strong><br>
+      Telegram: <a href="https://t.me/depansyz" style="color:#00f7ff;">t.me/depansyz</a><br>
+      WhatsApp: <a href="https://wa.me/6283157378564" style="color:#00f7ff;">6283157378564</a><br><br>
 
-    <div class="section" style="background: #f0f0f0;">
-      <p><strong>Dana:</strong> 6282221744770<br>
-      <strong>Gopay:</strong> 6282221744770</p>
-      <p><a href="#" onclick="document.getElementById('qris').style.display='block'; return false;">QRIS (klik untuk tampilkan)</a></p>
-      <img id="qris" class="qris-img" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="display:none;">
+      <strong>💳 Payment:</strong><br>
+      <code>DANA</code>, <code>GOPAY</code>, <code>QRIS</code><br>
+      <img id="qris" class="qris-img" src="https://files.catbox.moe/d11c1y.jpeg" alt="QRIS">
     </div>
+
+    <a href="https://wa.me/6283157378564" class="btn-small">Nomor WhatsApp</a>
+    <a href="https://t.me/depansyz" class="btn-small">Kontak Telegram</a>
   </div>
 
 </body>
