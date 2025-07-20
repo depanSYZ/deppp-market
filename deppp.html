@@ -1,62 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panel & Donasi</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       background: #000;
       color: cyan;
-      font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
     }
+
     h1 {
-      color: cyan;
       text-shadow: 0 0 10px cyan;
     }
+
     .btn {
       display: block;
       margin: 10px auto;
-      padding: 12px 20px;
+      padding: 12px 25px;
       background: #00ffff;
       color: #000;
       font-weight: bold;
       border: none;
       border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
+      box-shadow: 0 0 15px cyan;
       font-size: 16px;
       width: 80%;
       max-width: 300px;
       cursor: pointer;
     }
-    .btn:hover {
-      background: #00dddd;
-    }
-    img {
-      max-width: 300px;
-      margin-top: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
-    }
-    .hidden {
-      display: none;
-    }
+
     .section {
-      margin-top: 30px;
+      display: none;
+      margin-top: 20px;
     }
+
     .price-list {
       white-space: pre-wrap;
       font-family: monospace;
-      margin-top: 20px;
       font-size: 15px;
-      color: #0ff;
+      margin-top: 15px;
     }
-    .thank {
+
+    img {
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
+      margin-top: 15px;
+    }
+
+    .copy-text {
+      cursor: pointer;
+      color: magenta;
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .info {
       margin-top: 20px;
       font-size: 14px;
       color: #ccc;
+    }
+
+    .link-btn {
+      margin-top: 20px;
+      display: inline-block;
+      color: lime;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -64,35 +79,24 @@
 
   <h1>DEPPP PANEL & DONASI</h1>
 
-  <button class="btn" onclick="showPembayaran()">💰 Bayar Panel</button>
-  <button class="btn" onclick="showDonasi()">❤️ Donasi Disini</button>
+  <button class="btn" onclick="toggleSection('panel')">💰 Bayar Panel</button>
+  <button class="btn" onclick="toggleSection('donasi')">❤️ Donasi Disini</button>
 
-  <div id="pembayaran" class="hidden">
-    <button class="btn" onclick="copyText('6282221744770')">Salin No DANA: 6282221744770</button>
-    <button class="btn" onclick="copyText('6282221744770')">Salin No GoPay: 6282221744770</button>
-    <button class="btn" onclick="toggleQRIS()">Tampilkan QRIS</button>
-    <img id="qris" class="hidden" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    <div class="thank">Kirim bukti transfer ke admin!</div>
-  </div>
+  <div id="panel" class="section">
+    <h3>Metode Pembayaran Panel</h3>
+    <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
+    <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <div class="info">Kirim bukti TF ke admin setelah pembayaran.</div>
 
-  <div id="donasi" class="hidden">
-    <button class="btn" onclick="copyText('6282221744770')">Donasi via DANA: 6282221744770</button>
-    <button class="btn" onclick="copyText('6282221744770')">Donasi via GoPay: 6282221744770</button>
-    <button class="btn" onclick="toggleQRIS()">Tampilkan QRIS</button>
-    <img id="qris2" class="hidden" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    <div class="thank">Kirim bukti donasi ke admin, terima kasih! ❤️</div>
-  </div>
-
-  <div class="section">
-    <h2>List Panel</h2>
     <div class="price-list">
-*Mulai dari 2.000 panel permanen dan murah loh!*
+*Mulai dari 2.000, panel permanen dan murah loh*
 
 *SPEK SERVER*
-> server: private  
-> spek server: ram 32GB 8 Core
+> Server: private  
+> Spek: RAM 32GB – 8 Core CPU  
 
-*Ram dan list harga:*  
+*RAM dan List Harga:*  
 `RAM 2GB / Rp1.000`  
 `RAM 4GB / Rp2.000`  
 `RAM 5GB / Rp3.000`  
@@ -101,34 +105,30 @@
 `RAM 8GB / Rp6.000`  
 `RAM 9GB / Rp8.000`  
 `RAM 10GB/ Rp9.000`  
-`RAM UNLI / Rp6.000`
+`RAM UNLI / Rp6.000`  
     </div>
   </div>
 
-  <a class="btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
+  <div id="donasi" class="section">
+    <h3>Donasi untuk Depan Baik</h3>
+    <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
+    <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <div class="info">Kirim bukti donasi ke admin ya! ❤️</div>
+  </div>
+
+  <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
 
   <script>
-    function toggleQRIS() {
-      const qris = document.getElementById("qris");
-      const qris2 = document.getElementById("qris2");
-      if (qris) qris.classList.toggle("hidden");
-      if (qris2) qris2.classList.toggle("hidden");
+    function toggleSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
     }
 
     function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Berhasil disalin: " + text);
-      });
-    }
-
-    function showPembayaran() {
-      document.getElementById("pembayaran").classList.remove("hidden");
-      document.getElementById("donasi").classList.add("hidden");
-    }
-
-    function showDonasi() {
-      document.getElementById("donasi").classList.remove("hidden");
-      document.getElementById("pembayaran").classList.add("hidden");
+      navigator.clipboard.writeText(text);
+      alert('Nomor berhasil disalin: ' + text);
     }
   </script>
 
