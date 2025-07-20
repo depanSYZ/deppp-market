@@ -1,84 +1,104 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Panel Bot & Pembayaran</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
       text-align: center;
-      padding: 30px;
-      color: #333;
     }
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
+    .btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 10px auto;
+      padding: 12px;
       font-size: 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-    }
-    .green-button { background-color: #28a745; }
-    .blue-button { background-color: #007bff; }
-    .box {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 20px 0;
-    }
-    .price {
-      background-color: #eee;
-      padding: 8px;
-      border-radius: 6px;
-      margin: 5px auto;
-      max-width: 200px;
-    }
-    .rainbow-text {
       font-weight: bold;
-      font-size: 18px;
-      background: linear-gradient(to right, red, green, blue);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    .btn-blue {
+      background-color: #007bff;
+    }
+    .section {
+      background: #fff;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .ram-option {
+      background-color: #eee;
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin: 4px 0;
+      display: inline-block;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .qris-img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .admin-contact {
+      color: rgb(255, 0, 128);
+      font-weight: bold;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-  <h2>Gabung Grup atau Hubungi Admin</h2>
-  <a class="button green-button" href="https://chat.whatsapp.com/IFGCTutOaUw3f">Gabung Grup WhatsApp</a><br />
-  <a class="button green-button" href="https://wa.me/6282221744770">Chat Admin via WhatsApp</a><br />
-  <a class="button blue-button" href="https://t.me/depansyz">Chat Admin via Telegram</a>  <div class="box">
-    <p><strong>*Mulai dari 2.000, panel permanen dan murah loh!*</strong><br />
-    <strong>Reseller Panel 15K!</strong></p>
-    <h3>💻 SPEK SERVER</h3>
-    <p><strong>Server:</strong> Private<br />
-    <strong>Spek:</strong> RAM 32GB – 8 Core CPU</p><h3>📦 RAM & List Harga</h3>
-<div class="price">RAM 2GB / Rp1.000</div>
-<div class="price">RAM 4GB / Rp2.000</div>
-<div class="price">RAM 5GB / Rp3.000</div>
-<div class="price">RAM 6GB / Rp4.000</div>
-<div class="price">RAM 7GB / Rp5.000</div>
-<div class="price">RAM 8GB / Rp6.000</div>
-<div class="price">RAM 9GB / Rp8.000</div>
-<div class="price">RAM 10GB / Rp9.000</div>
-<div class="price">RAM UNLI / Rp6.000</div>
 
-  </div>  <h3>🚀 Buy via WhatsApp / Telegram</h3>
-  <p><strong>Telegram:</strong> <a href="https://t.me/depansyz">@depanSYZ</a></p>
-  <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282221744770">6282221744770</a></p>  <p style="margin-top: 30px; font-size: 16px; color: #555;">
-    🔽 Pembayaran ada di bawah ya
-  </p>
-  <p class="rainbow-text">
-    Kirim bukti TF ke nomor admin di atas!
-  </p>  <h2>💳 Pembayaran</h2>
-  <div class="box">
-    <p><strong>Dana:</strong> 6282221744770</p>
-    <p><strong>Gopay:</strong> 6282221744770</p>
-    <p><a href="#" onclick="document.getElementById('qris').style.display='block'; return false;">QRIS (klik untuk tampilkan)</a></p>
-    <img id="qris" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="display:none; max-width:100%; border-radius:12px; margin-top:15px;" />
+  <h1>Gabung Grup atau Hubungi Admin</h1>
+  <a href="https://chat.whatsapp.com/IFGCTutOaUw3f" class="btn">Gabung Grup WhatsApp</a>
+  <a href="https://wa.me/6282221744770" class="btn">Chat Admin via WhatsApp</a>
+  <a href="https://t.me/depansyz" class="btn btn-blue">Chat Admin via Telegram</a>
+
+  <div class="section">
+    <p><strong>*Mulai dari 2.000, panel permanen dan murah loh!*<br>Reseller Panel 15K!</strong></p>
+    <h2>💻 SPEK SERVER</h2>
+    <p><strong>Server:</strong> Private<br><strong>Spek:</strong> RAM 32GB – 8 Core CPU</p>
+
+    <h2>📦 RAM & List Harga</h2>
+    <div class="ram-option">RAM 2GB / Rp1.000</div><br>
+    <div class="ram-option">RAM 4GB / Rp2.000</div><br>
+    <div class="ram-option">RAM 5GB / Rp3.000</div><br>
+    <div class="ram-option">RAM 6GB / Rp4.000</div><br>
+    <div class="ram-option">RAM 7GB / Rp5.000</div><br>
+    <div class="ram-option">RAM 8GB / Rp6.000</div><br>
+    <div class="ram-option">RAM 9GB / Rp8.000</div><br>
+    <div class="ram-option">RAM 10GB / Rp9.000</div><br>
+    <div class="ram-option">RAM UNLI / Rp6.000</div><br>
+
+    <h3 style="margin-top: 40px;">🚀 Buy via WhatsApp / Telegram</h3>
+    <p><strong>Telegram:</strong> <a href="https://t.me/depansyz">@depansyz</a><br>
+    <strong>WhatsApp:</strong> <a href="https://wa.me/6282221744770">6282221744770</a></p>
+
+    <h3 style="margin-top: 40px;">🔻 Pembayaran di bawah 🔻</h3>
+    <h2>💳 Pembayaran</h2>
+
+    <p class="admin-contact">Kirim bukti tf ke nomer admin di atas</p>
+
+    <div class="section" style="background: #f0f0f0;">
+      <p><strong>Dana:</strong> 6282221744770<br>
+      <strong>Gopay:</strong> 6282221744770</p>
+      <p><a href="#" onclick="document.getElementById('qris').style.display='block'; return false;">QRIS (klik untuk tampilkan)</a></p>
+      <img id="qris" class="qris-img" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="display:none;">
+    </div>
   </div>
+
 </body>
 </html>
