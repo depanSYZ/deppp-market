@@ -58,36 +58,32 @@
     }
     code {
       background-color: #eee;
-      padding: 3px 6px;
-      border-radius: 5px;
+      padding: 6px 12px;
+      border-radius: 8px;
       display: inline-block;
       margin: 4px 0;
-    }
-    .payment-box {
-      margin-top: 30px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .payment-box p {
-      margin: 10px 0;
       font-size: 16px;
     }
-    .qris-link {
-      color: #1a73e8;
-      text-decoration: underline;
-      cursor: pointer;
+    p {
+      color: #444;
+    }
+    #qrisImage {
+      display: none;
+      margin-top: 15px;
+      max-width: 80%;
+    }
+    .qris-button {
+      background-color: #ff5e5e;
+      color: white;
       font-weight: bold;
     }
-    #qris-img {
-      margin-top: 15px;
-      width: 200px;
-      display: none;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-    }
   </style>
+  <script>
+    function toggleQRIS() {
+      var img = document.getElementById("qrisImage");
+      img.style.display = (img.style.display === "none") ? "block" : "none";
+    }
+  </script>
 </head>
 <body>
 
@@ -125,27 +121,20 @@
     <code>RAM 10GB / Rp9.000</code><br>
     <code>RAM UNLI / Rp6.000</code>
 
-    <h2>🚀 Buy via WhatsApp / Telegram</h2>
-    <p><strong>Telegram:</strong> <a href="https://t.me/depanSYZ" target="_blank">@depanSYZ</a></p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282221744770" target="_blank">6282221744770</a></p>
+    <p style="margin-top: 20px; font-size: 16px; color: #555;">
+      🔽 Pembayaran ada di bawah ya
+    </p>
+    <p style="font-weight: bold; font-size: 18px; background: linear-gradient(to right, red, green, blue); -webkit-background-clip: text; color: transparent;">
+      Kirim bukti TF ke nomor admin di atas!
+    </p>
 
     <h2>💳 Pembayaran</h2>
-    <div class="payment-box">
-      <p><strong>Dana:</strong> 6282221744770</p>
-      <p><strong>Gopay:</strong> 6282221744770</p>
-      <p>
-        <span class="qris-link" onclick="toggleQRIS()">QRIS (klik untuk tampilkan)</span>
-      </p>
-      <img id="qris-img" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    </div>
+    <code>Dana: 6282221744770</code><br>
+    <code>Gopay: 6282221744770</code><br>
+    <button class="button qris-button" onclick="toggleQRIS()">Tampilkan QRIS</button>
+    <br>
+    <img id="qrisImage" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" />
   </div>
-
-  <script>
-    function toggleQRIS() {
-      const q = document.getElementById('qris-img');
-      q.style.display = (q.style.display === 'block' ? 'none' : 'block');
-    }
-  </script>
 
 </body>
 </html>
