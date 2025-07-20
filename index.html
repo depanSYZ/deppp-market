@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
   <title>List Panel & Pembayaran</title>
   <style>
     body {
@@ -31,6 +32,12 @@
       max-width: 300px;
       cursor: pointer;
       box-shadow: 0 0 15px cyan;
+      transition: 0.2s ease-in-out;
+    }
+
+    .button:hover {
+      background: #00dddd;
+      transform: scale(1.05);
     }
 
     .hidden {
@@ -63,10 +70,10 @@
     Gabung Grup WhatsApp
   </button>
 
-  <button class="button">DANA: 6282221744770</button>
-  <button class="button">GOPAY: 6282221744770</button>
+  <button class="button" onclick="salinTeks('6282221744770')">DANA: 6282221744770</button>
+  <button class="button" onclick="salinTeks('6282221744770')">GOPAY: 6282221744770</button>
 
-  <button class="button" onclick="toggleQRIS()">TAMPILKAN QRIS</button>
+  <button class="button" onclick="toggleQRIS(this)">TAMPILKAN QRIS</button>
   <div id="qris" class="hidden">
     <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
   </div>
@@ -78,24 +85,30 @@
     &gt; Server: Private<br>
     &gt; Spek: RAM 32GB – 8 Core CPU</p>
 
-    <div class="price-list">
-      *RAM dan List Harga*
-      RAM 2GB   / Rp1.000
-      RAM 4GB   / Rp2.000
-      RAM 5GB   / Rp3.000
-      RAM 6GB   / Rp4.000
-      RAM 7GB   / Rp5.000
-      RAM 8GB   / Rp6.000
-      RAM 9GB   / Rp8.000
-      RAM 10GB  / Rp9.000
-      RAM UNLI  / Rp6.000
-    </div>
+    <pre class="price-list">
+*RAM dan List Harga*
+RAM 2GB   / Rp1.000
+RAM 4GB   / Rp2.000
+RAM 5GB   / Rp3.000
+RAM 6GB   / Rp4.000
+RAM 7GB   / Rp5.000
+RAM 8GB   / Rp6.000
+RAM 9GB   / Rp8.000
+RAM 10GB  / Rp9.000
+RAM UNLI  / Rp6.000
+    </pre>
   </div>
 
   <script>
-    function toggleQRIS() {
+    function toggleQRIS(button) {
       const qris = document.getElementById("qris");
       qris.classList.toggle("hidden");
+      button.innerText = qris.classList.contains("hidden") ? "TAMPILKAN QRIS" : "SEMBUNYIKAN QRIS";
+    }
+
+    function salinTeks(teks) {
+      navigator.clipboard.writeText(teks);
+      alert("Nomor disalin: " + teks);
     }
   </script>
 </body>
