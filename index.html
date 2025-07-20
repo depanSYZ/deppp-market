@@ -71,8 +71,17 @@
   <button class="button" onclick="togglePembayaran()">💳 Bayar Panel</button>
   <button class="button" onclick="toggleDonasi()">❤️ Donate di sini</button>
 
-  <!-- BAYAR PANEL -->
+  <!-- BAGIAN BAYAR PANEL -->
   <div id="panel" class="hidden">
+    <div class="price-list">
+      <b>List Harga Panel:</b><br>
+      RAM 2GB  / Rp1.000<br>
+      RAM 4GB  / Rp2.000<br>
+      RAM 5GB  / Rp3.000<br>
+      RAM 6GB  / Rp4.000<br>
+      RAM 7GB  / Rp5.000<br>
+      RAM UNLI / Rp10.000
+    </div>
     <button class="button" onclick="salin('6282221744770')">Salin Dana: 6282221744770</button>
     <button class="button" onclick="salin('6282221744770')">Salin Gopay: 6282221744770</button>
     <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
@@ -81,7 +90,7 @@
     </div>
   </div>
 
-  <!-- DONASI -->
+  <!-- BAGIAN DONASI -->
   <div id="donasi" class="hidden">
     <button class="button" onclick="salin('6282221744770')">Donasi via Dana</button>
     <button class="button" onclick="salin('6282221744770')">Donasi via Gopay</button>
