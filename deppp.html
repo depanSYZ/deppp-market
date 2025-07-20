@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel & Donasi</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background: #000;
       color: cyan;
+      font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
     }
@@ -27,95 +27,110 @@
       border-radius: 10px;
       box-shadow: 0 0 10px cyan;
       font-size: 16px;
-      text-decoration: none;
       width: 80%;
       max-width: 300px;
+      cursor: pointer;
     }
     .btn:hover {
       background: #00dddd;
     }
     img {
       max-width: 300px;
-      margin-top: 20px;
+      margin-top: 15px;
       border-radius: 10px;
       box-shadow: 0 0 10px cyan;
+    }
+    .hidden {
+      display: none;
     }
     .section {
       margin-top: 30px;
     }
+    .price-list {
+      white-space: pre-wrap;
+      font-family: monospace;
+      margin-top: 20px;
+      font-size: 15px;
+      color: #0ff;
+    }
     .thank {
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 14px;
       color: #ccc;
-    }
-    pre {
-      text-align: left;
-      white-space: pre-wrap;
-      background: #111;
-      padding: 10px;
-      border-radius: 8px;
-      color: #0ff;
-      max-width: 90%;
-      margin: auto;
     }
   </style>
 </head>
 <body>
-  <h1>Panel & Donasi</h1>
+
+  <h1>DEPPP PANEL & DONASI</h1>
+
+  <button class="btn" onclick="showPembayaran()">💰 Bayar Panel</button>
+  <button class="btn" onclick="showDonasi()">❤️ Donasi Disini</button>
+
+  <div id="pembayaran" class="hidden">
+    <button class="btn" onclick="copyText('6282221744770')">Salin No DANA: 6282221744770</button>
+    <button class="btn" onclick="copyText('6282221744770')">Salin No GoPay: 6282221744770</button>
+    <button class="btn" onclick="toggleQRIS()">Tampilkan QRIS</button>
+    <img id="qris" class="hidden" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <div class="thank">Kirim bukti transfer ke admin!</div>
+  </div>
+
+  <div id="donasi" class="hidden">
+    <button class="btn" onclick="copyText('6282221744770')">Donasi via DANA: 6282221744770</button>
+    <button class="btn" onclick="copyText('6282221744770')">Donasi via GoPay: 6282221744770</button>
+    <button class="btn" onclick="toggleQRIS()">Tampilkan QRIS</button>
+    <img id="qris2" class="hidden" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <div class="thank">Kirim bukti donasi ke admin, terima kasih! ❤️</div>
+  </div>
 
   <div class="section">
-    <a class="btn" href="#donate">DONATE DI SINI</a>
-    <a class="btn" href="#panel">BAYAR PANEL</a>
-  </div>
-
-  <div class="section" id="donate">
-    <h2>Donasi untuk Depan Baik 🙏</h2>
-    <button class="btn" onclick="copyText('6282221744770')">Salin No Dana</button>
-    <button class="btn" onclick="copyText('6282221744770')">Salin No GoPay</button>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-  </div>
-
-  <div class="section" id="panel">
-    <h2>List Panel & Pembayaran</h2>
-    <pre>
-*Mulai dari 2.000 panel permanen dan murah loh*
+    <h2>List Panel</h2>
+    <div class="price-list">
+*Mulai dari 2.000 panel permanen dan murah loh!*
 
 *SPEK SERVER*
-> server: private
+> server: private  
 > spek server: ram 32GB 8 Core
 
-*Ram dan list harga:*
-`RAM 2GB / Rp1.000`
-`RAM 4GB / Rp2.000`
-`RAM 5GB / Rp3.000`
-`RAM 6GB / Rp4.000`
-`RAM 7GB / Rp5.000`
-`RAM 8GB / Rp6.000`
-`RAM 9GB / Rp8.000`
-`RAM 10GB/ Rp9.000`
+*Ram dan list harga:*  
+`RAM 2GB / Rp1.000`  
+`RAM 4GB / Rp2.000`  
+`RAM 5GB / Rp3.000`  
+`RAM 6GB / Rp4.000`  
+`RAM 7GB / Rp5.000`  
+`RAM 8GB / Rp6.000`  
+`RAM 9GB / Rp8.000`  
+`RAM 10GB/ Rp9.000`  
 `RAM UNLI / Rp6.000`
-
-payment?
-`DANA: 6282221744770`
-`GOPAY: 6282221744770`
-`QRIS:`
-    </pre>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    <p class="thank">Kirim bukti pembayaran ke admin melalui WhatsApp:</p>
-    <a class="btn" href="https://wa.me/6282221744770" target="_blank">Admin 1</a>
-    <a class="btn" href="https://wa.me/6285853233164" target="_blank">Admin 2</a>
+    </div>
   </div>
 
-  <div class="section">
-    <a class="btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
-  </div>
+  <a class="btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
 
   <script>
+    function toggleQRIS() {
+      const qris = document.getElementById("qris");
+      const qris2 = document.getElementById("qris2");
+      if (qris) qris.classList.toggle("hidden");
+      if (qris2) qris2.classList.toggle("hidden");
+    }
+
     function copyText(text) {
-      navigator.clipboard.writeText(text).then(function () {
+      navigator.clipboard.writeText(text).then(() => {
         alert("Berhasil disalin: " + text);
       });
     }
+
+    function showPembayaran() {
+      document.getElementById("pembayaran").classList.remove("hidden");
+      document.getElementById("donasi").classList.add("hidden");
+    }
+
+    function showDonasi() {
+      document.getElementById("donasi").classList.remove("hidden");
+      document.getElementById("pembayaran").classList.add("hidden");
+    }
   </script>
+
 </body>
 </html>
