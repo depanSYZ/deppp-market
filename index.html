@@ -41,13 +41,13 @@
     }
     .hidden {
       display: none;
-      margin-top: 10px;
     }
     .price-list {
       white-space: pre-wrap;
       font-family: monospace;
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 15px;
+      color: #fff;
     }
     img {
       max-width: 80%;
@@ -68,61 +68,71 @@
   <h1>LIST PANEL & DONASI</h1>
   <div class="promo">PROMO!!! Reseller panel cuma 10k 🤩</div>
 
-  <button class="button" onclick="togglePembayaran()">💳 Bayar Panel</button>
-  <button class="button" onclick="toggleDonasi()">❤️ Donate di sini</button>
+  <p><i>*mulai dari 2.000 panel permanen dan murah loh*</i></p>
+  <p><b>SPEK SERVER:</b><br>
+  > server: private<br>
+  > spek server: RAM 32GB / 8 Core</p>
 
-  <!-- BAGIAN BAYAR PANEL -->
+  <!-- Tombol utama -->
+  <button class="button" onclick="toggle('panel')">💳 Bayar Panel</button>
+  <button class="button" onclick="toggle('donasi')">❤️ Donate di Sini</button>
+
+  <!-- Panel Bayar -->
   <div id="panel" class="hidden">
     <div class="price-list">
-      <b>List Harga Panel:</b><br>
-      RAM 2GB  / Rp1.000<br>
-      RAM 4GB  / Rp2.000<br>
-      RAM 5GB  / Rp3.000<br>
-      RAM 6GB  / Rp4.000<br>
-      RAM 7GB  / Rp5.000<br>
-      RAM UNLI / Rp10.000
+<b>List Harga Panel:</b>
+RAM 2GB   / Rp1.000
+RAM 4GB   / Rp2.000
+RAM 5GB   / Rp3.000
+RAM 6GB   / Rp4.000
+RAM 7GB   / Rp5.000
+RAM 8GB   / Rp6.000
+RAM 9GB   / Rp8.000
+RAM 10GB  / Rp9.000
+RAM UNLI  / Rp6.000
     </div>
-    <button class="button" onclick="salin('6282221744770')">Salin Dana: 6282221744770</button>
-    <button class="button" onclick="salin('6282221744770')">Salin Gopay: 6282221744770</button>
-    <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
-    <div id="qris" class="hidden">
+    <button class="button" onclick="copyText('6282221744770')">Salin DANA: 6282221744770</button>
+    <button class="button" onclick="copyText('6282221744770')">Salin GOPAY: 6282221744770</button>
+    <button class="button" onclick="toggle('qrisPanel')">Tampilkan QRIS</button>
+    <div id="qrisPanel" class="hidden">
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
     </div>
   </div>
 
-  <!-- BAGIAN DONASI -->
+  <!-- Panel Donasi -->
   <div id="donasi" class="hidden">
-    <button class="button" onclick="salin('6282221744770')">Donasi via Dana</button>
-    <button class="button" onclick="salin('6282221744770')">Donasi via Gopay</button>
-    <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
-    <div id="qris" class="hidden">
+    <button class="button" onclick="copyText('6282221744770')">Donasi via DANA: 6282221744770</button>
+    <button class="button" onclick="copyText('6282221744770')">Donasi via GOPAY: 6282221744770</button>
+    <button class="button" onclick="toggle('qrisDonasi')">Tampilkan QRIS</button>
+    <div id="qrisDonasi" class="hidden">
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
     </div>
   </div>
 
-  <p class="note">📩 Kirim bukti TF ke admin setelah pembayaran</p>
+  <!-- Catatan -->
+  <p class="note">📩 Kirim bukti transfer ke admin setelah pembayaran</p>
 
+  <!-- Kontak Admin -->
   <div class="admin-contact">
     <a class="button" href="https://wa.me/6282221744770" target="_blank">WA Admin 1: 6282221744770</a>
     <a class="button" href="https://wa.me/6285853233164" target="_blank">WA Admin 2: 6285853233164</a>
   </div>
 
+  <!-- Script -->
   <script>
-    function toggleQRIS() {
-      const qris = document.querySelectorAll("#qris");
-      qris.forEach(el => el.classList.toggle("hidden"));
+    function toggle(id) {
+      document.querySelectorAll('.hidden').forEach(el => {
+        if (el.id === id) {
+          el.classList.toggle('hidden');
+        } else if (el.id !== '') {
+          el.classList.add('hidden');
+        }
+      });
     }
-    function salin(teks) {
-      navigator.clipboard.writeText(teks);
-      alert("Nomor berhasil disalin: " + teks);
-    }
-    function togglePembayaran() {
-      document.getElementById("panel").classList.toggle("hidden");
-      document.getElementById("donasi").classList.add("hidden");
-    }
-    function toggleDonasi() {
-      document.getElementById("donasi").classList.toggle("hidden");
-      document.getElementById("panel").classList.add("hidden");
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Nomor berhasil disalin: " + text);
     }
   </script>
 </body>
