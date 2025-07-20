@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel & Donasi</title>
   <style>
     body {
@@ -12,127 +12,73 @@
       text-align: center;
       padding: 20px;
     }
-    h1 {
+    h1, h2 {
       text-shadow: 0 0 10px cyan;
-      font-size: 30px;
-    }
-    .promo {
-      color: magenta;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 15px 0;
-      text-shadow: 0 0 10px magenta;
     }
     .button {
-      display: block;
-      margin: 10px auto;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 10px;
       background: #00ffff;
-      color: #000;
-      font-weight: bold;
+      border: none;
+      padding: 15px 25px;
+      margin: 10px;
       font-size: 16px;
-      width: 80%;
-      max-width: 300px;
-      cursor: pointer;
-      box-shadow: 0 0 15px cyan;
-      text-decoration: none;
-    }
-    .hidden {
-      display: none;
-    }
-    .price-list {
-      white-space: pre-wrap;
-      font-family: monospace;
-      margin-top: 15px;
-      font-size: 15px;
-      color: #fff;
-    }
-    img {
-      max-width: 80%;
-      margin-top: 15px;
       border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
+      cursor: pointer;
+      box-shadow: 0 0 15px #0ff;
     }
-    .admin-contact {
-      margin-top: 30px;
-    }
-    .note {
+    .payment-info {
       margin-top: 20px;
-      color: #ccc;
+      color: white;
+    }
+    .copy-btn {
+      background: #444;
+      color: #fff;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
-  <h1>LIST PANEL & DONASI</h1>
-  <div class="promo">PROMO!!! Reseller panel cuma 10k 🤩</div>
+  <h1>LIST PANEL DAN PEMBAYARAN DEPPP TAMPAN</h1>
+  <p><b>PROMO!!!</b> Reseller panel cuma 10k 🤩</p>
 
-  <p><i>*mulai dari 2.000 panel permanen dan murah loh*</i></p>
-  <p><b>SPEK SERVER:</b><br>
-  > server: private<br>
-  > spek server: RAM 32GB / 8 Core</p>
+  <button class="button" onclick="window.open('https://chat.whatsapp.com/IFGCTutOaUw3fHYHe4iGsj')">
+    Gabung Grup WhatsApp
+  </button>
 
-  <!-- Tombol utama -->
-  <button class="button" onclick="toggle('panel')">💳 Bayar Panel</button>
-  <button class="button" onclick="toggle('donasi')">❤️ Donate di Sini</button>
+  <div class="payment-info">
+    <p><b>*Mulai dari 2.000, panel permanen dan murah loh*</b></p>
+    <p><b>*SPEK SERVER*</b><br>
+    &gt; Server: Private<br>
+    &gt; Spek: RAM 32GB – 8 Core CPU</p>
 
-  <!-- Panel Bayar -->
-  <div id="panel" class="hidden">
-    <div class="price-list">
-<b>List Harga Panel:</b>
-RAM 2GB   / Rp1.000
-RAM 4GB   / Rp2.000
-RAM 5GB   / Rp3.000
-RAM 6GB   / Rp4.000
-RAM 7GB   / Rp5.000
-RAM 8GB   / Rp6.000
-RAM 9GB   / Rp8.000
-RAM 10GB  / Rp9.000
-RAM UNLI  / Rp6.000
-    </div>
-    <button class="button" onclick="copyText('6282221744770')">Salin DANA: 6282221744770</button>
-    <button class="button" onclick="copyText('6282221744770')">Salin GOPAY: 6282221744770</button>
-    <button class="button" onclick="toggle('qrisPanel')">Tampilkan QRIS</button>
-    <div id="qrisPanel" class="hidden">
-      <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    </div>
+    <p><b>*RAM dan List Harga*</b><br>
+    RAM 2GB / Rp1.000<br>
+    RAM 4GB / Rp2.000<br>
+    RAM 5GB / Rp3.000<br>
+    RAM 6GB / Rp4.000<br>
+    RAM 7GB / Rp5.000<br>
+    RAM 8GB / Rp6.000<br>
+    RAM 9GB / Rp8.000<br>
+    RAM 10GB / Rp9.000<br>
+    RAM UNLI / Rp6.000</p>
   </div>
 
-  <!-- Panel Donasi -->
-  <div id="donasi" class="hidden">
-    <button class="button" onclick="copyText('6282221744770')">Donasi via DANA: 6282221744770</button>
-    <button class="button" onclick="copyText('6282221744770')">Donasi via GOPAY: 6282221744770</button>
-    <button class="button" onclick="toggle('qrisDonasi')">Tampilkan QRIS</button>
-    <div id="qrisDonasi" class="hidden">
-      <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    </div>
-  </div>
+  <h2>PEMBAYARAN / DONASI</h2>
 
-  <!-- Catatan -->
-  <p class="note">📩 Kirim bukti transfer ke admin setelah pembayaran</p>
+  <button class="button" onclick="copyText('6282221744770')">Salin Dana</button>
+  <button class="button" onclick="copyText('6282221744770')">Salin GoPay</button>
+  <br>
+  <button class="button" onclick="window.open('https://files.catbox.moe/vtgud1.jpg')">Lihat QRIS</button>
 
-  <!-- Kontak Admin -->
-  <div class="admin-contact">
-    <a class="button" href="https://wa.me/6282221744770" target="_blank">WA Admin 1: 6282221744770</a>
-    <a class="button" href="https://wa.me/6285853233164" target="_blank">WA Admin 2: 6285853233164</a>
-  </div>
+  <p>Kirim bukti transfer ke admin:</p>
+  <button class="button" onclick="window.open('https://wa.me/6282221744770')">Kontak Admin</button>
 
-  <!-- Script -->
   <script>
-    function toggle(id) {
-      document.querySelectorAll('.hidden').forEach(el => {
-        if (el.id === id) {
-          el.classList.toggle('hidden');
-        } else if (el.id !== '') {
-          el.classList.add('hidden');
-        }
-      });
-    }
-
     function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert("Nomor berhasil disalin: " + text);
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
     }
   </script>
 </body>
