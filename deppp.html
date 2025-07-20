@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel & Donasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: cyan;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      text-shadow: 0 0 10px cyan;
+    }
+    .btn {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 20px;
+      background: cyan;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
+      font-size: 16px;
+      text-decoration: none;
+      width: 80%;
+      max-width: 300px;
+    }
+    .btn:hover {
+      background: #00dddd;
+    }
+    .section {
+      margin: 30px 0;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
+    }
+    .copy-box {
+      background: #111;
+      color: white;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 300px;
+      cursor: pointer;
+    }
+    .list-panel {
+      white-space: pre-line;
+      color: #0ff;
+      background: #111;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: inline-block;
+      text-align: left;
+    }
+    small {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Panel & Donasi</h1>
+
+  <div class="section">
+    <a class="btn" href="#donate">DONATE DI SINI</a>
+    <a class="btn" href="#bayarpanel">BAYAR PANEL</a>
+  </div>
+
+  <div class="section" id="donate">
+    <h2>Donasi untuk Depan Baik</h2>
+    <div onclick="copyText('6282221744770')" class="copy-box">Donasi via DANA / GoPay: <b>6282221744770</b></div>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <small>Scan QRIS di atas atau salin nomor untuk donasi 🙏</small>
+  </div>
+
+  <div class="section" id="bayarpanel">
+    <h2>Pembayaran Panel</h2>
+    <div onclick="copyText('6282221744770')" class="copy-box">Gopay / Dana: <b>6282221744770</b></div>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <small>Send bukti transfer ke admin setelah pembayaran.</small>
+  </div>
+
+  <div class="section">
+    <h2>LIST PANEL</h2>
+    <div class="list-panel">
+*mulai dari 2.000 panel permanen dan murah loh*
+
+*SPEK SERVER*
+> server: private  
+> spek server: ram 32GB 8 Core  
+
+*Ram dan list harga:*  
+`RAM 2GB / Rp1.000`  
+`RAM 4GB / Rp2.000`  
+`RAM 5GB / Rp3.000`  
+`RAM 6GB / Rp4.000`  
+`RAM 7GB / Rp5.000`  
+`RAM 8GB / Rp6.000`  
+`RAM 9GB / Rp8.000`  
+`RAM 10GB/ Rp9.000`  
+`RAM UNLI / Rp 6.000`  
+
+payment?  
+`dana`  
+`gopay`  
+`qris`  
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Hubungi Admin</h2>
+    <a class="btn" href="https://wa.me/6282221744770" target="_blank">Admin 1: 6282221744770</a>
+    <a class="btn" href="https://wa.me/6285853233164" target="_blank">Admin 2: 6285853233164</a>
+  </div>
+
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert('Nomor berhasil disalin: ' + text);
+    }
+  </script>
+</body>
+</html>
