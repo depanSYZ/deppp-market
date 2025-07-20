@@ -55,10 +55,10 @@
     .admin-contact {
       margin-top: 30px;
     }
-    .donasi-section {
+    .donasi-section, .panel-pay {
       margin-top: 40px;
     }
-    .donate-methods {
+    .donate-methods, .panel-methods {
       display: none;
       margin-top: 10px;
     }
@@ -70,13 +70,22 @@
   <div class="promo">PROMO!!! Reseller panel cuma 10k 🤩</div>
 
   <!-- Tombol Bayar Panel -->
-  <a class="button" href="#panel">💳 Bayar Panel</a>
+  <button class="button" onclick="togglePanel()">💳 Bayar Panel</button>
 
   <!-- Tombol Donasi -->
   <button class="button" onclick="toggleDonasi()">❤️ DONATE DI SINI</button>
 
-  <!-- Bagian Pembayaran Panel -->
-  <div id="panel" class="section">
+  <!-- Bagian Bayar Panel -->
+  <div class="panel-pay">
+    <div id="panel-methods" class="panel-methods">
+      <a class="button" href="https://link.dana.id/transfer?phone=6282221744770" target="_blank">Bayar via DANA</a>
+      <a class="button" href="https://link.gopay.id/transfer?phone=6282221744770" target="_blank">Bayar via GoPay</a>
+      <a class="button" href="https://files.catbox.moe/vtgud1.jpg" target="_blank">Bayar via QRIS</a>
+    </div>
+  </div>
+
+  <!-- Bagian Info Panel -->
+  <div class="section">
     <p><strong>*List panel mulai dari 2.000, panel permanen dan murah loh!*</strong></p>
     <p><strong>*SPEK SERVER*</strong><br>
     &gt; Server: Private<br>
@@ -116,6 +125,10 @@ RAM UNLI  / Rp6.000
   <script>
     function toggleDonasi() {
       var x = document.getElementById("donate-methods");
+      x.style.display = x.style.display === "block" ? "none" : "block";
+    }
+    function togglePanel() {
+      var x = document.getElementById("panel-methods");
       x.style.display = x.style.display === "block" ? "none" : "block";
     }
   </script>
