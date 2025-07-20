@@ -12,72 +12,108 @@
       text-align: center;
       padding: 20px;
     }
-    h1, h2 {
+    h1 {
+      color: cyan;
       text-shadow: 0 0 10px cyan;
     }
-    .button {
+    .btn {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 20px;
       background: #00ffff;
+      color: #000;
+      font-weight: bold;
       border: none;
-      padding: 15px 25px;
-      margin: 10px;
-      font-size: 16px;
       border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 0 15px #0ff;
+      box-shadow: 0 0 10px cyan;
+      font-size: 16px;
+      text-decoration: none;
+      width: 80%;
+      max-width: 300px;
     }
-    .payment-info {
+    .btn:hover {
+      background: #00dddd;
+    }
+    img {
+      max-width: 300px;
       margin-top: 20px;
-      color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
     }
-    .copy-btn {
-      background: #444;
-      color: #fff;
-      margin: 5px;
+    .section {
+      margin-top: 30px;
+    }
+    .thank {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    pre {
+      text-align: left;
+      white-space: pre-wrap;
+      background: #111;
       padding: 10px;
-      border-radius: 6px;
+      border-radius: 8px;
+      color: #0ff;
+      max-width: 90%;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-  <h1>LIST PANEL DAN PEMBAYARAN DEPPP TAMPAN</h1>
-  <p><b>PROMO!!!</b> Reseller panel cuma 10k 🤩</p>
+  <h1>Panel & Donasi</h1>
 
-  <button class="button" onclick="window.open('https://chat.whatsapp.com/IFGCTutOaUw3fHYHe4iGsj')">
-    Gabung Grup WhatsApp
-  </button>
-
-  <div class="payment-info">
-    <p><b>*Mulai dari 2.000, panel permanen dan murah loh*</b></p>
-    <p><b>*SPEK SERVER*</b><br>
-    &gt; Server: Private<br>
-    &gt; Spek: RAM 32GB – 8 Core CPU</p>
-
-    <p><b>*RAM dan List Harga*</b><br>
-    RAM 2GB / Rp1.000<br>
-    RAM 4GB / Rp2.000<br>
-    RAM 5GB / Rp3.000<br>
-    RAM 6GB / Rp4.000<br>
-    RAM 7GB / Rp5.000<br>
-    RAM 8GB / Rp6.000<br>
-    RAM 9GB / Rp8.000<br>
-    RAM 10GB / Rp9.000<br>
-    RAM UNLI / Rp6.000</p>
+  <div class="section">
+    <a class="btn" href="#donate">DONATE DI SINI</a>
+    <a class="btn" href="#panel">BAYAR PANEL</a>
   </div>
 
-  <h2>PEMBAYARAN / DONASI</h2>
+  <div class="section" id="donate">
+    <h2>Donasi untuk Depan Baik 🙏</h2>
+    <button class="btn" onclick="copyText('6282221744770')">Salin No Dana</button>
+    <button class="btn" onclick="copyText('6282221744770')">Salin No GoPay</button>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+  </div>
 
-  <button class="button" onclick="copyText('6282221744770')">Salin Dana</button>
-  <button class="button" onclick="copyText('6282221744770')">Salin GoPay</button>
-  <br>
-  <button class="button" onclick="window.open('https://files.catbox.moe/vtgud1.jpg')">Lihat QRIS</button>
+  <div class="section" id="panel">
+    <h2>List Panel & Pembayaran</h2>
+    <pre>
+*Mulai dari 2.000 panel permanen dan murah loh*
 
-  <p>Kirim bukti transfer ke admin:</p>
-  <button class="button" onclick="window.open('https://wa.me/6282221744770')">Kontak Admin</button>
+*SPEK SERVER*
+> server: private
+> spek server: ram 32GB 8 Core
+
+*Ram dan list harga:*
+`RAM 2GB / Rp1.000`
+`RAM 4GB / Rp2.000`
+`RAM 5GB / Rp3.000`
+`RAM 6GB / Rp4.000`
+`RAM 7GB / Rp5.000`
+`RAM 8GB / Rp6.000`
+`RAM 9GB / Rp8.000`
+`RAM 10GB/ Rp9.000`
+`RAM UNLI / Rp6.000`
+
+payment?
+`DANA: 6282221744770`
+`GOPAY: 6282221744770`
+`QRIS:`
+    </pre>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <p class="thank">Kirim bukti pembayaran ke admin melalui WhatsApp:</p>
+    <a class="btn" href="https://wa.me/6282221744770" target="_blank">Admin 1</a>
+    <a class="btn" href="https://wa.me/6285853233164" target="_blank">Admin 2</a>
+  </div>
+
+  <div class="section">
+    <a class="btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
+  </div>
 
   <script>
     function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor berhasil disalin: " + text);
+      navigator.clipboard.writeText(text).then(function () {
+        alert("Berhasil disalin: " + text);
       });
     }
   </script>
