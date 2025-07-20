@@ -12,20 +12,16 @@
       text-align: center;
       padding: 20px;
     }
-
     h1 {
       text-shadow: 0 0 10px cyan;
-      font-size: 28px;
     }
-
     .promo {
       color: magenta;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
-      margin: 15px 0;
+      margin: 10px 0;
       text-shadow: 0 0 10px magenta;
     }
-
     .button {
       display: block;
       margin: 10px auto;
@@ -42,104 +38,85 @@
       box-shadow: 0 0 15px cyan;
       text-decoration: none;
     }
-
-    .hidden {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .section {
-      margin-top: 30px;
-    }
-
-    .price-list {
-      white-space: pre-wrap;
-      font-family: monospace;
-      margin-top: 20px;
-      font-size: 15px;
-    }
-
     img {
       max-width: 80%;
-      margin-top: 15px;
+      margin-top: 10px;
       border-radius: 10px;
       box-shadow: 0 0 10px cyan;
     }
-
+    .section {
+      margin-top: 30px;
+    }
+    .price-list {
+      white-space: pre-wrap;
+      font-family: monospace;
+      margin-top: 15px;
+    }
     .admin-contact {
+      margin-top: 30px;
+    }
+    .donasi-section {
       margin-top: 40px;
     }
-
-    .admin-contact h3 {
-      margin-bottom: 15px;
-      color: cyan;
-    }
-
-    .thank {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #ccc;
+    .donate-methods {
+      display: none;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>LIST PANEL DAN PEMBAYARAN<br>DEPPP TAMPAN</h1>
+  <h1>LIST PANEL & DONASI<br>DEPPP TAMPAN</h1>
 
   <div class="promo">PROMO!!! Reseller panel cuma 10k 🤩</div>
 
-  <a class="button" href="https://chat.whatsapp.com/IFGCTutOaUw3fHYHe4iGsj" target="_blank">Gabung Grup WhatsApp</a>
+  <!-- Tombol Bayar Panel -->
+  <a class="button" href="#panel">💳 Bayar Panel</a>
 
-  <div class="section">
-    <p><strong style="font-size: 17px;">*List panel mulai dari 2.000, panel permanen dan murah loh!*</strong></p>
+  <!-- Tombol Donasi -->
+  <button class="button" onclick="toggleDonasi()">❤️ DONATE DI SINI</button>
 
+  <!-- Bagian Pembayaran Panel -->
+  <div id="panel" class="section">
+    <p><strong>*List panel mulai dari 2.000, panel permanen dan murah loh!*</strong></p>
     <p><strong>*SPEK SERVER*</strong><br>
     &gt; Server: Private<br>
     &gt; Spek: RAM 32GB – 8 Core CPU</p>
 
     <div class="price-list">
 *RAM dan List Harga*
-RAM 2GB   / Rp1.000
-RAM 4GB   / Rp2.000
-RAM 5GB   / Rp3.000
-RAM 6GB   / Rp4.000
-RAM 7GB   / Rp5.000
-RAM 8GB   / Rp6.000
-RAM 9GB   / Rp8.000
-RAM 10GB  / Rp9.000
+RAM 2GB   / Rp1.000  
+RAM 4GB   / Rp2.000  
+RAM 5GB   / Rp3.000  
+RAM 6GB   / Rp4.000  
+RAM 7GB   / Rp5.000  
+RAM 8GB   / Rp6.000  
+RAM 9GB   / Rp8.000  
+RAM 10GB  / Rp9.000  
 RAM UNLI  / Rp6.000
     </div>
   </div>
 
-  <h2>DONATE DI SINI</h2>
-  <button class="button" onclick="toggleDonasi()">Klik untuk Donasi</button>
-
-  <div id="donasiBox" class="hidden">
-    <a class="button" href="https://wa.me/6282221744770" target="_blank">Donasi via WhatsApp</a>
-    <a class="button" href="https://link.dana.id/transfer?phone=6282221744770" target="_blank">Donasi via DANA</a>
-    <a class="button" href="https://link.gopay.id/transfer?phone=6282221744770" target="_blank">Donasi via GoPay</a>
-    <button class="button" onclick="toggleQRIS()">TAMPILKAN QRIS</button>
-    <div id="qris" class="hidden">
+  <!-- Bagian Donasi -->
+  <div id="donasi" class="donasi-section">
+    <div id="donate-methods" class="donate-methods">
+      <p>Donasi kamu sangat berarti 🙏</p>
+      <a class="button" href="https://link.dana.id/transfer?phone=6282221744770" target="_blank">Donasi via DANA</a>
+      <a class="button" href="https://link.gopay.id/transfer?phone=6282221744770" target="_blank">Donasi via GoPay</a>
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+      <div class="thank">Terima kasih atas dukunganmu! ❤️</div>
     </div>
   </div>
 
+  <!-- Kontak Admin -->
   <div class="admin-contact">
-    <h3>Kontak Admin:</h3>
-    <a class="button" href="https://wa.me/6282221744770" target="_blank">WA Admin 1: 6282221744770</a>
-    <a class="button" href="https://wa.me/6285853233164" target="_blank">WA Admin 2: 6285853233164</a>
+    <a class="button" href="https://wa.me/6282221744770" target="_blank">Kontak Admin 1</a>
+    <a class="button" href="https://wa.me/6285853233164" target="_blank">Kontak Admin 2</a>
   </div>
-
-  <div class="thank">Terima kasih atas dukunganmu! ❤️</div>
 
   <script>
     function toggleDonasi() {
-      const donasi = document.getElementById("donasiBox");
-      donasi.classList.toggle("hidden");
-    }
-
-    function toggleQRIS() {
-      const qris = document.getElementById("qris");
-      qris.classList.toggle("hidden");
+      var x = document.getElementById("donate-methods");
+      x.style.display = x.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
