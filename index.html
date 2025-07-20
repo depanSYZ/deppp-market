@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Panel & Pembayaran</title>
+  <title>Panel Bot & Pembayaran</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #fce4ec);
-      color: #333;
-      padding: 20px;
+      font-family: sans-serif;
+      background-color: #f2f2f2;
       text-align: center;
+      padding: 30px;
+      color: #333;
     }
-
     h1, h2 {
       color: #333;
     }
-
     .button {
       display: inline-block;
       padding: 12px 20px;
@@ -28,103 +26,66 @@
       cursor: pointer;
       text-decoration: none;
     }
-
     .wa {
       background-color: #25D366;
     }
-
     .tele {
       background-color: #0088cc;
     }
-
     .section {
       background-color: #fff;
-      border-radius: 12px;
-      padding: 30px;
+      border-radius: 10px;
+      padding: 25px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin: 30px auto;
-      max-width: 550px;
+      max-width: 500px;
     }
-
     .section ul {
       list-style-type: none;
       padding: 0;
     }
-
     .section li {
       margin-bottom: 10px;
       color: #333;
       font-size: 16px;
     }
-
     .highlight {
       font-weight: bold;
       font-size: 18px;
       margin-bottom: 15px;
       display: block;
-      color: #d20000;
+      color: #111;
     }
-
     code {
       background-color: #eee;
-      padding: 4px 8px;
+      padding: 3px 6px;
       border-radius: 5px;
       display: inline-block;
       margin: 4px 0;
     }
-
-    p {
-      color: #444;
+    .payment-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
-
-    /* Tambahan untuk pembayaran */
-    .pay-method {
-      margin: 25px 0;
-      padding: 15px;
-      border-radius: 10px;
-      background: #f9f9f9;
-      transition: all 0.3s ease;
+    .payment-box p {
+      margin: 10px 0;
+      font-size: 16px;
     }
-
-    .pay-method:hover {
-      background-color: #e3f2fd;
-    }
-
-    .pay-method h2 {
-      margin-bottom: 10px;
-      color: #00796b;
+    .qris-link {
+      color: #1a73e8;
+      text-decoration: underline;
       cursor: pointer;
-    }
-
-    .number {
-      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 10px;
-      color: #000;
     }
-
-    .copy-btn {
-      padding: 8px 16px;
-      background-color: #26a69a;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .copy-btn:hover {
-      background-color: #2bbbad;
-    }
-
-    .qris-img {
-      width: 240px;
-      height: auto;
+    #qris-img {
       margin-top: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      width: 200px;
       display: none;
-      transition: all 0.3s ease;
+      border-radius: 10px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
@@ -145,8 +106,7 @@
   </a>
 
   <div class="section">
-    <span class="highlight">*Mulai dari 2.000, panel permanen dan murah loh!*</span>
-    <span class="highlight">Reseller Panel: Rp15.000</span>
+    <span class="highlight">*Mulai dari 2.000, panel permanen dan murah loh!*<br>Reseller Panel 15K!</span>
 
     <h2>💻 SPEK SERVER</h2>
     <ul>
@@ -165,42 +125,25 @@
     <code>RAM 10GB / Rp9.000</code><br>
     <code>RAM UNLI / Rp6.000</code>
 
-    <h2>🚀 Beli via WhatsApp / Telegram</h2>
+    <h2>🚀 Buy via WhatsApp / Telegram</h2>
     <p><strong>Telegram:</strong> <a href="https://t.me/depanSYZ" target="_blank">@depanSYZ</a></p>
     <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282221744770" target="_blank">6282221744770</a></p>
 
     <h2>💳 Pembayaran</h2>
-
-    <div class="pay-method">
-      <h2>Dana</h2>
-      <div class="number" id="dana">6282221744770</div>
-      <button class="copy-btn" onclick="copyToClipboard('dana')">Salin Nomor Dana</button>
+    <div class="payment-box">
+      <p><strong>Dana:</strong> 6282221744770</p>
+      <p><strong>Gopay:</strong> 6282221744770</p>
+      <p>
+        <span class="qris-link" onclick="toggleQRIS()">QRIS (klik untuk tampilkan)</span>
+      </p>
+      <img id="qris-img" src="https://files.catbox.moe/41lgay.jpg" alt="QRIS">
     </div>
-
-    <div class="pay-method">
-      <h2>Gopay</h2>
-      <div class="number" id="gopay">6282221744770</div>
-      <button class="copy-btn" onclick="copyToClipboard('gopay')">Salin Nomor Gopay</button>
-    </div>
-
-    <div class="pay-method">
-      <h2 onclick="toggleQRIS()">QRIS (klik untuk tampilkan)</h2>
-      <img src="https://files.catbox.moe/41lgay.jpg" alt="QRIS" class="qris-img" id="qrisImg">
-    </div>
-
   </div>
 
   <script>
-    function copyToClipboard(id) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Nomor berhasil disalin: ' + text);
-      });
-    }
-
     function toggleQRIS() {
-      const qrisImg = document.getElementById("qrisImg");
-      qrisImg.style.display = qrisImg.style.display === "block" ? "none" : "block";
+      const q = document.getElementById('qris-img');
+      q.style.display = (q.style.display === 'block' ? 'none' : 'block');
     }
   </script>
 
