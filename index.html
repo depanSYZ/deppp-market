@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panel & Sewa Bot</title>
+  <title>DEPPP PANEL & SEWA BOT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,6 +15,17 @@
 
     h1 {
       text-shadow: 0 0 10px cyan;
+      margin-top: 10px;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid cyan;
+      box-shadow: 0 0 15px cyan;
+      margin-bottom: 15px;
     }
 
     .btn {
@@ -36,6 +47,7 @@
     .section {
       display: none;
       margin-top: 20px;
+      transition: all 0.3s ease;
     }
 
     .price-list {
@@ -45,7 +57,7 @@
       margin-top: 15px;
     }
 
-    img {
+    img.qris {
       max-width: 80%;
       border-radius: 10px;
       box-shadow: 0 0 10px cyan;
@@ -67,11 +79,12 @@
     }
 
     .link-btn {
-      margin-top: 20px;
+      margin-top: 30px;
       display: inline-block;
       color: lime;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
     }
 
     .always-visible {
@@ -79,65 +92,78 @@
       font-size: 16px;
       color: #0ff;
     }
+
+    ul {
+      text-align: left;
+      display: inline-block;
+      font-size: 15px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Foto Profil -->
+  <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img">
+
   <h1>DEPPP PANEL & SEWA BOT</h1>
 
+  <!-- Tombol untuk toggle pembayaran -->
   <button class="btn" onclick="toggleSection('panel')">💰 Bayar Panel</button>
 
-  <!-- Panel pembayaran (hanya tampil saat tombol diklik) -->
+  <!-- Panel pembayaran -->
   <div id="panel" class="section">
     <h3>Metode Pembayaran</h3>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran">
-    <div class="info">Kirim bukti TF ke admin setelah pembayaran.</div>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" class="qris">
+    <div class="info">Kirim bukti transfer ke admin setelah pembayaran.<br>Admin akan segera aktifkan panel Anda.</div>
   </div>
 
-  <!-- Selalu tampil: List Panel -->
+  <!-- List Panel -->
   <div class="always-visible">
     <h3>List Panel</h3>
     <div class="price-list">
-*Mulai dari 2.000, panel permanen dan murah loh*
+      <strong>*Mulai dari 2.000, panel permanen dan murah loh*</strong><br><br>
+      <strong>*SPEK SERVER*</strong><br>
+      > Server: Private<br>
+      > RAM 32GB – 8 Core CPU<br><br>
 
-*SPEK SERVER*  
-> Server: Private  
-> RAM 32GB – 8 Core CPU  
-
-*RAM dan Harga:*  
-`RAM 2GB / Rp1.000`  
-`RAM 4GB / Rp2.000`  
-`RAM 5GB / Rp3.000`  
-`RAM 6GB / Rp4.000`  
-`RAM 7GB / Rp5.000`  
-`RAM 8GB / Rp6.000`  
-`RAM 9GB / Rp8.000`  
-`RAM 10GB / Rp9.000`  
-`RAM UNLI / Rp6.000`
+      <strong>*RAM dan Harga:*</strong>
+      <ul>
+        <li>RAM 2GB / Rp1.000</li>
+        <li>RAM 4GB / Rp2.000</li>
+        <li>RAM 5GB / Rp3.000</li>
+        <li>RAM 6GB / Rp4.000</li>
+        <li>RAM 7GB / Rp5.000</li>
+        <li>RAM 8GB / Rp6.000</li>
+        <li>RAM 9GB / Rp8.000</li>
+        <li>RAM 10GB / Rp9.000</li>
+        <li>RAM UNLI / Rp6.000</li>
+      </ul>
     </div>
   </div>
 
-  <!-- Selalu tampil: Harga Sewa Bot -->
+  <!-- Harga Sewa Bot -->
   <div class="always-visible">
     <h3>Harga Sewa Bot</h3>
-    <div class="price-list">
-1 bulan 10  
-2 bulan 15  
-3 bulan 20  
-4 bulan 25  
-5 bulan 30  
-dan seterusnya
-    </div>
+    <ul>
+      <li>1 bulan: Rp10.000</li>
+      <li>2 bulan: Rp15.000</li>
+      <li>3 bulan: Rp20.000</li>
+      <li>4 bulan: Rp25.000</li>
+      <li>5 bulan: Rp30.000</li>
+      <li>dan seterusnya</li>
+    </ul>
   </div>
 
-  <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
+  <!-- Link Grup WA -->
+  <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">🔗 Gabung Grup WhatsApp</a>
 
   <script>
     function toggleSection(id) {
       const section = document.getElementById(id);
-      section.style.display = (section.style.display === 'block') ? 'none' : 'block';
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
     }
 
     function copyText(text) {
