@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panel & Donasi</title>
+  <title>Panel & Sewa Bot</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -73,30 +73,40 @@
       text-decoration: none;
       font-weight: bold;
     }
+
+    .always-visible {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #0ff;
+    }
   </style>
 </head>
 <body>
 
-  <h1>DEPPP PANEL & DONASI</h1>
+  <h1>DEPPP PANEL & SEWA BOT</h1>
 
   <button class="btn" onclick="toggleSection('panel')">💰 Bayar Panel</button>
-  <button class="btn" onclick="toggleSection('donasi')">❤️ Donasi Disini</button>
 
+  <!-- Panel pembayaran (hanya tampil saat tombol diklik) -->
   <div id="panel" class="section">
-    <h3>Metode Pembayaran Panel</h3>
+    <h3>Metode Pembayaran</h3>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran">
     <div class="info">Kirim bukti TF ke admin setelah pembayaran.</div>
+  </div>
 
+  <!-- Selalu tampil: List Panel -->
+  <div class="always-visible">
+    <h3>List Panel</h3>
     <div class="price-list">
 *Mulai dari 2.000, panel permanen dan murah loh*
 
-*SPEK SERVER*
-> Server: private  
-> Spek: RAM 32GB – 8 Core CPU  
+*SPEK SERVER*  
+> Server: Private  
+> RAM 32GB – 8 Core CPU  
 
-*RAM dan List Harga:*  
+*RAM dan Harga:*  
 `RAM 2GB / Rp1.000`  
 `RAM 4GB / Rp2.000`  
 `RAM 5GB / Rp3.000`  
@@ -104,31 +114,54 @@
 `RAM 7GB / Rp5.000`  
 `RAM 8GB / Rp6.000`  
 `RAM 9GB / Rp8.000`  
-`RAM 10GB/ Rp9.000`  
-`RAM UNLI / Rp6.000`  
+`RAM 10GB / Rp9.000`  
+`RAM UNLI / Rp6.000`
     </div>
   </div>
 
-  <div id="donasi" class="section">
-    <h3>Donasi untuk Depan Baik</h3>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    <div class="info">Kirim bukti donasi ke admin ya! ❤️</div>
+  <!-- Selalu tampil: Harga Sewa Bot -->
+  <div class="always-visible">
+    <h3>Harga Sewa Bot</h3>
+    <div class="price-list">
+1 bulan 10  
+2 bulan 15  
+3 bulan 20  
+4 bulan 25  
+5 bulan 30  
+dan seterusnya
+    </div>
   </div>
 
   <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
 
   <script>
     function toggleSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+      const section = document.getElementById(id);
+      section.style.display = (section.style.display === 'block') ? 'none' : 'block';
     }
 
     function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert('Nomor berhasil disalin: ' + text);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Nomor berhasil disalin: ' + text);
+        }).catch(err => {
+          alert('Gagal menyalin: ' + err);
+        });
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          alert('Nomor berhasil disalin: ' + text);
+        } catch (err) {
+          alert('Gagal menyalin nomor.');
+        }
+        document.body.removeChild(textarea);
+      }
     }
   </script>
 
