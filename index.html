@@ -42,6 +42,7 @@
       width: 80%;
       max-width: 300px;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .section {
@@ -51,10 +52,11 @@
     }
 
     .price-list {
-      white-space: pre-wrap;
       font-family: monospace;
       font-size: 15px;
       margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
     }
 
     img.qris {
@@ -94,10 +96,13 @@
     }
 
     ul {
-      text-align: left;
-      display: inline-block;
-      font-size: 15px;
-      margin-top: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    ul li {
+      margin-bottom: 5px;
     }
   </style>
 </head>
@@ -148,17 +153,20 @@
   <div class="always-visible">
     <h3>Harga Sewa Bot</h3>
     <ul>
-      <li>1 bulan: Rp10.000</li>
-      <li>2 bulan: Rp15.000</li>
-      <li>3 bulan: Rp20.000</li>
-      <li>4 bulan: Rp25.000</li>
-      <li>5 bulan: Rp30.000</li>
+      <li>1 bulan: 10k</li>
+      <li>2 bulan: 15k</li>
+      <li>3 bulan: 20k</li>
+      <li>4 bulan: 25k</li>
+      <li>5 bulan: 30k</li>
       <li>dan seterusnya</li>
     </ul>
   </div>
 
   <!-- Link Grup WA -->
   <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">🔗 Gabung Grup WhatsApp</a>
+
+  <!-- Tombol Chat Admin -->
+  <a class="btn" href="https://wa.me/6282221744770" target="_blank">💬 Chat Admin (WA)</a>
 
   <script>
     function toggleSection(id) {
@@ -192,4 +200,4 @@
   </script>
 
 </body>
-</html
+</html>
