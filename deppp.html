@@ -73,6 +73,12 @@
       text-decoration: none;
       font-weight: bold;
     }
+
+    .always-visible {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #0ff;
+    }
   </style>
 </head>
 <body>
@@ -80,15 +86,18 @@
   <h1>DEPPP PANEL & DONASI</h1>
 
   <button class="btn" onclick="toggleSection('panel')">💰 Bayar Panel</button>
-  <button class="btn" onclick="toggleSection('donasi')">❤️ Donasi Disini</button>
 
   <div id="panel" class="section">
     <h3>Metode Pembayaran Panel</h3>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
     <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="Kode QRIS untuk pembayaran">
     <div class="info">Kirim bukti TF ke admin setelah pembayaran.</div>
+  </div>
 
+  <!-- Bagian List Panel -->
+  <div class="always-visible">
+    <h3>List Panel</h3>
     <div class="price-list">
 *Mulai dari 2.000, panel permanen dan murah loh*
 
@@ -104,17 +113,22 @@
 `RAM 7GB / Rp5.000`  
 `RAM 8GB / Rp6.000`  
 `RAM 9GB / Rp8.000`  
-`RAM 10GB/ Rp9.000`  
-`RAM UNLI / Rp6.000`  
+`RAM 10GB / Rp9.000`  
+`RAM UNLI / Rp6.000`
     </div>
   </div>
 
-  <div id="donasi" class="section">
-    <h3>Donasi untuk Depan Baik</h3>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 Dana: 6282221744770 (klik untuk salin)</div>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 GoPay: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS">
-    <div class="info">Kirim bukti donasi ke admin ya! ❤️</div>
+  <!-- Bagian Harga Sewa Bot -->
+  <div class="always-visible">
+    <h3>Harga Sewa Bot</h3>
+    <div class="price-list">
+1 bulan 10  
+2 bulan 15  
+3 bulan 20  
+4 bulan 25  
+5 bulan 30  
+dan seterusnya
+    </div>
   </div>
 
   <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
@@ -127,8 +141,27 @@
     }
 
     function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert('Nomor berhasil disalin: ' + text);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Nomor berhasil disalin: ' + text);
+        }).catch(err => {
+          alert('Gagal menyalin: ' + err);
+        });
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          alert('Nomor berhasil disalin: ' + text);
+        } catch (err) {
+          alert('Gagal menyalin nomor.');
+        }
+        document.body.removeChild(textarea);
+      }
     }
   </script>
 
