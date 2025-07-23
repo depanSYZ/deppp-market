@@ -124,7 +124,7 @@
 <body>
 
   <video class="profile-video" autoplay muted loop>
-    <source src="https://files.catbox.moe/t0flo7.mp4" type="video/mp4">
+    <source src="https://files.catbox.moe/1j7a0c.mp4" type="video/mp4">
     Browser tidak mendukung video.
   </video>
 
@@ -171,6 +171,14 @@
 
   <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
   <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a>
+
+  <!-- Musik dan tombol -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://files.catbox.moe/2bujnl.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar audio.
+  </audio>
+
+  <button class="btn" onclick="document.getElementById('bg-music').play()">▶️ Putar Musik</button>
 
   <script>
     function copyText(text) {
