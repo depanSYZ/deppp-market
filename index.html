@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> LIST PANEL & SEWA BOT</title>
+  <title>LIST PANEL & SEWA BOT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -104,6 +104,38 @@
     ul li {
       margin-bottom: 5px;
     }
+
+    /* Toast Notification */
+    #toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #333;
+      color: #0ff;
+      text-align: center;
+      border-radius: 10px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px cyan;
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -113,13 +145,13 @@
 
   <h1>DEPPP PANEL & SEWA BOT</h1>
 
-  <!-- Tombol untuk toggle pembayaran -->
-  <button class="btn" onclick="toggleSection('panel')">💰 Bayar Panel</button>
+  <!-- Tombol toggle pembayaran -->
+  <button class="btn" onclick="toggleSection('panel')">💰 Pembayaran</button>
 
   <!-- Panel pembayaran -->
   <div id="panel" class="section">
     <h3>Metode Pembayaran</h3>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 gopay&dana: 6282221744770 (klik untuk salin)</div>
+    <div class="copy-text" onclick="copyText('6282221744770')">📱 Gopay & Dana: 6282221744770 (klik untuk salin)</div>
     <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" class="qris">
     <div class="info">Kirim bukti transfer ke admin setelah pembayaran.<br>Admin akan segera aktifkan panel Anda.</div>
   </div>
@@ -135,15 +167,15 @@
 
       <strong>*RAM dan Harga:*</strong>
       <ul>
-        <li>RAM 2GB / Rp1.000</li>
-        <li>RAM 4GB / Rp2.000</li>
-        <li>RAM 5GB / Rp3.000</li>
-        <li>RAM 6GB / Rp4.000</li>
-        <li>RAM 7GB / Rp5.000</li>
-        <li>RAM 8GB / Rp6.000</li>
+        <li>RAM 2GB / Rp2.000</li>
+        <li>RAM 4GB / Rp3.000</li>
+        <li>RAM 5GB / Rp4.000</li>
+        <li>RAM 6GB / Rp5.000</li>
+        <li>RAM 7GB / Rp6.000</li>
+        <li>RAM 8GB / Rp7.000</li>
         <li>RAM 9GB / Rp8.000</li>
         <li>RAM 10GB / Rp9.000</li>
-        <li>RAM UNLI / Rp6.000</li>
+        <li>RAM UNLI / Rp12.000</li>
       </ul>
     </div>
   </div>
@@ -165,7 +197,10 @@
   <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">🔗 Gabung Grup WhatsApp</a>
 
   <!-- Tombol Chat Admin -->
-  <a class="btn" href="https://wa.me/6282221744770" target="_blank">💬 Chat Admin (WA)</a>
+  <a class="btn" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin (Telegram)</a>
+
+  <!-- Toast -->
+  <div id="toast">Nomor disalin!</div>
 
   <script>
     function toggleSection(id) {
@@ -176,7 +211,7 @@
     function copyText(text) {
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => {
-          alert('Nomor berhasil disalin: ' + text);
+          showToast();
         }).catch(err => {
           alert('Gagal menyalin: ' + err);
         });
@@ -189,12 +224,20 @@
         textarea.select();
         try {
           document.execCommand('copy');
-          alert('Nomor berhasil disalin: ' + text);
+          showToast();
         } catch (err) {
           alert('Gagal menyalin nomor.');
         }
         document.body.removeChild(textarea);
       }
+    }
+
+    function showToast() {
+      const toast = document.getElementById("toast");
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
     }
   </script>
 
