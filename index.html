@@ -3,67 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LIST PANEL & SEWA BOT</title>
+  <title>DEPPP PANEL</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #000;
+      background-color: #000;
       color: cyan;
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
       padding: 20px;
-    }
-
-    h1 {
-      text-shadow: 0 0 10px cyan;
-      margin-top: 10px;
+      text-align: center;
     }
 
     .profile-img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
+      object-fit: cover;
       border: 3px solid cyan;
       box-shadow: 0 0 15px cyan;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: cyan;
+      text-shadow: 0 0 10px cyan;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .promo {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px yellow;
+      margin: 10px 0;
+    }
+
+    .section-title {
+      color: cyan;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 10px cyan;
+      margin-top: 30px;
+    }
+
+    .price-list ul {
+      list-style: none;
+      padding: 0;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .price-list li {
+      margin-bottom: 6px;
     }
 
     .btn {
       display: block;
-      margin: 10px auto;
+      margin: 15px auto;
       padding: 12px 25px;
       background: #00ffff;
       color: #000;
       font-weight: bold;
       border: none;
       border-radius: 10px;
-      box-shadow: 0 0 15px cyan;
+      box-shadow: 0 0 12px cyan;
       font-size: 16px;
       width: 80%;
       max-width: 300px;
-      cursor: pointer;
       text-decoration: none;
+      cursor: pointer;
     }
 
-    .section {
-      display: none;
-      margin-top: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .price-list {
-      font-family: monospace;
-      font-size: 15px;
-      margin-top: 15px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    img.qris {
-      max-width: 80%;
+    .qris {
+      max-width: 250px;
+      margin: 10px 0;
       border-radius: 10px;
       box-shadow: 0 0 10px cyan;
-      margin-top: 15px;
     }
 
     .copy-text {
@@ -74,170 +94,100 @@
       font-size: 16px;
     }
 
-    .info {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    .link-btn {
-      margin-top: 30px;
-      display: inline-block;
-      color: lime;
-      text-decoration: none;
+    .status {
+      font-size: 16px;
       font-weight: bold;
-      font-size: 16px;
+      margin-top: 20px;
+      text-shadow: 0 0 10px;
     }
 
-    .always-visible {
-      margin-top: 30px;
-      font-size: 16px;
-      color: #0ff;
+    .grup-link, .admin-link {
+      color: #0f0;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      margin: 20px 0;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-
-    ul li {
-      margin-bottom: 5px;
-    }
-
-    /* Toast Notification */
-    #toast {
-      visibility: hidden;
-      min-width: 200px;
-      background-color: #333;
-      color: #0ff;
-      text-align: center;
-      border-radius: 10px;
-      padding: 10px;
-      position: fixed;
-      z-index: 1;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 10px cyan;
-    }
-
-    #toast.show {
-      visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
-
-    @keyframes fadein {
-      from { bottom: 0; opacity: 0; }
-      to { bottom: 30px; opacity: 1; }
-    }
-
-    @keyframes fadeout {
-      from { bottom: 30px; opacity: 1; }
-      to { bottom: 0; opacity: 0; }
+    hr {
+      border: none;
+      height: 1px;
+      background: cyan;
+      margin: 30px 0;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- Foto Profil -->
-  <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img">
-
+  <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img" />
   <h1>DEPPP PANEL & SEWA BOT</h1>
 
-  <!-- Tombol toggle pembayaran -->
-  <button class="btn" onclick="toggleSection('panel')">💰 Pembayaran</button>
+  <div class="promo">🔥 RESELLER PANEL PROMO 12K!!! 🔥</div>
 
-  <!-- Panel pembayaran -->
-  <div id="panel" class="section">
-    <h3>Metode Pembayaran</h3>
-    <div class="copy-text" onclick="copyText('6282221744770')">📱 Gopay & Dana: 6282221744770 (klik untuk salin)</div>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" class="qris">
-    <div class="info">Kirim bukti transfer ke admin setelah pembayaran.<br>Admin akan segera aktifkan panel Anda.</div>
-  </div>
+  <hr>
 
-  <!-- List Panel -->
-  <div class="always-visible">
-    <h3>List Panel</h3>
-    <div class="price-list">
-      <strong>*Mulai dari 2.000, panel permanen dan murah loh*</strong><br><br>
-      <strong>*SPEK SERVER*</strong><br>
-      > Server: Private<br>
-      > RAM 32GB – 8 Core CPU<br><br>
-
-      <strong>*RAM dan Harga:*</strong>
-      <ul>
-        <li>RAM 2GB / Rp2.000</li>
-        <li>RAM 4GB / Rp3.000</li>
-        <li>RAM 5GB / Rp4.000</li>
-        <li>RAM 6GB / Rp5.000</li>
-        <li>RAM 7GB / Rp6.000</li>
-        <li>RAM 8GB / Rp7.000</li>
-        <li>RAM 9GB / Rp8.000</li>
-        <li>RAM 10GB / Rp9.000</li>
-        <li>RAM UNLI / Rp12.000</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Harga Sewa Bot -->
-  <div class="always-visible">
-    <h3>Harga Sewa Bot</h3>
+  <div class="section-title">📋 LIST PANEL BY DEPPP</div>
+  <div class="price-list">
+    <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
     <ul>
-      <li>1 bulan: 10k</li>
-      <li>2 bulan: 15k</li>
-      <li>3 bulan: 20k</li>
-      <li>4 bulan: 25k</li>
-      <li>5 bulan: 30k</li>
-      <li>dan seterusnya</li>
+      <li>RAM 2GB – Rp2.000</li>
+      <li>RAM 4GB – Rp4.000</li>
+      <li>RAM 6GB – Rp6.000</li>
+      <li>RAM 8GB – Rp8.000</li>
+      <li>RAM 10GB – Rp10.000</li>
+      <li>RAM UNLI – Rp12.000</li>
     </ul>
   </div>
 
-  <!-- Link Grup WA -->
-  <a class="link-btn" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">🔗 Gabung Grup WhatsApp</a>
+  <hr>
 
-  <!-- Tombol Chat Admin -->
-  <a class="btn" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin (Telegram)</a>
+  <div class="section-title">🤖 HARGA SEWA BOT</div>
+  <ul>
+    <li>1 Bulan: Rp10.000</li>
+    <li>2 Bulan: Rp15.000</li>
+    <li>3 Bulan: Rp20.000</li>
+    <li>4 Bulan: Rp25.000</li>
+    <li>5 Bulan: Rp30.000</li>
+  </ul>
 
-  <!-- Toast -->
-  <div id="toast">Nomor disalin!</div>
+  <hr>
+
+  <div class="section-title">💰 PEMBAYARAN</div>
+  <div class="copy-text" onclick="copyText('6282221744770')">Klik untuk salin: 6282221744770 (Dana/Gopay)</div>
+  <img class="qris" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" />
+  <div style="margin-top: 10px; font-size: 14px; color: #ccc;">
+    Kirim bukti pembayaran ke admin setelah transfer.
+  </div>
+
+  <div id="status-panel" class="status" style="color: lime;">✅ STATUS PANEL: AKTIF</div>
+  <button class="btn" style="background: yellow;" onclick="toggleStatus()">Ubah Status Panel</button>
+
+  <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
+  <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a>
 
   <script>
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      section.style.display = section.style.display === 'block' ? 'none' : 'block';
-    }
-
     function copyText(text) {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast();
-        }).catch(err => {
-          alert('Gagal menyalin: ' + err);
-        });
-      } else {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.style.position = "fixed";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          showToast();
-        } catch (err) {
-          alert('Gagal menyalin nomor.');
-        }
-        document.body.removeChild(textarea);
-      }
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor disalin: " + text);
+      }).catch(err => {
+        alert("Gagal menyalin");
+      });
     }
 
-    function showToast() {
-      const toast = document.getElementById("toast");
-      toast.className = "show";
-      setTimeout(() => {
-        toast.className = toast.className.replace("show", "");
-      }, 3000);
+    function toggleStatus() {
+      const el = document.getElementById('status-panel');
+      if (el.textContent.includes("AKTIF")) {
+        el.textContent = "❌ STATUS PANEL: TIDAK AKTIF";
+        el.style.color = "red";
+        el.style.textShadow = "0 0 10px red";
+      } else {
+        el.textContent = "✅ STATUS PANEL: AKTIF";
+        el.style.color = "lime";
+        el.style.textShadow = "0 0 10px lime";
+      }
     }
   </script>
 
