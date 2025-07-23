@@ -31,29 +31,6 @@
       margin-bottom: 10px;
     }
 
-    .typing-container {
-      font-size: 22px;
-      font-weight: bold;
-      color: cyan;
-      text-align: center;
-      margin-top: 30px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid cyan;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      0%, 100% { border-color: cyan; }
-      50% { border-color: transparent; }
-    }
-
     .promo {
       background-color: yellow;
       color: black;
@@ -132,6 +109,10 @@
       margin: 20px 0;
     }
 
+    .hidden {
+      display: none;
+    }
+
     hr {
       border: none;
       height: 1px;
@@ -148,11 +129,7 @@
   <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img" />
   <h1>DEPPP PANEL & SEWA BOT</h1>
 
-  <!-- ANIMASI KETIK -->
-  <div class="typing-container">Selamat datang di DEPPP STYLE PANEL!</div>
-
   <div class="promo">🔥 RESELLER PANEL PROMO 12K!!! 🔥</div>
-
   <hr>
 
   <div class="section-title">📋 LIST PANEL BY DEPPP</div>
@@ -189,7 +166,7 @@
   </div>
 
   <div id="status-panel" class="status" style="color: lime;">✅ STATUS PANEL: AKTIF</div>
-  <button class="btn" style="background: yellow;" onclick="toggleStatus()">Ubah Status Panel</button>
+  <button id="adminBtn" class="btn hidden" onclick="toggleStatus()">Ubah Status Panel</button>
 
   <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
   <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a>
@@ -214,6 +191,13 @@
         el.style.color = "lime";
         el.style.textShadow = "0 0 10px lime";
       }
+    }
+
+    // Prompt Login untuk Admin
+    const username = prompt("Masukkan username:");
+    const password = prompt("Masukkan password:");
+    if (username === "deppp" && password === "deppp123") {
+      document.getElementById("adminBtn").classList.remove("hidden");
     }
   </script>
 
