@@ -31,6 +31,29 @@
       margin-bottom: 10px;
     }
 
+    .typing-container {
+      font-size: 22px;
+      font-weight: bold;
+      color: cyan;
+      text-align: center;
+      margin-top: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid cyan;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: cyan; }
+      50% { border-color: transparent; }
+    }
+
     .promo {
       background-color: yellow;
       color: black;
@@ -124,6 +147,9 @@
 
   <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img" />
   <h1>DEPPP PANEL & SEWA BOT</h1>
+
+  <!-- ANIMASI KETIK -->
+  <div class="typing-container">Selamat datang di DEPPP STYLE PANEL!</div>
 
   <div class="promo">🔥 RESELLER PANEL PROMO 12K!!! 🔥</div>
 
