@@ -99,6 +99,7 @@
       font-weight: bold;
       margin-top: 20px;
       text-shadow: 0 0 10px;
+      color: lime;
     }
 
     .grup-link, .admin-link {
@@ -107,10 +108,6 @@
       text-decoration: none;
       display: block;
       margin: 20px 0;
-    }
-
-    .hidden {
-      display: none;
     }
 
     hr {
@@ -122,14 +119,29 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    marquee {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: magenta;
+    }
   </style>
 </head>
 <body>
 
-  <img src="https://files.catbox.moe/sapsen.jpg" alt="Foto Profil" class="profile-img" />
+  <marquee>🔥 SELAMAT DATANG DI DEPPP PANEL - RESELLER PANEL MULAI 12K 🔥</marquee>
+
+  <!-- VIDEO PROFIL -->
+  <video class="profile-img" autoplay loop muted playsinline>
+    <source src="https://files.catbox.moe/1j7a0c.mp4" type="video/mp4">
+    Browser tidak mendukung video.
+  </video>
+
   <h1>DEPPP PANEL & SEWA BOT</h1>
 
   <div class="promo">🔥 RESELLER PANEL PROMO 12K!!! 🔥</div>
+
   <hr>
 
   <div class="section-title">📋 LIST PANEL BY DEPPP</div>
@@ -165,8 +177,7 @@
     Kirim bukti pembayaran ke admin setelah transfer.
   </div>
 
-  <div id="status-panel" class="status" style="color: lime;">✅ STATUS PANEL: AKTIF</div>
-  <button id="adminBtn" class="btn hidden" onclick="toggleStatus()">Ubah Status Panel</button>
+  <div id="status-panel" class="status">✅ STATUS PANEL: AKTIF</div>
 
   <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
   <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a>
@@ -178,26 +189,6 @@
       }).catch(err => {
         alert("Gagal menyalin");
       });
-    }
-
-    function toggleStatus() {
-      const el = document.getElementById('status-panel');
-      if (el.textContent.includes("AKTIF")) {
-        el.textContent = "❌ STATUS PANEL: TIDAK AKTIF";
-        el.style.color = "red";
-        el.style.textShadow = "0 0 10px red";
-      } else {
-        el.textContent = "✅ STATUS PANEL: AKTIF";
-        el.style.color = "lime";
-        el.style.textShadow = "0 0 10px lime";
-      }
-    }
-
-    // Prompt Login untuk Admin
-    const username = prompt("Masukkan username:");
-    const password = prompt("Masukkan password:");
-    if (username === "deppp" && password === "deppp123") {
-      document.getElementById("adminBtn").classList.remove("hidden");
     }
   </script>
 
