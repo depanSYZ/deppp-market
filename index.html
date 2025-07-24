@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,22 +19,6 @@
       margin-bottom: 10px;
       text-align: center;
       text-shadow: 0 0 10px #ffcc00;
-    }
-    .diskon-text {
-      font-size: 16px;
-      font-weight: bold;
-      color: yellow;
-      margin-bottom: 20px;
-      text-align: center;
-      line-height: 1.6;
-    }
-    .diskon-note {
-      color: red;
-      font-weight: bold;
-      text-align: center;
-      font-size: 16px;
-      margin-bottom: 25px;
-      animation: blink 1s infinite;
     }
     .price-list {
       font-size: 16px;
@@ -119,6 +104,29 @@
       background: #25D366;
       box-shadow: 0 0 10px #00ffcc;
     }
+    .payment-section {
+      background: #111;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 12px #00ffff;
+    }
+    .payment-section h3 {
+      color: #00ffff;
+      margin-bottom: 15px;
+    }
+    .payment-section p {
+      margin: 6px 0;
+      font-weight: bold;
+      color: #fff;
+    }
+    .qris-img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffff;
+      margin-top: 10px;
+    }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -132,49 +140,79 @@
     }
   </style>
 </head>
-<body><video class="video-pp" src="https://files.catbox.moe/4vvitr.mp4" autoplay loop muted playsinline></video>
+<body>
 
-  <div class="section-title">💥 DAFTAR HARGA PANEL DISKON 💥</div>  <div class="diskon-text">
-  </div>  <div class="diskon-note">⚠️ Diskon hanya sampai 15 Agustus 2025! ⚠️</div>  <div class="price-list">
-    <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
+<!-- Video Profil -->
+<video class="video-pp" src="https://files.catbox.moe/4vvitr.mp4" autoplay loop muted playsinline></video>
+
+<!-- Judul -->
+<div class="section-title">💥 DAFTAR HARGA PANEL DISKON 💥</div>
+
+<!-- Harga Panel -->
+<div class="price-list">
+  <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
+  <ul>
+    <li>RAM 2GB – <b>Rp1.000</b></li>
+    <li>RAM 4GB – <b>Rp2.000</b></li>
+    <li>RAM 6GB – <b>Rp3.000</b></li>
+    <li>RAM 8GB – <b>Rp4.000</b></li>
+    <li>RAM 10GB – <b>Rp5.000</b></li>
+    <li style="color:lime;">🔥 RAM UNLI – <b>Rp6.000</b> ✅</li>
+  </ul>
+</div>
+
+<!-- Promo Reseller -->
+<div class="reseller-section">
+  <div class="reseller-title">🔥 PROMO RESELLER PANEL 12K 🔥</div>
+  <button onclick="toggleReseller()" class="reseller-button">Lihat Keuntungan Reseller ⬇️</button>
+  <div class="reseller-benefits" id="resellerBenefits">
     <ul>
-      <li>RAM 2GB – <b>Rp1.000</b></li>
-      <li>RAM 4GB – <b>Rp2.000</b></li>
-      <li>RAM 6GB – <b>Rp3.000</b></li>
-      <li>RAM 8GB – <b>Rp4.000</b></li>
-      <li>RAM 10GB – <b>Rp5.000</b></li>
-      <li style="color:lime;">🔥 RAM UNLI – <b>Rp6.000</b> ✅</li>
+      <li>✅ BISA CREATE PANEL SEPUASNYA (ASAL DIPAKE)</li>
+      <li>✅ BISA JUAL PANEL 1GB - UNLI</li>
+      <li>✅ BISA OPEN SEWA BOT PUSH KONTAK</li>
+      <li>✅ BISA OPEN SEWA BOT BUG</li>
+      <li>✅ BISA PUSH KONTAK SEPUASNYA</li>
+      <li>✅ BISA OPEN MURBUG</li>
+      <li>✅ FREE SC PUSH KONTAK</li>
+      <li>✅ NO PT-PT / BEBAS JUAL</li>
+      <li>✅ FULL PENGAJARAN DARI GUA</li>
     </ul>
-  </div>  <div class="reseller-section">
-    <div class="reseller-title">🔥 PROMO RESELLER PANEL 12K 🔥</div>
-    <button onclick="toggleReseller()" class="reseller-button">Lihat Keuntungan Reseller ⬇️</button>
-    <div class="reseller-benefits" id="resellerBenefits">
-      <ul>
-        <li>✅ BISA CREATE PANEL SEPUASNYA (ASAL DIPAKE)</li>
-        <li>✅ BISA JUAL PANEL 1GB - UNLI</li>
-        <li>✅ BISA OPEN SEWA BOT PUSH KONTAK</li>
-        <li>✅ BISA OPEN SEWA BOT BUG</li>
-        <li>✅ BISA PUSH KONTAK SEPUASNYA</li>
-        <li>✅ BISA OPEN MURBUG</li>
-        <li>✅ FREE SC PUSH KONTAK</li>
-        <li>✅ NO PT-PT / BEBAS JUAL</li>
-        <li>✅ FULL PENGAJARAN DARI GUA</li>
-      </ul>
-    </div>
-  </div>  <div class="contact-section">
-    <a href="https://t.me/depppbaik" target="_blank" class="telegram-btn">📲 Chat Admin Telegram</a>
-    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" class="whatsapp-btn">👥 Join Grup WhatsApp</a>
-  </div>  <script>
-    function toggleReseller() {
-      const el = document.getElementById("resellerBenefits");
-      const btn = document.querySelector(".reseller-button");
-      if (el.style.display === "none" || el.style.display === "") {
-        el.style.display = "block";
-        btn.textContent = "Sembunyikan Keuntungan ⬆️";
-      } else {
-        el.style.display = "none";
-        btn.textContent = "Lihat Keuntungan Reseller ⬇️";
-      }
+  </div>
+</div>
+
+<!-- Kontak Admin & Grup -->
+<div class="contact-section">
+  <a href="https://t.me/depppbaik" target="_blank" class="telegram-btn">📲 Chat Admin Telegram</a>
+  <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" class="whatsapp-btn">👥 Join Grup WhatsApp</a>
+</div>
+
+<!-- Pembayaran -->
+<div class="payment-section">
+  <h3>💳 Pembayaran</h3>
+  <p>GOPAY & DANA: <span style="color:lime;">6282221744770</span></p>
+  <p>QRIS:</p>
+  <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" class="qris-img">
+</div>
+
+<!-- Audio Klik -->
+<audio id="clickSound" src="https://files.catbox.moe/7le93z.mp3" preload="auto"></audio>
+
+<!-- Script Toggle -->
+<script>
+  const sound = document.getElementById("clickSound");
+  function toggleReseller() {
+    const el = document.getElementById("resellerBenefits");
+    const btn = document.querySelector(".reseller-button");
+    sound.play();
+    if (el.style.display === "none" || el.style.display === "") {
+      el.style.display = "block";
+      btn.textContent = "Sembunyikan Keuntungan ⬆️";
+    } else {
+      el.style.display = "none";
+      btn.textContent = "Lihat Keuntungan Reseller ⬇️";
     }
-  </script></body>
+  }
+</script>
+
+</body>
 </html>
