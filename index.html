@@ -1,260 +1,100 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DEPPP PANEL</title>
+  <title>DEPPP PANEL DISKON</title>
   <style>
     body {
       background-color: #000;
-      color: cyan;
+      color: #00ffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
       padding: 20px;
-      text-align: center;
+      overflow-x: hidden;
+      background-image: url('https://files.catbox.moe/d11c1y.jpeg');
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(5px);
     }
-
-    video.profile-video {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid cyan;
-      box-shadow: 0 0 15px cyan;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      color: cyan;
-      text-shadow: 0 0 10px cyan;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .promo {
-      background-color: yellow;
-      color: black;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 0 10px yellow;
-      margin: 10px 0;
-    }
-
-    .marquee {
-      color: yellow;
-      background-color: #111;
-      padding: 5px 0;
-      font-weight: bold;
-      text-shadow: 0 0 8px yellow;
-    }
-
     .section-title {
-      color: cyan;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
-      text-shadow: 0 0 10px cyan;
-      margin-top: 30px;
+      color: #ffcc00;
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 0 10px #ffcc00;
     }
-
+    .diskon-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: yellow;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .diskon-note {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 25px;
+      animation: blink 1s infinite;
+    }
+    .price-list {
+      font-size: 16px;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 10px #00ffff;
+      max-width: 400px;
+      margin: 0 auto;
+    }
     .price-list ul {
       list-style: none;
-      padding: 0;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 10px;
+      padding-left: 0;
     }
-
     .price-list li {
-      margin-bottom: 6px;
+      margin: 8px 0;
     }
-
-    .btn {
-      display: block;
-      margin: 15px auto;
-      padding: 12px 25px;
-      background: #00ffff;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 12px cyan;
-      font-size: 16px;
-      width: 80%;
-      max-width: 300px;
+    .button {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 20px 5px cyan;
-      transform: scale(1.05);
-    }
-
-    .qris {
-      max-width: 250px;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
-    }
-
-    .copy-text {
-      cursor: pointer;
-      color: magenta;
-      margin: 10px 0;
       font-weight: bold;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .copy-text:hover {
-      text-decoration: underline;
-      color: deeppink;
-    }
-
-    .status {
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-shadow: 0 0 10px;
-      color: lime;
-    }
-
-    .grup-link, .admin-link {
-      color: #0f0;
-      font-weight: bold;
-      text-decoration: none;
+      box-shadow: 0 0 10px #25D366;
+      margin: 20px auto;
       display: block;
-      margin: 20px 0;
+      text-align: center;
     }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: cyan;
-      margin: 30px auto;
-      width: 80%;
+    .telegram-button {
+      background: #0088cc;
+      box-shadow: 0 0 10px #0088cc;
     }
-
-    #keuntungan-box {
-      display: none;
-      color: cyan;
-      font-weight: bold;
-      margin-top: 10px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px;
-      border: 1px solid cyan;
-      border-radius: 10px;
-      background: rgba(0,255,255,0.05);
-      box-shadow: 0 0 10px cyan;
-      animation: fadeIn 0.5s ease-in-out;
-      white-space: pre-line;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
   </style>
 </head>
-<body>
-
-  <video class="profile-video" autoplay muted loop>
-    <source src="https://files.catbox.moe/4vvitr.mp4" type="video/mp4">
-    Browser tidak mendukung video.
-  </video>
-
-  <h1>DEPPP PANEL & SEWA BOT</h1>
-
-  <marquee class="marquee">🔥 PROMO RESELLER PANEL CUMA 12K - STOK TERBATAS! 🔥</marquee>
-
-    <!-- Tombol Keuntungan Reseller -->
-  <button class="btn" onclick="toggleKeuntungan()">📦 Keuntungan Reseller Panel</button>
-
-  <div id="keuntungan-box">
-    - BISA CRATE PANEL SEPUASNYA (ASAL DI PAKE)
-    - BISA JUAL PANEL 1GB-UNLI
-    - BISA OPEN SEWA BOT PUSH KONTAK
-    - BISA OPEN SEWA BOT BUG
-    - BISA PUSH KONTAK SEPUASNYA
-    - BISA OPEN MURBUG
-    - FREE SC PUSH KONTAK
-    - NO PT PT
-    - FULL PENGAJARAN DARI GUA
-  </div>
-
-  <hr>
-
-  <div class="section-title">📋 LIST PANEL BY DEPPP</div>
-  <div class="price-list">
+<body>  <div class="section-title">💥 DEPPP PANEL DISKON BESAR 💥</div>  <div class="diskon-text">
+    💸 Sebelumnya: RAM 2GB = 3K → 🎉 Sekarang: 2GB = 1K<br>
+    💸 Sebelumnya: RAM 4GB = 5K → 🎉 Sekarang: 4GB = 2K<br>
+    💸 Sebelumnya: RAM 6GB = 7K → 🎉 Sekarang: 6GB = 3K<br>
+    💸 Sebelumnya: RAM 8GB = 9K → 🎉 Sekarang: 8GB = 4K<br>
+    💸 Sebelumnya: RAM UNLI = 12K → 🎉 Sekarang: UNLI = 5K 🔥
+  </div>  <div class="diskon-note">⚠️ Diskon hanya sampai 15 Agustus 2025! ⚠️</div>  <div class="price-list">
     <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
     <ul>
-      <li>RAM 2GB – Rp2.000</li>
-      <li>RAM 4GB – Rp4.000</li>
-      <li>RAM 6GB – Rp6.000</li>
-      <li>RAM 8GB – Rp8.000</li>
-      <li>RAM 10GB – Rp10.000</li>
-      <li>RAM UNLI – Rp12.000</li>
+      <li>RAM 2GB – <b>Rp1.000</b></li>
+      <li>RAM 4GB – <b>Rp2.000</b></li>
+      <li>RAM 6GB – <b>Rp3.000</b></li>
+      <li>RAM 8GB – <b>Rp4.000</b></li>
+      <li style="color:lime;">🔥 RAM UNLI – <b>Rp5.000</b> ✅</li>
     </ul>
-  </div>
-
-  <hr>
-
-  <div class="section-title">🤖 HARGA SEWA BOT</div>
-  <ul>
-    <li>1 Bulan: Rp10.000</li>
-    <li>2 Bulan: Rp15.000</li>
-    <li>3 Bulan: Rp20.000</li>
-    <li>4 Bulan: Rp25.000</li>
-    <li>5 Bulan: Rp30.000</li>
-  </ul>
-
-  <hr>
-
-  <div class="section-title">💰 PEMBAYARAN</div>
-  <div class="copy-text" onclick="copyText('6282221744770')">Klik untuk salin: 6282221744770 (Dana/Gopay)</div>
-  <img class="qris" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" />
-  <div style="margin-top: 10px; font-size: 14px; color: #ccc;">
-    Kirim bukti pembayaran ke admin setelah transfer.
-  </div>
-
-  <div id="status-panel" class="status">✅ STATUS PANEL: AKTIF</div>
-
-  <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
-  <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a
-
-   <!-- Musik -->
-  <audio id="bg-music" autoplay loop>
-    <source src="https://files.catbox.moe/2bujnl.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung pemutar audio.
-  </audio>
-
-  <button class="btn" onclick="document.getElementById('bg-music').play()">▶️ Putar Musik</button>
-
-  <script>
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor disalin: " + text);
-      }).catch(err => {
-        alert("Gagal menyalin");
-      });
-    }
-
-    function toggleKeuntungan() {
-      const box = document.getElementById("keuntungan-box");
-      if (box.style.display === "none") {
-        box.style.display = "block";
-        box.style.animation = "fadeIn 0.5s ease-in-out";
-      } else {
-        box.style.display = "none";
-      }
-    }
-  </script>
+  </div><a class="button" href="https://wa.me/6282221744770">Chat Admin WhatsApp</a> <a class="button telegram-button" href="https://t.me/depanSYZ">Request via Telegram</a>
 
 </body>
 </html>
