@@ -3,226 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DEPPP PANEL</title>
+  <title>DEPPP PANEL DISKON</title>
   <style>
     body {
       background-color: #000;
-      color: cyan;
+      color: #00ffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
       padding: 20px;
-      text-align: center;
+      overflow-x: hidden;
     }
-
-    video.profile-video {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid cyan;
-      box-shadow: 0 0 15px cyan;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      color: cyan;
-      text-shadow: 0 0 10px cyan;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .promo {
-      background-color: yellow;
-      color: black;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 0 10px yellow;
-      margin: 10px 0;
-    }
-
-    .marquee {
-      color: yellow;
-      background-color: #111;
-      padding: 5px 0;
-      font-weight: bold;
-      text-shadow: 0 0 8px yellow;
-    }
-
     .section-title {
-      color: cyan;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
-      text-shadow: 0 0 10px cyan;
-      margin-top: 30px;
+      color: #ffcc00;
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 0 10px #ffcc00;
     }
-
+    .diskon-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: yellow;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .diskon-note {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 25px;
+      animation: blink 1s infinite;
+    }
+    .price-list {
+      font-size: 16px;
+      color: white;
+      background: #111;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 10px #00ffff;
+      max-width: 400px;
+      margin: 0 auto 30px;
+    }
     .price-list ul {
       list-style: none;
-      padding: 0;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 10px;
+      padding-left: 0;
     }
-
     .price-list li {
-      margin-bottom: 6px;
+      margin: 8px 0;
     }
-
-    .btn {
-      display: block;
-      margin: 15px auto;
-      padding: 12px 25px;
-      background: #00ffff;
-      color: #000;
+    .reseller-section {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ff00ff;
+      margin-top: 30px;
+    }
+    .reseller-title {
+      font-size: 20px;
       font-weight: bold;
+      color: #ff66ff;
+      text-align: center;
+      margin-bottom: 10px;
+      animation: blink 1.5s infinite;
+    }
+    .reseller-button {
+      background-color: #ff00ff;
+      color: white;
       border: none;
+      padding: 10px 20px;
+      font-weight: bold;
       border-radius: 10px;
-      box-shadow: 0 0 12px cyan;
-      font-size: 16px;
-      width: 80%;
+      cursor: pointer;
+      margin: 10px auto;
+      display: block;
+      box-shadow: 0 0 8px #ff00ff;
+      transition: background 0.3s;
+    }
+    .reseller-button:hover {
+      background-color: #cc00cc;
+    }
+    .reseller-benefits {
+      color: white;
+      padding-left: 20px;
+      line-height: 1.6;
+      display: none;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .video-pp {
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #00ffff;
       max-width: 300px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 20px 5px cyan;
-      transform: scale(1.05);
-    }
-
-    .qris {
-      max-width: 250px;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
-    }
-
-    .copy-text {
-      cursor: pointer;
-      color: magenta;
-      margin: 10px 0;
-      font-weight: bold;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .copy-text:hover {
-      text-decoration: underline;
-      color: deeppink;
-    }
-
-    .status {
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-shadow: 0 0 10px;
-      color: lime;
-    }
-
-    .grup-link, .admin-link {
-      color: #0f0;
-      font-weight: bold;
-      text-decoration: none;
-      display: block;
-      margin: 20px 0;
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: cyan;
-      margin: 30px auto;
-      width: 80%;
-    }
-
-    #keuntungan-box {
-      color: cyan;
-      font-weight: bold;
-      margin-top: 15px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px;
-      border: 1px solid cyan;
-      border-radius: 10px;
-      background: rgba(0,255,255,0.05);
-      box-shadow: 0 0 10px cyan;
-      white-space: pre-line;
     }
   </style>
 </head>
 <body>
 
-  <video class="profile-video" autoplay muted loop>
-    <source src="https://files.catbox.moe/4vvitr.mp4" type="video/mp4">
-    Browser tidak mendukung video.
-  </video>
+  <video class="video-pp" src="https://files.catbox.moe/4vvitr.mp4" autoplay loop muted playsinline></video>
 
-  <h1>DEPPP PANEL & SEWA BOT</h1>
+  <div class="section-title">💥 DAFTAR HARGA PANEL DISKON 💥</div>
 
-  <marquee class="marquee">🔥 PROMO RESELLER PANEL CUMA 12K - STOK TERBATAS! 🔥</marquee>
+  <div class="diskon-note">⚠️ Diskon hanya sampai 15 Agustus 2025! ⚠️</div>
 
-
-<!-- Tambahkan tombol di bagian reseller-section -->
-<div class="reseller-section">
-  <div class="reseller-title">🔥 PROMO RESELLER PANEL 12K 🔥</div>
-  <button onclick="toggleReseller()" class="reseller-button">Lihat Keuntungan Reseller ⬇️</button>
-  <div class="reseller-benefits" id="resellerBenefits" style="display:none;">
-    <ul>
-      <li>✅ BISA CREATE PANEL SEPUASNYA (ASAL DIPAKE)</li>
-      <li>✅ BISA JUAL PANEL 1GB - UNLI</li>
-      <li>✅ BISA OPEN SEWA BOT PUSH KONTAK</li>
-      <li>✅ BISA OPEN SEWA BOT BUG</li>
-      <li>✅ BISA PUSH KONTAK SEPUASNYA</li>
-      <li>✅ BISA OPEN MURBUG</li>
-      <li>✅ FREE SC PUSH KONTAK</li>
-      <li>✅ NO PT-PT / BEBAS JUAL</li>
-      <li>✅ FULL PENGAJARAN DARI GUA</li>
-    </ul>
-  </div>
-</div>
-
-  <hr>
-
-  <div class="section-title">📋 LIST PANEL BY DEPPP</div>
   <div class="price-list">
     <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
-    <div><b>Server:</b> panel diskon sampai 15 agustus</div>
     <ul>
-      <li>RAM 2GB – Rp2.000</li>
-      <li>RAM 4GB – Rp2.500</li>
-      <li>RAM 6GB – Rp3.000</li>
-      <li>RAM 8GB – Rp3.500</li>
-      <li>RAM 10GB – Rp4.000</li>
-      <li>RAM UNLI – Rp5.000</li>
+      <li>RAM 2GB – <b>Rp1.000</b></li>
+      <li>RAM 4GB – <b>Rp2.000</b></li>
+      <li>RAM 6GB – <b>Rp3.000</b></li>
+      <li>RAM 8GB – <b>Rp4.000</b></li>
+      <li>RAM 10GB – <b>Rp4.500</b></li>
+      <li style="color:lime;">🔥 RAM UNLI – <b>Rp5.000</b> ✅</li>
     </ul>
   </div>
 
-  <hr>
-
-  <div class="section-title">💰 PEMBAYARAN</div>
-  <div class="copy-text" onclick="copyText('6282221744770')">Klik untuk salin: 6282221744770 (Dana/Gopay)</div>
-  <img class="qris" src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS Pembayaran" />
-  <div style="margin-top: 10px; font-size: 14px; color: #ccc;">
-    Kirim bukti pembayaran ke admin setelah transfer.
+  <div class="reseller-section">
+    <div class="reseller-title">🔥 PROMO RESELLER PANEL 12K 🔥</div>
+    <button onclick="toggleReseller()" class="reseller-button">Lihat Keuntungan Reseller ⬇️</button>
+    <div class="reseller-benefits" id="resellerBenefits">
+      <ul>
+        <li>✅ BISA CREATE PANEL SEPUASNYA (ASAL DIPAKE)</li>
+        <li>✅ BISA JUAL PANEL 1GB - UNLI</li>
+        <li>✅ BISA OPEN SEWA BOT PUSH KONTAK</li>
+        <li>✅ BISA OPEN SEWA BOT BUG</li>
+        <li>✅ BISA PUSH KONTAK SEPUASNYA</li>
+        <li>✅ BISA OPEN MURBUG</li>
+        <li>✅ FREE SC PUSH KONTAK</li>
+        <li>✅ NO PT-PT / BEBAS JUAL</li>
+        <li>✅ FULL PENGAJARAN DARI GUA</li>
+      </ul>
+    </div>
   </div>
 
-  <div id="status-panel" class="status">✅ STATUS PANEL: AKTIF</div>
-
-  <a class="grup-link" href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">📱 Gabung Grup WhatsApp</a>
-  <a class="btn admin-link" href="https://t.me/depanSYZ" target="_blank">💬 Chat Admin via Telegram</a>
-
   <script>
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor disalin: " + text);
-      }).catch(err => {
-        alert("Gagal menyalin");
-      });
+    function toggleReseller() {
+      const el = document.getElementById("resellerBenefits");
+      const btn = document.querySelector(".reseller-button");
+      if (el.style.display === "none" || el.style.display === "") {
+        el.style.display = "block";
+        btn.textContent = "Sembunyikan Keuntungan ⬆️";
+      } else {
+        el.style.display = "none";
+        btn.textContent = "Lihat Keuntungan Reseller ⬇️";
+      }
     }
   </script>
 
