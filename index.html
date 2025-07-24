@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -90,6 +89,36 @@
       line-height: 1.6;
       display: none;
     }
+    .contact-section {
+      text-align: center;
+      margin-top: 40px;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff;
+    }
+    .contact-section a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 0 10px;
+      transition: transform 0.2s ease;
+    }
+    .contact-section a:hover {
+      transform: scale(1.05);
+    }
+    .telegram-btn {
+      background: #0088cc;
+      box-shadow: 0 0 10px #00ffff;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      box-shadow: 0 0 10px #00ffcc;
+    }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -103,58 +132,20 @@
     }
   </style>
 </head>
-<body>
-  <div style="text-align: center; margin-top: 40px;">
-  <a href="https://t.me/depppbaik" target="_blank" style="
-    display: inline-block;
-    background: #0088cc;
-    color: white;
-    padding: 12px 20px;
-    margin: 10px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 10px #00ffff;
-    transition: transform 0.2s ease;
-  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    📲 Chat Admin Telegram
-  </a>
+<body><video class="video-pp" src="https://files.catbox.moe/4vvitr.mp4" autoplay loop muted playsinline></video>
 
-  <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" style="
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    padding: 12px 20px;
-    margin: 10px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 10px #00ffcc;
-    transition: transform 0.2s ease;
-  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    👥 Join Grup WhatsApp
-  </a>
-  </div>
-
-  <video class="video-pp" src="https://files.catbox.moe/4vvitr.mp4" autoplay loop muted playsinline></video>
-
-  <div class="section-title">💥 DAFTAR HARGA PANEL DISKON 💥</div>
-
-  <div class="diskon-note">⚠️ Diskon hanya sampai 15 Agustus 2025! ⚠️</div>
-
-  <div class="price-list">
+  <div class="section-title">💥 DAFTAR HARGA PANEL DISKON 💥</div>  <div class="diskon-text">
+  </div>  <div class="diskon-note">⚠️ Diskon hanya sampai 15 Agustus 2025! ⚠️</div>  <div class="price-list">
     <div><b>Server:</b> Private – RAM 32GB / 8 Core</div>
     <ul>
       <li>RAM 2GB – <b>Rp1.000</b></li>
       <li>RAM 4GB – <b>Rp2.000</b></li>
       <li>RAM 6GB – <b>Rp3.000</b></li>
       <li>RAM 8GB – <b>Rp4.000</b></li>
-      <li>RAM 10GB – <b>Rp4.500</b></li>
-      <li style="color:lime;">🔥 RAM UNLI – <b>Rp5.000</b> ✅</li>
+      <li>RAM 10GB – <b>Rp5.000</b></li>
+      <li style="color:lime;">🔥 RAM UNLI – <b>Rp6.000</b> ✅</li>
     </ul>
-  </div>
-
-  <div class="reseller-section">
+  </div>  <div class="reseller-section">
     <div class="reseller-title">🔥 PROMO RESELLER PANEL 12K 🔥</div>
     <button onclick="toggleReseller()" class="reseller-button">Lihat Keuntungan Reseller ⬇️</button>
     <div class="reseller-benefits" id="resellerBenefits">
@@ -170,9 +161,10 @@
         <li>✅ FULL PENGAJARAN DARI GUA</li>
       </ul>
     </div>
-  </div>
-
-  <script>
+  </div>  <div class="contact-section">
+    <a href="https://t.me/depppbaik" target="_blank" class="telegram-btn">📲 Chat Admin Telegram</a>
+    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" class="whatsapp-btn">👥 Join Grup WhatsApp</a>
+  </div>  <script>
     function toggleReseller() {
       const el = document.getElementById("resellerBenefits");
       const btn = document.querySelector(".reseller-button");
@@ -184,7 +176,5 @@
         btn.textContent = "Lihat Keuntungan Reseller ⬇️";
       }
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
