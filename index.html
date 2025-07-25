@@ -29,66 +29,82 @@
 
 h1 {
   font-size: 2.5em;
-  margin-bottom: 20px;
+  color: cyan;
+  animation: pulse 2s infinite;
 }
 
 .button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #00ffff;
-  color: #00ffff;
-  padding: 12px 20px;
   margin: 10px;
-  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background: linear-gradient(45deg, #00f2ff, #00ff95);
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.1em;
-  transition: all 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .button:hover {
-  background: #00ffff;
-  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffe5;
 }
 
-.section {
-  display: none;
-  margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 15px;
-  border-radius: 10px;
-  max-width: 600px;
-  text-align: left;
+.content-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 0 10px #00ffe5;
+  max-width: 800px;
+  width: 90%;
 }
 
-pre {
-  font-family: monospace;
-  white-space: pre-wrap;
+.content-section h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
   color: #00ffff;
+  animation: glow 2s infinite;
+}
+
+.promo-banner {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 1.5em;
+  color: yellow;
+  background: rgba(255, 255, 0, 0.1);
+  border: 2px dashed yellow;
+  border-radius: 15px;
+  animation: blink 1s infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px cyan; }
+  50% { text-shadow: 0 0 20px white; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
   </style>
 </head>
 <body>
   <div class="overlay">
-    <h1>Selamat Datang di Deppp Market</h1>
-    <div id="clock"></div><button class="button" onclick="showSection('list')">List Panel</button>
-<button class="button" onclick="showSection('keuntungan')">Keuntungan</button>
-<button class="button" onclick="showSection('pembayaran')">Pembayaran</button>
+    <h1>DEPPP MARKET</h1>
+    <div class="promo-banner">🔥 PROMO RESELLER PANEL CUMA 12K 🔥</div><button class="button" onclick="document.getElementById('panel').scrollIntoView({ behavior: 'smooth' });">List Panel</button>
+<button class="button" onclick="document.getElementById('keuntungan').scrollIntoView({ behavior: 'smooth' });">Keuntungan</button>
+<button class="button" onclick="document.getElementById('pembayaran').scrollIntoView({ behavior: 'smooth' });">Pembayaran</button>
 
-<div id="list" class="section">
-  <h2>🧾 List Panel</h2>
-  <ul>
-    <li>RAM 2GB = 2k</li>
-    <li>RAM 4GB = 3k</li>
-    <li>RAM 6GB = 3,5k</li>
-    <li>RAM 8GB = 4k</li>
-    <li>RAM 10GB = 4,5k</li>
-    <li>UNLI = 5k <span style="color: red">(Dari 12k)</span></li>
-  </ul>
-</div>
-
-<div id="keuntungan" class="section">
-  <h2>📦 Keuntungan Reseller Panel</h2>
-  <pre>
+<div id="keuntungan" class="content-section">
+  <h2>💼 KEUNTUNGAN RESELLER PANEL</h2>
+  <pre style="font-size: 1.3em; color: #00ffff; white-space: pre-wrap;">
 
 BISA CRATE PANEL SEPUASNYA (ASAL DI PAKE)
 
@@ -108,33 +124,25 @@ NO PT PT
 
 FULL PENGAJARAN DARI GUA </pre>
 
-  </div>  <div id="pembayaran" class="section">
-    <h2>💳 Pembayaran</h2>
-    <p>Dana & Gopay: <span onclick="copyText('6282221744770')" style="color: #00ffff; cursor: pointer;">6282221744770</span></p>
-    <p>QRIS:</p>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width: 200px; border-radius: 10px;">
+  </div>  <div id="panel" class="content-section">
+    <h2>💻 LIST PANEL DISKON</h2>
+    <p>RAM 1GB: <del>Rp2.000</del> ➤ Rp1.000</p>
+    <p>RAM 2GB: <del>Rp3.000</del> ➤ Rp2.000</p>
+    <p>RAM 3GB: <del>Rp4.000</del> ➤ Rp3.000</p>
+    <p>RAM 4GB: <del>Rp5.000</del> ➤ Rp3.500</p>
+    <p>RAM 5GB: <del>Rp6.000</del> ➤ Rp4.000</p>
+    <p>RAM 10GB: <del>Rp10.000</del> ➤ Rp4.500</p>
+    <p>UNLI: <del>Rp12.000</del> ➤ Rp5.000</p>
+  </div>  <div id="pembayaran" class="content-section">
+    <h2>💳 PEMBAYARAN</h2>
+    <p><b>Dana & GoPay:</b> <span onclick="copyText('6282221744770')" style="cursor:pointer;color:lime">6282221744770</span></p>
+    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width:200px;margin-top:10px;border-radius:12px;" />
   </div>
 </div><script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(section => {
-      section.style.display = 'none';
-    });
-    document.getElementById(id).style.display = 'block';
-  }
-
   function copyText(text) {
     navigator.clipboard.writeText(text);
     alert('Nomor berhasil disalin!');
   }
-
-  function updateClock() {
-    const now = new Date();
-    const time = now.toLocaleTimeString();
-    const date = now.toLocaleDateString();
-    document.getElementById("clock").innerHTML = `🕒 ${time} | 📅 ${date}`;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
 </script>
 </body>
 </html>
