@@ -1,148 +1,175 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deppp Market</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #000 url('https://files.catbox.moe/d11c1y.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  overflow-x: hidden;
-  color: #fff;
-}
-
-.overlay {
-  backdrop-filter: blur(10px);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5em;
-  color: cyan;
-  animation: pulse 2s infinite;
-}
-
-.button {
-  margin: 10px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  color: #fff;
-  background: linear-gradient(45deg, #00f2ff, #00ff95);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00ffe5;
-}
-
-.content-section {
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00ffe5;
-  max-width: 800px;
-  width: 90%;
-}
-
-.content-section h2 {
-  font-size: 2em;
-  margin-bottom: 15px;
-  color: #00ffff;
-  animation: glow 2s infinite;
-}
-
-.promo-banner {
-  margin-top: 20px;
-  padding: 15px;
-  font-size: 1.5em;
-  color: yellow;
-  background: rgba(255, 255, 0, 0.1);
-  border: 2px dashed yellow;
-  border-radius: 15px;
-  animation: blink 1s infinite;
-}
-
-@keyframes glow {
-  0%, 100% { text-shadow: 0 0 10px cyan; }
-  50% { text-shadow: 0 0 20px white; }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
+    body {
+      margin:0;
+      font-family:'Segoe UI',sans-serif;
+      background:#000 url('https://i.ibb.co/GW4rM8Y/bg-stars.gif') repeat;
+      color:cyan;
+      overflow-x:hidden;
+    }
+    header {
+      text-align:center;
+      padding:1rem;
+      background:rgba(0,0,0,0.6);
+      box-shadow:0 0 20px cyan;
+    }
+    header h1 {
+      font-size:2rem;
+      text-shadow:0 0 10px cyan;
+    }
+    .promo {
+      text-align:center;
+      font-size:1.5rem;
+      margin-top:1rem;
+      animation:blink 1s infinite;
+      color:yellow;
+      font-weight:bold;
+    }
+    @keyframes blink{
+      0%,100%{opacity:1;}
+      50%{opacity:0.3;}
+    }
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin:1.5rem;
+    }
+    button{
+      background-color:cyan;
+      border:none;
+      padding:1rem 2rem;
+      font-size:1rem;
+      border-radius:12px;
+      box-shadow:0 0 10px cyan;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover{
+      background-color:#00cccc;
+      transform:scale(1.05);
+    }
+    /* Modal styling */
+    .modal-bg {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.8);
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+    }
+    .modal {
+      background:rgba(0,0,0,0.9);
+      padding:1.5rem;
+      border-radius:12px;
+      box-shadow:0 0 20px cyan;
+      max-width:600px;
+      width:90%;
+      color:#0ff;
+      position:relative;
+      text-align:left;
+    }
+    .modal h2 {
+      margin-top:0;
+      text-align:center;
+      font-size:1.6rem;
+      color:#00ffff;
+      text-shadow:0 0 10px cyan;
+    }
+    .modal pre, .modal p {
+      margin:1rem 0;
+      font-size:1.1rem;
+    }
+    .close-btn {
+      position:absolute;
+      top:10px; right:10px;
+      background:transparent;
+      border:none;
+      color:cyan;
+      font-size:1.2rem;
+      cursor:pointer;
+    }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>DEPPP MARKET</h1>
-    <div class="promo-banner">🔥 PROMO RESELLER PANEL CUMA 12K 🔥</div><button class="button" onclick="document.getElementById('panel').scrollIntoView({ behavior: 'smooth' });">List Panel</button>
-<button class="button" onclick="document.getElementById('keuntungan').scrollIntoView({ behavior: 'smooth' });">Keuntungan</button>
-<button class="button" onclick="document.getElementById('pembayaran').scrollIntoView({ behavior: 'smooth' });">Pembayaran</button>
+  <header><h1>Selamat Datang di Deppp Market</h1></header>
+  <div class="promo">🎉 Promo Reseller Panel Cuma 12K 🎉</div>
 
-<div id="keuntungan" class="content-section">
-  <h2>💼 KEUNTUNGAN RESELLER PANEL</h2>
-  <pre style="font-size: 1.3em; color: #00ffff; white-space: pre-wrap;">
-
-BISA CRATE PANEL SEPUASNYA (ASAL DI PAKE)
-
-BISA JUAL PANEL 1GB-UNLI
-
-BISA OPEN SEWA BOT PUSH KONTAK
-
-BISA OPEN SEWA BOT BUG
-
-BISA PUSH KONTAK SEPUASNYA
-
-BISA OPEN MURBUG
-
-FREE SC PUSH KONTAK
-
-NO PT PT
-
-FULL PENGAJARAN DARI GUA </pre>
-
-  </div>  <div id="panel" class="content-section">
-    <h2>💻 LIST PANEL DISKON</h2>
-    <p>RAM 1GB: <del>Rp2.000</del> ➤ Rp1.000</p>
-    <p>RAM 2GB: <del>Rp3.000</del> ➤ Rp2.000</p>
-    <p>RAM 3GB: <del>Rp4.000</del> ➤ Rp3.000</p>
-    <p>RAM 4GB: <del>Rp5.000</del> ➤ Rp3.500</p>
-    <p>RAM 5GB: <del>Rp6.000</del> ➤ Rp4.000</p>
-    <p>RAM 10GB: <del>Rp10.000</del> ➤ Rp4.500</p>
-    <p>UNLI: <del>Rp12.000</del> ➤ Rp5.000</p>
-  </div>  <div id="pembayaran" class="content-section">
-    <h2>💳 PEMBAYARAN</h2>
-    <p><b>Dana & GoPay:</b> <span onclick="copyText('6282221744770')" style="cursor:pointer;color:lime">6282221744770</span></p>
-    <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width:200px;margin-top:10px;border-radius:12px;" />
+  <div class="buttons">
+    <button onclick="openModal('modal-list')">📋 List Panel</button>
+    <button onclick="openModal('modal-keuntungan')">💰 Keuntungan Reseller Panel</button>
+    <button onclick="openModal('modal-bayar')">💳 Pembayaran</button>
   </div>
-</div><script>
-  function copyText(text) {
-    navigator.clipboard.writeText(text);
-    alert('Nomor berhasil disalin!');
-  }
-</script>
+
+  <!-- Modal: List Panel -->
+  <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal(event,'modal-list')">✖</button>
+      <h2>📋 Daftar Harga Panel</h2>
+      <pre>
+2GB: Rp2.000 → Rp1.000
+4GB: Rp3.000 → Rp2.000
+5GB: Rp4.000 → Rp3.000
+6GB: Rp5.000 → Rp4.000
+7GB: Rp6.000 → Rp4.500
+10GB: Rp8.000 → Rp5.000
+UNLI: Rp12.000 → Rp6.000
+      </pre>
+    </div>
+  </div>
+
+  <!-- Modal: Keuntungan -->
+  <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal(event,'modal-keuntungan')">✖</button>
+      <h2>💼 Keuntungan Reseller Panel</h2>
+      <pre>
+- BISA CRATE PANEL SEPUASNYA (ASAL DI PAKE)
+- BISA JUAL PANEL 1GB‑UNLI
+- BISA OPEN SEWA BOT PUSH KONTAK
+- BISA OPEN SEWA BOT BUG
+- BISA PUSH KONTAK SEPUASNYA
+- BISA OPEN MURBUG
+- FREE SC PUSH KONTAK
+- NO PT PT
+- FULL PENGAJARAN DARI GUA
+      </pre>
+    </div>
+  </div>
+
+  <!-- Modal: Pembayaran -->
+  <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal(event,'modal-bayar')">✖</button>
+      <h2>💳 Pembayaran</h2>
+      <p>Dana & Gopay: <b style="cursor:pointer" onclick="copyText('6282221744770')">6282221744770</b></p>
+      <button onclick="copyText('6282221744770')">Salin Nomor</button>
+      <p>QRIS:</p>
+      <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width:100%;border-radius:8px;margin-top:10px;">
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(e, id) {
+      if (e.target.id === id || e.target.classList.contains('close-btn')) {
+        document.getElementById(id).style.display = 'none';
+      }
+    }
+    function copyText(txt) {
+      navigator.clipboard.writeText(txt);
+      alert('Nomor berhasil disalin: ' + txt);
+    }
+  </script>
 </body>
 </html>
