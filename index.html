@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,146 +11,197 @@
       background: #000 url('https://i.ibb.co/GW4rM8Y/bg-stars.gif') repeat;
       color: #EEE;
       overflow-x: hidden;
-    }header {
-  position: relative;
-  overflow: hidden;
-  padding: 1rem 1rem 0.5rem;
-  text-align: center;
-}
-header h1 {
-  display: inline-block;
-  font-size: 1.6rem;
-  animation: slideFade 4s ease-in-out infinite alternate;
-}
-@keyframes slideFade {
-  0% { transform: translateY(-20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
+    }
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 1rem 0.5rem;
+      text-align: center;
+    }
+    header h1 {
+      display: inline-block;
+      font-size: 1.6rem;
+      animation: slideFade 4s ease-in-out infinite alternate;
+    }
+    @keyframes slideFade {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
 
-.logo {
-  width: 100px;
-  margin: 0 auto 0.5rem;
-  display: block;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(255,255,255,0.5);
-  animation: pulse 2s infinite ease-in-out;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity:1; }
-  50% { transform: scale(1.05); opacity:0.8; }
-}
+    .logo {
+      width: 100px;
+      margin: 0 auto 0.5rem;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity:1; }
+      50% { transform: scale(1.05); opacity:0.8; }
+    }
 
-.info-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background: rgba(0,0,0,0.5);
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  border-top: 1px solid #555;
-  border-bottom: 1px solid #555;
-}
-.info-bar div { flex:1; text-align:center; min-width: 100px; }
+    .info-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: rgba(0,0,0,0.5);
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+    }
+    .info-bar div { flex:1; text-align:center; min-width: 100px; }
 
-.promo {
-  text-align: center;
-  margin: 1.2rem 0;
-  font-size: 1.1rem;
-  color: #FFDD57;
-  animation: blink 2s ease-in-out infinite;
-}
-@keyframes blink {
-  0%,100% { opacity:1; }
-  50% { opacity:0.4; }
-}
+    .promo {
+      text-align: center;
+      margin: 1.2rem 0;
+      font-size: 1.1rem;
+      color: #FFDD57;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; }
+      50% { opacity:0.4; }
+    }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem;
-}
-.buttons button {
-  width: 90%;
-  max-width: 300px;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background: rgba(255,255,255,0.08);
-  color: #EEE;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.buttons button:hover {
-  background: rgba(255,255,255,0.2);
-}
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem;
+    }
+    .buttons button {
+      width: 90%;
+      max-width: 300px;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255,255,255,0.08);
+      color: #EEE;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .buttons button:hover {
+      background: rgba(255,255,255,0.2);
+    }
 
-.modal-bg {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(4px);
-  align-items: center;
-  justify-content: center;
-  animation: overlayFade 0.4s ease;
-  z-index: 999;
-}
-@keyframes overlayFade {
-  from { opacity: 0; } to { opacity: 1; }
-}
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      animation: overlayFade 0.4s ease;
+      z-index: 999;
+    }
+    @keyframes overlayFade {
+      from { opacity: 0; } to { opacity: 1; }
+    }
 
-.modal {
-  background: rgba(30,30,30,0.9);
-  border-radius: 12px;
-  padding: 1.5rem;
-  max-width: 90%;
-  width: 400px;
-  color: #EEE;
-  animation: modalPop 0.4s ease;
-  position: relative;
-  text-align: left;
-}
-@keyframes modalPop {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+    .modal {
+      background: rgba(30,30,30,0.9);
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 90%;
+      width: 400px;
+      color: #EEE;
+      animation: modalPop 0.4s ease;
+      position: relative;
+      text-align: left;
+    }
+    @keyframes modalPop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-.modal h2 {
-  margin-top:0;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-  text-align: center;
-}
-.close-btn {
-  position: absolute;
-  right: 0.8rem;
-  top: 0.8rem;
-  background: transparent;
-  border: none;
-  color: #EEE;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-pre { white-space: pre-wrap; color: #EEE; }
-.modal p { margin:0.5rem 0; }
+    .modal h2 {
+      margin-top:0;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+    .close-btn {
+      position: absolute;
+      right: 0.8rem;
+      top: 0.8rem;
+      background: transparent;
+      border: none;
+      color: #EEE;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    pre { white-space: pre-wrap; color: #EEE; }
+    .modal p { margin:0.5rem 0; }
 
+    .social-links {
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .social-links a {
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      width: 90%;
+      max-width: 300px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .social-links a.telegram {
+      background: #0088cc;
+    }
+    .social-links a.telegram:hover {
+      background: #0070aa;
+    }
+    .social-links a.whatsapp {
+      background: #25D366;
+    }
+    .social-links a.whatsapp:hover {
+      background: #1ebe5d;
+    }
   </style>
 </head>
 <body>
+  <!-- Musik latar autoplay -->
+  <audio autoplay loop hidden>
+    <source src="https://files.catbox.moe/ey41j1.mp3" type="audio/mpeg">
+  </audio>
+
   <header>
     <img src="https://autoresbot.com/tmp_files/bc51da5a-c66c-4681-8126-ac812062c355.jpg" class="logo" alt="Logo">
     <h1>Selamat Datang di Deppp Market</h1>
-  </header>  <div class="info-bar">
+  </header>
+
+  <div class="info-bar">
     <div id="tanggal">Memuat...</div>
     <div id="jam">00:00:00</div>
     <div id="baterai">🔋 --%</div>
-  </div>  <div class="promo">🔥 Promo Reseller Panel Cuma 12K 🔥</div>  <div class="buttons">
+  </div>
+
+  <div class="promo">🔥 Promo Reseller Panel Cuma 12K 🔥</div>
+
+  <div class="buttons">
     <button onclick="openModal('modal-list')">List Panel</button>
     <button onclick="openModal('modal-keuntungan')">Keuntungan Reseller Panel</button>
     <button onclick="openModal('modal-bayar')">Pembayaran</button>
-  </div>  <!-- Modal Contents -->  <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
+  </div>
+
+  <div class="social-links">
+    <a href="https://t.me/depppbaik" target="_blank" class="telegram">📩 Chat Admin (Telegram)</a>
+    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" class="whatsapp">💬 Gabung Grup WhatsApp</a>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-list')">✖</button>
       <h2>Daftar Harga Panel</h2>
@@ -163,7 +215,9 @@ pre { white-space: pre-wrap; color: #EEE; }
 UNLI: Rp12.000 → Rp7.000
       </pre>
     </div>
-  </div>  <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
+  </div>
+
+  <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-keuntungan')">✖</button>
       <h2>Keuntungan Reseller Panel</h2>
@@ -179,7 +233,9 @@ UNLI: Rp12.000 → Rp7.000
 - FULL PENGAJARAN DARI GUA
       </pre>
     </div>
-  </div>  <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
+  </div>
+
+  <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-bayar')">✖</button>
       <h2>Pembayaran</h2>
@@ -188,7 +244,9 @@ UNLI: Rp12.000 → Rp7.000
       <p>QRIS:</p>
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width:100%;margin-top:0.5rem;border-radius:8px;">
     </div>
-  </div>  <script>
+  </div>
+
+  <script>
     function updateTime() {
       const now = new Date();
       document.getElementById('tanggal').textContent =
@@ -216,5 +274,6 @@ UNLI: Rp12.000 → Rp7.000
       navigator.clipboard.writeText(txt);
       alert('Nomor berhasil disalin: ' + txt);
     }
-  </script></body>
+  </script>
+</body>
 </html>
