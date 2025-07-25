@@ -72,7 +72,10 @@
       gap: 1rem;
       margin: 1rem;
     }
+    .buttons a,
     .buttons button {
+      text-align: center;
+      text-decoration: none;
       width: 90%;
       max-width: 300px;
       padding: 0.8rem 1rem;
@@ -82,8 +85,10 @@
       color: #EEE;
       cursor: pointer;
       transition: background 0.3s;
+      display: block;
     }
-    .buttons button:hover {
+    .buttons button:hover,
+    .buttons a:hover {
       background: rgba(255,255,255,0.2);
     }
 
@@ -136,44 +141,11 @@
     }
     pre { white-space: pre-wrap; color: #EEE; }
     .modal p { margin:0.5rem 0; }
-
-    .social-links {
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    .social-links a {
-      display: block;
-      padding: 0.7rem 1rem;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #fff;
-      width: 90%;
-      max-width: 300px;
-      text-align: center;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .social-links a.telegram {
-      background: #0088cc;
-    }
-    .social-links a.telegram:hover {
-      background: #0070aa;
-    }
-    .social-links a.whatsapp {
-      background: #25D366;
-    }
-    .social-links a.whatsapp:hover {
-      background: #1ebe5d;
-    }
   </style>
 </head>
 <body>
-  <!-- Musik latar autoplay -->
-  <audio autoplay loop hidden>
-    <source src="https://files.catbox.moe/ey41j1.mp3" type="audio/mpeg">
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/ez93d3.mp3" type="audio/mpeg">
   </audio>
 
   <header>
@@ -193,14 +165,11 @@
     <button onclick="openModal('modal-list')">List Panel</button>
     <button onclick="openModal('modal-keuntungan')">Keuntungan Reseller Panel</button>
     <button onclick="openModal('modal-bayar')">Pembayaran</button>
+    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
+    <a href="https://t.me/depanSYZ" target="_blank">Chat Admin Telegram</a>
   </div>
 
-  <div class="social-links">
-    <a href="https://t.me/depppbaik" target="_blank" class="telegram">📩 Chat Admin (Telegram)</a>
-    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ" target="_blank" class="whatsapp">💬 Gabung Grup WhatsApp</a>
-  </div>
-
-  <!-- Modal -->
+  <!-- Modal: List Panel -->
   <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-list')">✖</button>
@@ -212,11 +181,12 @@
 6GB: Rp5.000 → Rp4.000
 7GB: Rp6.000 → Rp4.500
 10GB: Rp8.000 → Rp5.000
-UNLI: Rp12.000 → Rp7.000
+UNLI: Rp12.000 → Rp8.000
       </pre>
     </div>
   </div>
 
+  <!-- Modal: Keuntungan -->
   <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-keuntungan')">✖</button>
@@ -235,6 +205,7 @@ UNLI: Rp12.000 → Rp7.000
     </div>
   </div>
 
+  <!-- Modal: Pembayaran -->
   <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-bayar')">✖</button>
