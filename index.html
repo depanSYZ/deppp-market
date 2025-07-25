@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="description" content="Panel murah, reseller, push kontak, dan lainnya hanya di Deppp Market.">
+  <meta property="og:title" content="Deppp Market - Panel Termurah">
+  <meta property="og:image" content="https://autoresbot.com/tmp_files/bc51da5a-c66c-4681-8126-ac812062c355.jpg">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Deppp Market</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -13,13 +18,10 @@
       overflow-x: hidden;
     }
     header {
-      position: relative;
-      overflow: hidden;
-      padding: 1rem 1rem 0.5rem;
       text-align: center;
+      padding: 1rem 1rem 0.5rem;
     }
     header h1 {
-      display: inline-block;
       font-size: 1.6rem;
       animation: slideFade 4s ease-in-out infinite alternate;
     }
@@ -27,7 +29,6 @@
       0% { transform: translateY(-20px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
-
     .logo {
       width: 100px;
       margin: 0 auto 0.5rem;
@@ -40,7 +41,6 @@
       0%,100% { transform: scale(1); opacity:1; }
       50% { transform: scale(1.05); opacity:0.8; }
     }
-
     .info-bar {
       display: flex;
       flex-wrap: wrap;
@@ -72,10 +72,7 @@
       gap: 1rem;
       margin: 1rem;
     }
-    .buttons a,
     .buttons button {
-      text-align: center;
-      text-decoration: none;
       width: 90%;
       max-width: 300px;
       padding: 0.8rem 1rem;
@@ -85,11 +82,42 @@
       color: #EEE;
       cursor: pointer;
       transition: background 0.3s;
-      display: block;
     }
-    .buttons button:hover,
-    .buttons a:hover {
+    .buttons button:hover {
       background: rgba(255,255,255,0.2);
+    }
+
+    .group-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .group-links a {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      color: #EEE;
+      text-decoration: none;
+      font-weight: bold;
+      width: 90%;
+      max-width: 300px;
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .group-links a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .audio-player {
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .audio-player audio {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      outline: none;
     }
 
     .modal-bg {
@@ -100,13 +128,8 @@
       backdrop-filter: blur(4px);
       align-items: center;
       justify-content: center;
-      animation: overlayFade 0.4s ease;
       z-index: 999;
     }
-    @keyframes overlayFade {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
     .modal {
       background: rgba(30,30,30,0.9);
       border-radius: 12px;
@@ -114,20 +137,14 @@
       max-width: 90%;
       width: 400px;
       color: #EEE;
-      animation: modalPop 0.4s ease;
-      position: relative;
       text-align: left;
+      position: relative;
     }
-    @keyframes modalPop {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
     .modal h2 {
+      text-align: center;
       margin-top:0;
       margin-bottom: 1rem;
       font-size: 1.4rem;
-      text-align: center;
     }
     .close-btn {
       position: absolute;
@@ -144,10 +161,6 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/ez93d3.mp3" type="audio/mpeg">
-  </audio>
-
   <header>
     <img src="https://autoresbot.com/tmp_files/bc51da5a-c66c-4681-8126-ac812062c355.jpg" class="logo" alt="Logo">
     <h1>Selamat Datang di Deppp Market</h1>
@@ -165,11 +178,16 @@
     <button onclick="openModal('modal-list')">List Panel</button>
     <button onclick="openModal('modal-keuntungan')">Keuntungan Reseller Panel</button>
     <button onclick="openModal('modal-bayar')">Pembayaran</button>
-    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Gabung Grup WhatsApp</a>
-    <a href="https://t.me/depanSYZ" target="_blank">Chat Admin Telegram</a>
   </div>
 
-  <!-- Modal: List Panel -->
+  <div class="group-links">
+    <a href="https://chat.whatsapp.com/GmYspZZgkeUGjgsulGqzlQ?mode=ac_t" target="_blank">Join WhatsApp</a>
+    <a href="https://t.me/depanSYZ" target="_blank">Chat Telegram</a>
+  </div>
+
+  <div class="audio-player" style="margin-top: 2rem;">
+    <h3 style="text-align:center; margin-bottom: 0.5rem; color:#FFDD57;">🎵 Musik Latar
+
   <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-list')">✖</button>
@@ -181,12 +199,11 @@
 6GB: Rp5.000 → Rp4.000
 7GB: Rp6.000 → Rp4.500
 10GB: Rp8.000 → Rp5.000
-UNLI: Rp12.000 → Rp8.000
+UNLI: Rp12.000 → Rp7.000
       </pre>
     </div>
   </div>
 
-  <!-- Modal: Keuntungan -->
   <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-keuntungan')">✖</button>
@@ -205,7 +222,6 @@ UNLI: Rp12.000 → Rp8.000
     </div>
   </div>
 
-  <!-- Modal: Pembayaran -->
   <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-bayar')">✖</button>
@@ -238,8 +254,10 @@ UNLI: Rp12.000 → Rp8.000
 
     function openModal(id){ document.getElementById(id).style.display = 'flex'; }
     function closeModal(e,id){
-      if(e.target.id===id || e.target.classList.contains('close-btn'))
+      const modal = document.getElementById(id).querySelector('.modal');
+      if (!modal.contains(e.target) || e.target.classList.contains('close-btn')) {
         document.getElementById(id).style.display = 'none';
+      }
     }
     function copyText(txt){
       navigator.clipboard.writeText(txt);
