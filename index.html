@@ -1,116 +1,126 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deppp Market</title>
   <style>
     body {
-      margin:0;
-      font-family:'Segoe UI',sans-serif;
-      background:#000 url('https://i.ibb.co/GW4rM8Y/bg-stars.gif') repeat;
-      color:cyan;
-      overflow-x:hidden;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000 url('https://i.ibb.co/GW4rM8Y/bg-stars.gif') repeat;
+      color: cyan;
+      overflow-x: hidden;
     }
     header {
-      text-align:center;
-      padding:1rem;
-      background:rgba(0,0,0,0.6);
-      box-shadow:0 0 20px cyan;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px cyan;
     }
     header h1 {
-      font-size:2rem;
-      text-shadow:0 0 10px cyan;
+      font-size: 2rem;
+      text-shadow: 0 0 10px cyan;
+    }
+    .info-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+      background: rgba(0,0,0,0.8);
+      font-size: 0.9rem;
+      color: #0ff;
+      border-top: 1px solid cyan;
+      border-bottom: 1px solid cyan;
     }
     .promo {
-      text-align:center;
-      font-size:1.5rem;
-      margin-top:1rem;
-      animation:blink 1s infinite;
-      color:yellow;
-      font-weight:bold;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      background: linear-gradient(270deg, #ff0, #f0f, #0ff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowingText 5s ease infinite;
     }
-    @keyframes blink{
-      0%,100%{opacity:1;}
-      50%{opacity:0.3;}
+    @keyframes glowingText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .buttons{
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
-      margin:1.5rem;
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem;
     }
-    button{
-      background-color:cyan;
-      border:none;
-      padding:1rem 2rem;
-      font-size:1rem;
-      border-radius:12px;
-      box-shadow:0 0 10px cyan;
-      cursor:pointer;
-      transition:0.3s;
+    button {
+      background-color: cyan;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px cyan;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    button:hover{
-      background-color:#00cccc;
-      transform:scale(1.05);
+    button:hover {
+      background-color: #00cccc;
+      transform: scale(1.05);
     }
-    /* Modal styling */
     .modal-bg {
-      display:none;
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.8);
-      align-items:center;
-      justify-content:center;
-      z-index:1000;
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
     .modal {
-      background:rgba(0,0,0,0.9);
-      padding:1.5rem;
-      border-radius:12px;
-      box-shadow:0 0 20px cyan;
-      max-width:600px;
-      width:90%;
-      color:#0ff;
-      position:relative;
-      text-align:left;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px cyan;
+      max-width: 600px;
+      width: 90%;
+      color: #0ff;
+      position: relative;
+      text-align: left;
     }
     .modal h2 {
-      margin-top:0;
-      text-align:center;
-      font-size:1.6rem;
-      color:#00ffff;
-      text-shadow:0 0 10px cyan;
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.6rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px cyan;
     }
     .modal pre, .modal p {
-      margin:1rem 0;
-      font-size:1.1rem;
+      margin: 1rem 0;
+      font-size: 1.1rem;
     }
     .close-btn {
-      position:absolute;
-      top:10px; right:10px;
-      background:transparent;
-      border:none;
-      color:cyan;
-      font-size:1.2rem;
-      cursor:pointer;
+      position: absolute;
+      top: 10px; right: 10px;
+      background: transparent;
+      border: none;
+      color: cyan;
+      font-size: 1.2rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <header><h1>Selamat Datang di Deppp Market</h1></header>
-  <div class="promo">🎉 Promo Reseller Panel Cuma 12K 🎉</div>
-
-  <div class="buttons">
+  <header><h1>Selamat Datang di Deppp Market</h1></header>  <div class="info-bar">
+    <div id="tanggal"></div>
+    <div id="jam"></div>
+    <div id="baterai">🔋 Memuat...</div>
+  </div>  <div class="promo">🎉 Promo Reseller Panel Cuma 12K 🎉</div>  <div class="buttons">
     <button onclick="openModal('modal-list')">📋 List Panel</button>
     <button onclick="openModal('modal-keuntungan')">💰 Keuntungan Reseller Panel</button>
     <button onclick="openModal('modal-bayar')">💳 Pembayaran</button>
-  </div>
-
-  <!-- Modal: List Panel -->
-  <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
+  </div>  <!-- Modal List Panel -->  <div id="modal-list" class="modal-bg" onclick="closeModal(event,'modal-list')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-list')">✖</button>
       <h2>📋 Daftar Harga Panel</h2>
@@ -121,13 +131,10 @@
 6GB: Rp5.000 → Rp4.000
 7GB: Rp6.000 → Rp4.500
 10GB: Rp8.000 → Rp5.000
-UNLI: Rp12.000 → Rp6.000
+UNLI: Rp12.000 → Rp5.000
       </pre>
     </div>
-  </div>
-
-  <!-- Modal: Keuntungan -->
-  <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
+  </div>  <!-- Modal Keuntungan -->  <div id="modal-keuntungan" class="modal-bg" onclick="closeModal(event,'modal-keuntungan')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-keuntungan')">✖</button>
       <h2>💼 Keuntungan Reseller Panel</h2>
@@ -143,10 +150,7 @@ UNLI: Rp12.000 → Rp6.000
 - FULL PENGAJARAN DARI GUA
       </pre>
     </div>
-  </div>
-
-  <!-- Modal: Pembayaran -->
-  <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
+  </div>  <!-- Modal Pembayaran -->  <div id="modal-bayar" class="modal-bg" onclick="closeModal(event,'modal-bayar')">
     <div class="modal">
       <button class="close-btn" onclick="closeModal(event,'modal-bayar')">✖</button>
       <h2>💳 Pembayaran</h2>
@@ -155,9 +159,7 @@ UNLI: Rp12.000 → Rp6.000
       <p>QRIS:</p>
       <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" style="width:100%;border-radius:8px;margin-top:10px;">
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     function openModal(id) {
       document.getElementById(id).style.display = 'flex';
     }
@@ -170,6 +172,23 @@ UNLI: Rp12.000 → Rp6.000
       navigator.clipboard.writeText(txt);
       alert('Nomor berhasil disalin: ' + txt);
     }
-  </script>
-</body>
+    function updateWaktu() {
+      const now = new Date();
+      const tanggal = now.toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+      const jam = now.toLocaleTimeString('id-ID');
+      document.getElementById('tanggal').textContent = tanggal;
+      document.getElementById('jam').textContent = jam;
+    }
+    setInterval(updateWaktu, 1000);
+    updateWaktu();
+
+    navigator.getBattery?.().then(battery => {
+      function updateBaterai() {
+        const level = Math.round(battery.level * 100);
+        document.getElementById('baterai').textContent = `🔋 ${level}%`;
+      }
+      battery.addEventListener('levelchange', updateBaterai);
+      updateBaterai();
+    });
+  </script></body>
 </html>
