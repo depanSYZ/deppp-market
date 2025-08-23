@@ -1,316 +1,185 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />    
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
-  <meta name="theme-color" content="#4b0b82"/>    
-
-  <!-- Open Graph untuk WA & Tele -->
-  <meta property="og:title" content="Panel Termurah, Nokos WhatsApp, Jasa Run Bot">    
-  <meta property="og:description" content="Temukan panel termurah, Nokos WhatsApp, jasa run bot dan lainnya di Deppp Market!">    
-  <meta property="og:image" content="https://files.catbox.moe/sbca8e.jpg">    
-  <meta property="og:url" content="http//deppp-market-web.vercel.app">    
-  <meta property="og:type" content="website">    
-  <meta property="og:site_name" content="Deppp Market">    
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://files.catbox.moe/sbca8e.jpg" type="image/jpeg">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Panel Termurah, Nokos WhatsApp, Jasa Run Bot">
-  <meta name="twitter:description" content="Temukan panel termurah, Nokos WhatsApp, jasa run bot dan lainnya di Deppp Market!">
-  <meta name="twitter:image" content="https://files.catbox.moe/sbca8e.jpg">
-
-  <title>Deppp Market</title>    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">    
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>    
-
-  <style>    
-    *{box-sizing:border-box}    
-    html,body{height:100%;margin:0;font-family:'Orbitron',sans-serif;background:#RRGGBBAA;}    
-
-    #loading-screen {  
-      position: fixed;  
-      top:0; left:0; width:100%; height:100%;  
-      background: #RRGGBBAA;  
-      display:flex;  
-      align-items:center;  
-      justify-content:center;  
-      z-index:99999;  
-      transition: opacity 0.6s ease, visibility 0.6s ease;  
-    }  
-    #loading-screen.fade-out {  
-      opacity: 0;  
-      visibility: hidden;  
-    }  
-    
-    .loader-simple {  
-      border: 6px solid #eee;  
-      border-top: 6px solid #4b0b82;  
-      border-radius: 50%;  
-      width: 50px;  
-      height: 50px;  
-      animation: spin-simple 1s linear infinite;  
-    }  
-    
-    @keyframes spin-simple {  
-      0% { transform: rotate(0deg);}  
-      100% { transform: rotate(360deg);}  
-    }  
-
-    .bg-video{    
-      position:fixed;    
-      top:0;left:0;    
-      width:100%;    
-      height:100%;    
-      object-fit:cover;    
-      z-index:-3;    
-      pointer-events:none;    
-    }    
-    
-    .particles-bg{    
-      position:fixed;    
-      inset:0;    
-      width:100%;    
-      height:100%;    
-      z-index:-2;    
-      pointer-events:none;    
-    }    
-        
-    .video-overlay{    
-      position:fixed;    
-      top:0;left:0;    
-      width:100%;height:100%;    
-      background:rgba(0,0,0,0.22);    
-      z-index:-1;    
-      pointer-events:none;    
-    }    
-    
-    .container-custom {    
-      padding: 2rem;    
-      max-width: 600px;    
-      margin: 40px auto;    
-      background: rgba(255, 255, 255, 0.05);    
-      border: 1px solid rgba(255, 255, 255, 0.10);    
-      backdrop-filter: blur(15px);    
-      border-radius: 30px;    
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);    
-      color:#fff;    
-      z-index:2;    
-      position:relative;    
-      opacity: 0;    
-      transform: translateY(20px);    
-      transition: opacity 0.8s ease, transform 0.8s ease;    
-    }    
-    .container-custom.show {    
-      opacity: 1;    
-      transform: translateY(0);    
-    }    
-    
-    .logo { width:120px; border-radius:20px; box-shadow:0 0 10px #fff5; }    
-    .card-glass {    
-      background: rgba(255, 255, 255, 0.08);    
-      border: 1px solid rgba(255, 255, 255, 0.15);    
-      backdrop-filter: blur(12px);    
-      border-radius: 20px;    
-      padding: 1.5rem;    
-      margin-bottom: 1.5rem;    
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);    
-      opacity: 0;    
-      transform: translateY(20px);    
-      transition: all 0.6s ease;    
-      color: #fff;    
-    }    
-    .card-glass.show { opacity:1; transform: translateY(0); box-shadow: 0 0 20px #B794F4, 0 0 30px #B794F4; }    
-    .card-glass p, .card-glass strong, .card-glass span { text-shadow: 0 0 8px #B794F4, 0 0 12px #B794F4; }    
-    
-    .btn-glass {    
-      background: rgba(255, 255, 255, 0.08);    
-      border: 1px solid rgba(255, 255, 255, 0.15);    
-      backdrop-filter: blur(12px);    
-      border-radius: 12px;    
-      color: white;    
-      padding: 10px 20px;    
-      transition: all 0.3s ease;    
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.07);    
-      text-shadow: 0 0 8px #B794F4, 0 0 12px #B794F4;    
-    }    
-    .btn-glass:hover {    
-      background: rgba(255, 255, 255, 0.15);    
-      box-shadow: 0 0 20px #B794F4, 0 0 30px #B794F4;    
-    }    
-    
-    .footer-note { text-align:center; font-size:12px; opacity:0.35; margin-top:1.25rem; color:#ddd; }    
-    .glow-text { text-shadow: 0 0 10px #B794F4; }    
-    
-    @media (max-width:480px){    
-      .container-custom{ margin:20px; padding:1.25rem; border-radius:16px; }    
-      .logo{ width:90px; }    
-    }    
-  </style>  
-</head>    
-
-<body>    
-  <!-- LOADING -->    
-  <div id="loading-screen">    
-    <div class="loader-simple"></div>    
-  </div>    
-
-  <!-- VIDEO BACKGROUND -->    
-  <video class="bg-video" autoplay loop muted playsinline preload="auto">    
-    <source src="https://files.catbox.moe/0obcly.mp4" type="video/mp4">    
-  </video>    
-
-  <!-- Partikel -->    
-  <div id="tsparticles" class="particles-bg"></div>    
-
-  <!-- Overlay -->    
-  <div class="video-overlay"></div>    
-
-  <!-- Konten -->    
-  <div class="container-custom text-center">    
-    <img src="https://files.catbox.moe/sbca8e.jpg" alt="logo" class="logo mb-3">    
-    <h1 class="fw-bold glow-text">Deppp Market</h1>    
-    <p class="text-light">Jasa run bot, Nokos WhatsApp, Panel murah berkualitas</p>    
-    <div class="text-secondary mb-4" id="datetime">Memuat waktu...</div>    
-    <div class="alert alert-info text-dark">Selamat datang di <b>Deppp Market</b>! Pilih menu di bawah untuk mulai eksplor 🚀</div>  
-
-    <!-- List Panel -->    
-    <button class="btn btn-glass mb-3" onclick="toggleList('listPanelContainer', this)">📋 Tampilkan List Panel</button>    
-    <div id="listPanelContainer" style="display:none">
-      <div class="card-glass">👾 Reseller panel : RP 10.000</div>
-      <div class="card-glass">🤖 RAM 5GB : RP 2.000</div>    
-      <div class="card-glass">🤖 RAM 6GB : RP 3.000</div>    
-      <div class="card-glass">🤖 RAM 7GB : RP 4.000</div>    
-      <div class="card-glass">🤖 RAM 8GB : RP 5.000</div>    
-      <div class="card-glass">🤖 RAM 9GB : RP 6.000</div>    
-      <div class="card-glass">🤖 RAM 10GB : RP 7.000</div>
-      <div class="card-glass">🤖 RAM Unlimited CPU ♾️ : RP 8.000</div>    
-    </div>    
-
-    <button class="btn btn-glass mb-3" onclick="toggleList('keuntunganContainer', this)">✅ Tampilkan Keuntungan</button>
-    <div id="keuntunganContainer" style="display:none">    
-      <div class="card-glass">✔️ SERVER FRESH</div>    
-      <div class="card-glass">✔️ ANTi INTIP / COLONG</div>    
-      <div class="card-glass">✔️ GARANSI 15 HARI</div>
-    </div>   
-
-    <button class="btn btn-glass mb-3" onclick="toggleList('wajibContainer', this)">Wajib baca</button>
-    <div id="wajibContainer" style="display:none">
-    <div class="card-glass">👾 DIHARAP BUY YANG UNLI AGAR PANELMU GA DELAY</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
+  <title>Panel murah, Nokos , Jasa Run Bot</title>
+  <meta property="og:title" content="Panel Murah, Nokos, dan jasa run bot dll"/>
+  <meta property="og:image" content="https://img1.pixhost.to/images/8161/633955479_zion.jpg"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://img1.pixhost.to/images/8161/633955528_zion.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+    }
+    .glass {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-custom {
+      width: 100%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      font-weight: bold;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .logo {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .modal-content {
+      background: rgba(255,255,255,0.05);
+      border: none;
+      color: white;
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: gray;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body>
+  <div id="tsparticles"></div>
+  <div class="container text-center mt-5">
+    <div class="glass">
+      <img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
+      <h1 class="fw-bold">Deppp Market</h1>
+      <div class="my-3" id="datetime">Loading...</div>
+      <p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
+      <div class="mt-4">
+        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
+        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#keuntunganModal">⭐ Keuntungan Buy Panel</button>
+        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#pembayaranModal">💳 Pembayaran</button>
+        <a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2">📲 Chat Admin via WhatsApp</a>
+        <a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom">💬 Chat Admin via Telegram</a>
+      </div>
+      <div class="text-center mt-4" style="opacity: 0.3; font-size: 12px;">DEPPP MARKET</div>
     </div>
-    <!-- Pembayaran -->
-    <a href="https://paymentdeppp.netlify.app/" target="_blank" class="btn btn-glass mb-3">
-      💳 Pembayaran
-    </a>
+  </div>
 
-    <!-- Nokos -->    
-    <button class="btn btn-glass mb-3" onclick="toggleList('nokosContainer', this)">📱 Tampilkan List NOKOS</button>
-    <div id="nokosContainer" style="display:none">    
-      <div class="card-glass">📱 Nokos Indo : 6k</div>    
-      <div class="card-glass">📱 Nokos Luar Random : 4k</div>    
-      <div class="card-glass">Kenon? 100% bukan kesalahan admin tapi kesalahan user</div>    
-      <div class="card-glass">All trx no reff.</div>    
-      <div class="card-glass">PERINGATAN JIKA SUDAH BUY NOKOS, DIHARAP DIAMKAN DULU 1 HARI</div>    
-    </div>    
+  <!-- List Produk Modal -->
+  <div class="modal fade" id="listModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <h5 class="modal-title">📦 Produkku</h5>
+        <pre class="mt-3">
+List panel pterodactyl by deppp
 
-    <!-- Tentang Admin -->    
-    <button class="btn btn-glass mb-3" onclick="toggleList('tentangAdminContainer', this)">👤 Tampilkan Tentang Admin</button>
-    <div id="tentangAdminContainer" style="display:none">    
-      <div class="card-glass">🧑‍💻 <strong>Nama:</strong> Deppp</div>    
-      <div class="card-glass">🎂 <strong>Umur:</strong> Hanya tuhan yang tau</div>    
-      <div class="card-glass">🌍 <strong>Lokasi:</strong> Isekai</div>    
-      <div class="card-glass">    
-        📝 <strong>Deskripsi:</strong><br>    
-        Saya adalah penyedia jasa run bot, menjual panel murah, dan Nokos WhatsApp. Fast respon, harga bersahabat, dan garansi jelas. Siap bantu kebutuhan digital kamu 24/7, saat saya tidak sibuk.    
-      </div>    
-    </div>    
+💎 Harga Reseller Panel : 10K
+Harga panel pterodactyl
+RAM 4GB → 2K
+RAM 5GB → 3K
+RAM 6GB → 4K
+RAM 7GB → 5K
+RAM 8GB → 6K
+RAM 9GB → 7K
+RAM UNLIMITED → 8K
 
-    <a href="https://deppppppppppppppppppppppppppppppppppp.netlify.app/" target="_blank" class="btn btn-glass w-100 mb-3">⚡ Fullstack Portfolio</a>
-    <a href="https://t.me/xdeppDev" target="_blank" class="btn btn-glass w-100 mb-3">💬 Chat Admin via Telegram</a>
-    <a href="https://wa.me/255670454490?text=halo%20admin%20aku%20mau%20buy%20nih" target="_blank" class="btn btn-glass w-100 mb-3">💬 Chat Admin via WhatsApp</a>
-    <p class="text-light" style="font-size:12px; opacity:0.6;">⚡ Catatan: Telegram lebih fast respon</p>
+📱 List Nokos
+Nokos Indo → 6K
+Nokos Luar Random → 5K
+        </pre>
+        <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
+      </div>
+    </div>
+  </div>
 
-    <a href="https://wa.me/255714077982?text=.menu" target="_blank" class="btn btn-glass w-100 mb-3">🤖 Butuh Bot WA? Klik di sini</a>
-    <p class="text-light" style="font-size:12px; opacity:0.6;">bot ga muncul? ya gatau 🤪</p>
+  <!-- Keuntungan Modal -->
+  <div class="modal fade" id="keuntunganModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <h5 class="modal-title">⭐ Keuntungan</h5>
+        <pre class="mt-3">
+✔️ SERVER RESELLER AMA ADP DI PISAH
+✔️ SERVER FRESH
+✔️ ANTI DELETE / INTIP / COLONG
+✔️ GARANSI 10 HARI
+        </pre>
+        <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
+      </div>
+    </div>
+  </div>
 
-    <div class="footer-note">© 2025 Deppp Market</div>    
-  </div>    
+  <!-- Pembayaran Modal -->
+  <div class="modal fade" id="pembayaranModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <h5 class="modal-title">💳 Pembayaran</h5>
+        <p>Dana / Gopay: <b id="nomor">6282221744770</b></p>
+        <button class="btn btn-sm btn-light mb-3" onclick="copyText('6282221744770')">Salin Nomor</button>
+        <p>QRIS:</p>
+        <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" class="img-fluid rounded">
+        <button class="btn btn-custom mt-3" data-bs-dismiss="modal">⬅️ Kembali</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Musik -->
-  <audio id="bgmusic" autoplay loop playsinline>    
-    <source src="https://files.catbox.moe/9uy9wn.m4a" type="audio/mpeg" />    
-  </audio>    
-  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_6dbb3d216c.mp3" preload="auto"></audio>    
+  <footer>
+    🛒 Terima kasih telah membeli produk dari Deppp Market
+  </footer>
 
-  <script>    
-    // Loading handler    
-    window.addEventListener("load", function() {    
-      setTimeout(function() {    
-        document.getElementById("loading-screen").classList.add("fade-out");    
-        document.querySelector(".container-custom").classList.add("show");    
-      }, 800);    
-    });    
+  <script>
+    setInterval(() => {
+      const now = new Date();
+      const tanggal = now.toLocaleDateString('id-ID', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      const waktu = now.toLocaleTimeString('id-ID');
+      document.getElementById('datetime').innerText = `${tanggal} - ${waktu}`;
+    }, 1000);
 
-    // Waktu realtime
-    setInterval(() => {    
-      const now = new Date();    
-      const tanggal = now.toLocaleDateString('id-ID', {    
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'    
-      });    
-      const waktu = now.toLocaleTimeString('id-ID');    
-      const el = document.getElementById('datetime');    
-      if(el) el.innerText = `${tanggal} - ${waktu}`;    
-    }, 1000);    
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert('Nomor berhasil disalin: ' + text);
+    }
 
-    function toggleList(id, button) {    
-      const clickSound = document.getElementById('clickSound');    
-      if(clickSound){ clickSound.currentTime = 0; clickSound.play().catch(()=>{}); }    
-      const container = document.getElementById(id);    
-      const showing = container.style.display === 'block';    
-      container.style.display = showing ? 'none' : 'block';    
-      try {    
-        button.innerText = button.innerText.replace(showing ? 'Sembunyikan' : 'Tampilkan', showing ? 'Tampilkan' : 'Sembunyikan');    
-      } catch(e){}    
-      if (!showing) {    
-        setTimeout(() => {    
-          container.querySelectorAll('.card-glass').forEach((el, i) => {    
-            setTimeout(() => el.classList.add('show'), i * 100);    
-          });    
-        }, 100);    
-      } else {    
-        container.querySelectorAll('.card-glass').forEach(el => el.classList.remove('show'));    
-      }    
-    }    
-
-    tsParticles.load("tsparticles", {    
-      fullScreen: { enable: true, zIndex: -2 },    
-      particles: {    
-        number: { value: 60 },    
-        color: { value: "#ffffff" },    
-        shape: { type: "circle" },    
-        opacity: { value: 0.3 },    
-        size: { value: 2 },    
-        move: { enable: true, speed: 0.5 }    
-      },    
-      interactivity: {    
-        events: { onhover: { enable: true, mode: "repulse" } },    
-        modes: { repulse: { distance: 50 } }    
-      },    
-      background: { color: "transparent" }    
-    });    
-
-    document.addEventListener('DOMContentLoaded', () => {    
-      const audio = document.getElementById('bgmusic');    
-      const tryPlay = () => audio.play().catch(()=>{});    
-      tryPlay();    
-      document.body.addEventListener('mouseenter', tryPlay, { once: true });    
-      document.body.addEventListener('touchstart', tryPlay, { once: true });    
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: true, zIndex: -1 },
+      particles: {
+        number: { value: 60 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 2 },
+        move: { enable: true, speed: 0.5 }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" } },
+        modes: { repulse: { distance: 50 } }
+      },
+      background: { color: "transparent" }
     });
-  </script>    
+  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-      </html>
+</html>
