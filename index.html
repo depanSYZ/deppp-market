@@ -4,184 +4,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="theme-color" content="#000000"/>
-  <title>Panel murah , Jasa Run Bot</title>
-  <meta property="og:title" content="Panel Murah, jasa run bot dll"/>
-  <meta property="og:image" content="https://img1.pixhost.to/images/8161/633955479_zion.jpg"/>
+  <title>Deppp Market</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: url('https://img1.pixhost.to/images/8161/633955528_zion.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      overflow-x: hidden;
-    }
-    .glass {
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .btn-custom {
-      width: 100%;
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: white;
-      font-weight: bold;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-    }
-    .btn-custom:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .logo {
-      width: 100px;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255,255,255,0.7);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
+    body { margin:0; font-family:'Orbitron',sans-serif; background:#000; color:white; overflow-x:hidden; transition:all 0.5s ease; }
+    
+    /* Preloader */
+    #preloader {position:fixed; top:0; left:0; width:100%; height:100%; background:black; display:flex; align-items:center; justify-content:center; z-index:9999;}
+    .loader {border:6px solid rgba(255,0,0,0.2); border-top:6px solid red; border-radius:50%; width:60px; height:60px; animation:spin 1s linear infinite;}
+    @keyframes spin{100%{transform:rotate(360deg);}}
+
+    /* Marquee */
+    .marquee {background: rgba(255,0,0,0.1); border-bottom:1px solid rgba(255,0,0,0.5); color:#ff4d4d; font-weight:bold; padding:8px 0; text-shadow:0 0 10px red;}
+
+    /* Glass container */
+    .glass {backdrop-filter:blur(15px); background: rgba(255,0,0,0.08); border-radius:20px; padding:2rem; box-shadow:0 0 30px rgba(255,0,0,0.4); border:1px solid rgba(255,0,0,0.3); opacity:0; transform:translateY(40px); transition:all 1s ease;}
+    .glass.reveal{opacity:1; transform:translateY(0);}
+    .glass:hover{box-shadow:0 0 50px rgba(255,0,0,0.8);}
+
+    /* Buttons */
+    .btn-custom{width:100%; background:rgba(255,0,0,0.1); border:1px solid rgba(255,0,0,0.5); color:white; font-weight:bold; transition:all 0.3s ease; box-shadow:0 0 10px rgba(255,0,0,0.4);}
+    .btn-custom:hover{background:rgba(255,0,0,0.3); box-shadow:0 0 20px rgba(255,0,0,0.8); transform:perspective(400px) rotateX(8deg);}
+
+    /* Logo */
+    .logo {width:100px; border-radius:50%; box-shadow:0 0 30px rgba(255,0,0,0.9); animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+
+    /* Glitch */
+    .glitch{font-size:2rem; font-weight:bold; color:#ff1a1a; position:relative; animation:glitch 1s infinite; text-shadow:0 0 10px red;}
+    @keyframes glitch{0%{text-shadow:2px 2px red;}20%{text-shadow:-2px -2px #ff8080;}40%{text-shadow:2px -2px #ff1a1a;}60%{text-shadow:-2px 2px #ff4d4d;}100%{text-shadow:0 0 10px red;}}
+
+    /* Modal dark */
     .modal-content {
-      background: rgba(255,255,255,0.05);
-      border: none;
-      color: white;
-      backdrop-filter: blur(15px);
+      background: rgba(0,0,0,0.95) !important;
+      color: #ff4d4d !important;
+      border: 1px solid rgba(255,0,0,0.5);
       border-radius: 15px;
     }
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      color: gray;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-    }
+    .modal-content pre {color:#ff4d4d; white-space: pre-wrap; word-wrap: break-word;}
+    .modal-header, .modal-footer {border:none;}
+    
+    /* Footer */
+    footer {margin-top:50px; text-align:center; padding:10px; font-size:14px; color:#ff6666; background: rgba(0,0,0,0.7); border-top:1px solid rgba(255,0,0,0.5);}
+
+    /* FAB */
+    .fab-container{position:fixed; bottom:20px; right:20px; z-index:1100;}
+    .fab-main{background:red; border:none; border-radius:50%; width:60px; height:60px; color:white; font-size:24px; box-shadow:0 0 20px rgba(255,0,0,0.8); cursor:pointer; transition:transform 0.3s;}
+    .fab-main:hover{transform:rotate(90deg) scale(1.1);}
+    .fab-options{display:none; flex-direction:column; margin-bottom:10px; align-items:center;}
+    .fab-options a{background:rgba(255,0,0,0.9); border-radius:50%; width:50px; height:50px; display:flex; align-items:center; justify-content:center; color:white; margin:6px 0; font-size:22px; box-shadow:0 0 15px rgba(255,0,0,0.7); transition:0.3s;}
+    .fab-options a:hover{background:#fff; color:red;}
+
+    /* Light mode */
+    body.light-mode{background:#fff; color:#000;}
+    body.light-mode .glass{background: rgba(255,255,255,0.5); box-shadow:0 0 25px rgba(255,255,255,0.9); border:1px solid rgba(200,200,200,0.6);}
+    body.light-mode .btn-custom{background: rgba(255,255,255,0.2); border:1px solid rgba(200,200,200,0.6); color:black;}
+    body.light-mode .btn-custom:hover{background: rgba(255,255,255,0.6);}
+    body.light-mode .logo{box-shadow:0 0 30px rgba(255,255,255,0.9);}
+    body.light-mode .glitch{color:#000; text-shadow:0 0 15px white;}
   </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
-  <div class="container text-center mt-5">
-    <div class="glass">
-      <img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
-      <h1 class="fw-bold">Deppp Market</h1>
-      <div class="my-3" id="datetime">Loading...</div>
-      <p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
-      <div class="mt-4">
-        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
-        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#keuntunganModal">⭐ Keuntungan Buy Panel</button>
-        <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#pembayaranModal">💳 Pembayaran</button>
-        <a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2">📲 Chat Admin via WhatsApp</a>
-        <a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom">💬 Chat Admin via Telegram</a>
-      </div>
-      <div class="text-center mt-4" style="opacity: 0.3; font-size: 12px;">DEPPP MARKET</div>
+
+<!-- Preloader -->
+<div id="preloader"><div class="loader"></div></div>
+
+<!-- Marquee -->
+<div class="marquee">🔥 PROMO: Reseller cuma 8K ‼️ | Unlimited RAM cuma 7K 💎 | Garansi 10 Hari ✅</div>
+
+<!-- Particles -->
+<div id="tsparticles"></div>
+
+<!-- Main content -->
+<div class="container text-center mt-5">
+  <div class="glass">
+    <img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
+    <h1 class="glitch">🔥 Deppp Market 🔥</h1>
+    <div class="my-3" id="datetime">Loading...</div>
+    <p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
+
+    <!-- Buttons -->
+    <div class="mt-4">
+      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
+      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#keuntunganModal">⭐ Keuntungan Buy Panel</button>
+      <a href="https://deppp-payment.storex.my.id" target="_blank" class="btn btn-custom mb-3">💳 Pembayaran</a>
+      <a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px;height:20px;margin-right:8px;"> WhatsApp Admin
+      </a>
+      <a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width:20px;height:20px;margin-right:8px;"> Telegram Admin
+      </a>
     </div>
+    <div class="text-center mt-4" style="opacity:0.5;font-size:12px;color:#ff4d4d;">DEPPP MARKET</div>
   </div>
+</div>
 
-  <!-- List Produk Modal -->
-  <div class="modal fade" id="listModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <h5 class="modal-title">📦 Produkku</h5>
-        <pre class="mt-3">
-List panel pterodactyl by deppp
+<!-- Modal Produk -->
+<div class="modal fade" id="listModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content p-3">
+  <h5 class="modal-title">📦 Produkku</h5>
+  <pre class="mt-3 text-light">
+Reseller 8K
+PT Panel 20k
+Owner Panel 20k
+TK Panel 25k
 
-👑 Reseller 8K
-🛠️ ADP Panel 12k
-🏆 PT Panel 15
-🥶 Owner panel 20k
-😎 TK panel 25k
-          
-Harga panel pterodactyl
 RAM 5GB → 2K
 RAM 6GB → 3K
 RAM 7GB → 4K
 RAM 8GB → 5K
 RAM 9GB → 6K
 RAM UNLIMITED → 7K
+  </pre>
+  <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
+</div></div></div>
 
- keuntungan? pv tele
-         </pre>
-        <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Keuntungan Modal -->
-  <div class="modal fade" id="keuntunganModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <h5 class="modal-title">⭐ Keuntungan</h5>
-        <pre class="mt-3">
+<!-- Modal Keuntungan -->
+<div class="modal fade" id="keuntunganModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content p-3">
+  <h5 class="modal-title">⭐ Keuntungan</h5>
+  <pre class="mt-3 text-light">
 ✔️ SERVER RESELLER AMA ADP DI PISAH
 ✔️ SERVER FRESH
 ✔️ ANTI DELETE / INTIP / COLONG
 ✔️ GARANSI 10 HARI
-        </pre>
-        <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
-      </div>
-    </div>
+  </pre>
+  <button class="btn btn-custom mt-2" data-bs-dismiss="modal">⬅️ Kembali</button>
+</div></div></div>
+
+<!-- Footer -->
+<footer>depppMarket</footer>
+
+<!-- FAB -->
+<div class="fab-container d-md-none">
+  <button class="fab-main" onclick="toggleFab()"><i class="fas fa-cog"></i></button>
+  <div class="fab-options" id="fabOptions">
+    <a href="https://www.youtube.com/@DepppMarket" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://t.me/testideppp" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="javascript:void(0)" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-moon"></i></a>
   </div>
+</div>
 
-  <!-- Pembayaran Modal -->
-  <div class="modal fade" id="pembayaranModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <h5 class="modal-title">💳 Pembayaran</h5>
-        <p>Dana / Gopay / Ovo: <b id="nomor">6282221744770</b></p>
-        <button class="btn btn-sm btn-light mb-3" onclick="copyText('6282221744770')">Salin Nomor</button>
-        <p>QRIS:</p>
-        <img src="https://files.catbox.moe/vtgud1.jpg" alt="QRIS" class="img-fluid rounded">
-        <button class="btn btn-custom mt-3" data-bs-dismiss="modal">⬅️ Kembali</button>
-      </div>
-    </div>
-  </div>
+<script>
+function toggleFab(){const fab=document.getElementById("fabOptions"); fab.style.display=(fab.style.display==="flex")?"none":"flex";}
+function toggleTheme(){document.body.classList.toggle("light-mode"); const icon=document.getElementById("themeIcon"); icon.className=document.body.classList.contains("light-mode")?"fas fa-sun":"fas fa-moon";}
+window.addEventListener("load",()=>{document.getElementById("preloader").style.display="none"; document.querySelector(".glass").classList.add("reveal");});
+setInterval(()=>{const now=new Date(); document.getElementById('datetime').innerText=now.toLocaleString('id-ID',{weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit'});},1000);
+function copyText(t){navigator.clipboard.writeText(t); alert("Nomor berhasil disalin: "+t);}
+tsParticles.load("tsparticles",{fullScreen:{enable:true,zIndex:-1},particles:{number:{value:70},color:{value:"#ff0000"},shape:{type:"circle"},opacity:{value:0.5},size:{value:2},move:{enable:true,speed:0.7}},interactivity:{events:{onhover:{enable:true,mode:"repulse"}},modes:{repulse:{distance:60}}},background:{color:"transparent"}});
+</script>
 
-  <footer>
-    🛒 Terima kasih telah mengunjungi web depppMarket
-  </footer>
-
-  <script>
-    setInterval(() => {
-      const now = new Date();
-      const tanggal = now.toLocaleDateString('id-ID', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-      });
-      const waktu = now.toLocaleTimeString('id-ID');
-      document.getElementById('datetime').innerText = `${tanggal} - ${waktu}`;
-    }, 1000);
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert('Nomor berhasil disalin: ' + text);
-    }
-
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: -1 },
-      particles: {
-        number: { value: 60 },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 2 },
-        move: { enable: true, speed: 0.5 }
-      },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "repulse" } },
-        modes: { repulse: { distance: 50 } }
-      },
-      background: { color: "transparent" }
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
