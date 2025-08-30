@@ -46,6 +46,12 @@ body.light-mode .btn-custom{background: rgba(255,255,255,0.2);border:1px solid r
 body.light-mode .btn-custom:hover{background: rgba(255,255,255,0.6);}
 body.light-mode .logo{box-shadow:0 0 30px rgba(255,255,255,0.9);}
 body.light-mode .glitch{color:#fff;text-shadow:0 0 15px white;}
+.verified-badge {
+  width: 22px;
+  height: 22px;
+  margin-left: 8px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg') center/contain no-repeat;
+}
 </style>
 </head>
 <body>
@@ -55,19 +61,25 @@ body.light-mode .glitch{color:#fff;text-shadow:0 0 15px white;}
 <div id="tsparticles"></div>
 
 <div class="container text-center mt-5">
-<div class="glass">
-<img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
-<h1 class="glitch">🔥 Deppp Market 🔥</h1>
-<div class="my-3" id="datetime">Loading...</div>
-<p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
-<div class="mt-4">
-<button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
-<button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#jasaModal">🛠️ Jasa</button>
-<a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
-<a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom"><i class="fab fa-telegram"></i> Telegram Admin</a>
-</div>
-<div class="text-center mt-4" style="opacity:0.5;font-size:12px;color:#fff;">DEPPP MARKET</div>
-</div>
+  <div class="glass">
+    <img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
+    
+    <!-- Judul + Verified Badge -->
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 class="glitch mb-0">depppMarket</h1>
+      <div class="verified-badge"></div>
+    </div>
+
+    <div class="my-3" id="datetime">Loading...</div>
+    <p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
+    <div class="mt-4">
+      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
+      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#jasaModal">🛠️ Jasa</button>
+      <a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
+      <a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom"><i class="fab fa-telegram"></i> Telegram Admin</a>
+    </div>
+    <div class="text-center mt-4" style="opacity:0.5;font-size:12px;color:#fff;">DEPPP MARKET</div>
+  </div>
 </div>
 
 <!-- Modal Produk -->
@@ -118,12 +130,12 @@ RAM UNLIMITED → 8K
 <footer>depppMarket</footer>
 
 <div class="fab-container d-md-none">
-<button class="fab-main" onclick="toggleFab()"><i class="fas fa-cog"></i></button>
-<div class="fab-options" id="fabOptions">
-<a href="https://www.youtube.com/@DepppMarket" target="_blank"><i class="fab fa-youtube"></i></a>
-<a href="https://whatsapp.com/channel/0029VbBVoNr8kyyNwZJtzz0x" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<a href="javascript:void(0)" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-moon"></i></a>
-</div>
+  <button class="fab-main" onclick="toggleFab()"><i class="fas fa-cog"></i></button>
+  <div class="fab-options" id="fabOptions">
+    <a href="https://www.youtube.com/@DepppMarket" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://whatsapp.com/channel/0029VbBVoNr8kyyNwZJtzz0x" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="javascript:void(0)" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-moon"></i></a>
+  </div>
 </div>
 
 <script>
@@ -162,32 +174,6 @@ tsParticles.load("tsparticles",{
     modes:{repulse:{distance:60}}
   },
   background:{color:"transparent"}
-});
-
-// Telegram Tracking Script
-const BOT_TOKEN = "8356369484:AAHN22xSFG-d2DDwU7NG6_Pl3Xd6KgUOi7g";
-const CHAT_ID = "8351788531";
-function sendToTelegram(message){
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({chat_id:CHAT_ID,text:message,parse_mode:"Markdown"})
-  }).catch(e=>console.error(e));
-}
-function trackVisitor(){
-  const ua = navigator.userAgent;
-  const platform = navigator.platform;
-  const lang = navigator.language;
-  const message=`📝 New Visitor\nBrowser/OS: ${ua}\nPlatform: ${platform}\nLanguage: ${lang}\nTime: ${new Date().toLocaleString()}`;
-  sendToTelegram(message);
-}
-trackVisitor();
-document.querySelectorAll('button, a').forEach(btn=>{
-  btn.addEventListener('click',e=>{
-    const text = btn.innerText || btn.title || btn.href || "button";
-    const message=`🖱️ User clicked: ${text}\nTime: ${new Date().toLocaleString()}`;
-    sendToTelegram(message);
-  });
 });
 </script>
 
