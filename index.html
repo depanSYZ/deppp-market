@@ -16,62 +16,78 @@
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
 
 <style>
-body{margin:0;font-family:'Orbitron',sans-serif;background:#000;color:white;overflow-x:hidden;transition:all 0.5s ease;}
+body {
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+  transition:all 0.5s ease;
+}
 #preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:black;display:flex;align-items:center;justify-content:center;z-index:9999;}
 .loader{border:6px solid rgba(255,255,255,0.2);border-top:6px solid #fff;border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;}
 @keyframes spin{100%{transform:rotate(360deg);}}
 .marquee{background: rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.5);color:#fff;font-weight:bold;padding:8px 0;text-shadow:0 0 10px #fff;}
-.glass{backdrop-filter:blur(15px);background: rgba(255,255,255,0.08);border-radius:20px;padding:2rem;box-shadow:0 0 30px rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.3);opacity:0;transform:translateY(40px);transition:all 1s ease;}
-.glass.reveal{opacity:1;transform:translateY(0);}
-.glass:hover{box-shadow:0 0 50px rgba(255,255,255,0.8);}
-.btn-custom{width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.5);color:white;font-weight:bold;transition:all 0.3s ease;box-shadow:0 0 10px rgba(255,255,255,0.4);}
-.btn-custom:hover{background:rgba(255,255,255,0.3);box-shadow:0 0 25px rgba(255,255,255,1);transform:perspective(400px) rotateX(8deg);}
-.logo{width:100px;border-radius:50%;box-shadow:0 0 30px rgba(255,255,255,0.9);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
-.glitch{font-size:2rem;font-weight:bold;color:#fff;position:relative;animation:glitch 1s infinite;text-shadow:0 0 10px #fff;}
-@keyframes glitch{0%{text-shadow:2px 2px #fff;}20%{text-shadow:-2px -2px #ccc;}40%{text-shadow:2px -2px #fff;}60%{text-shadow:-2px 2px #eee;}100%{text-shadow:0 0 15px #fff;}}
-.modal-content{background: rgba(0,0,0,0.95) !important;color: #fff !important;border: 1px solid rgba(255,255,255,0.5);border-radius: 20px;}
-.modal-content pre{color:#fff;white-space: pre-wrap;word-wrap: break-word;font-weight:bold;}
-.modal-header,.modal-footer{border:none;}
 footer{margin-top:50px;text-align:center;padding:10px;font-size:14px;color:#fff;background: rgba(0,0,0,0.7);border-top:1px solid rgba(255,255,255,0.5);}
+
+/* Logo */
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+@keyframes floatLogo {0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
+.logo{width:100px;border-radius:50%;box-shadow:0 0 30px rgba(255,255,255,0.9);animation:pulse 2s infinite, floatLogo 4s ease-in-out infinite;}
+
+/* Glass Section */
+.glass {
+  backdrop-filter:blur(15px);
+  background: rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:2rem;
+  box-shadow:0 0 30px rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.3);
+  opacity:0;
+  transform:translateY(60px) scale(0.95);
+  transition:all 1s cubic-bezier(.25,.8,.25,1);
+}
+.glass.reveal {opacity:1;transform:translateY(0) scale(1);}
+
+/* Glitch Text */
+.glitch{font-size:2rem;font-weight:bold;color:#fff;position:relative;text-shadow:0 0 10px #fff;animation:glow 2s infinite alternate;}
+@keyframes glow {from{text-shadow:0 0 10px #fff,0 0 20px #ffff;}to{text-shadow:0 0 25px #fff,0 0 50px #ffff;}}
+
+/* Buttons */
+@keyframes glowBtn {
+  0% { box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+  50% { box-shadow: 0 0 25px rgba(255,255,255,0.9); }
+  100% { box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+}
+.btn-custom {
+  width:100%;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.5);
+  color:white;
+  font-weight:bold;
+  transition:all 0.3s ease;
+  box-shadow:0 0 10px rgba(255,255,255,0.4);
+  animation: glowBtn 3s infinite ease-in-out;
+}
+.btn-custom:hover {
+  background:rgba(255,255,255,0.3);
+  box-shadow:0 0 35px rgba(255,255,255,1);
+  transform:scale(1.07);
+}
+.btn-animate{opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
+.btn-animate.show{opacity:1;transform:translateY(0);}
+
+/* Floating Button */
 .fab-container{position:fixed;bottom:20px;right:20px;z-index:1100;}
 .fab-main{background:#fff;border:none;border-radius:50%;width:60px;height:60px;color:#000;font-size:24px;box-shadow:0 0 20px rgba(255,255,255,0.8);cursor:pointer;transition:transform 0.3s;}
 .fab-main:hover{transform:rotate(90deg) scale(1.1);}
 .fab-options{display:none;flex-direction:column;margin-bottom:10px;align-items:center;}
 .fab-options a{background:rgba(255,255,255,0.9);border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;color:black;margin:6px 0;font-size:22px;box-shadow:0 0 15px rgba(255,255,255,0.7);transition:0.3s;}
 .fab-options a:hover{background:#000;color:#fff;}
-body.light-mode{background:#000;color:#fff;}
-body.light-mode .glass{background: rgba(255,255,255,0.08);box-shadow:0 0 25px rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.6);}
-body.light-mode .btn-custom{background: rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.6);color:black;}
-body.light-mode .btn-custom:hover{background: rgba(255,255,255,0.6);}
-body.light-mode .logo{box-shadow:0 0 30px rgba(255,255,255,0.9);}
-body.light-mode .glitch{color:#fff;text-shadow:0 0 15px white;}
-.verified-badge{width:22px;height:22px;margin-left:8px;background:url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg') center/contain no-repeat;}
 
 /* Music Button */
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 1200;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  font-size: 22px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
-  cursor: pointer;
-  transition: 0.3s;
-}
-.music-btn:hover {
-  background: #000;
-  color: #fff;
-  transform: scale(1.1);
-}
+.music-btn {position: fixed;bottom: 20px;left: 20px;z-index: 1200;width: 55px;height: 55px;border-radius: 50%;background: rgba(255,255,255,0.9);display: flex;align-items: center;justify-content: center;color: black;font-size: 22px;box-shadow: 0 0 20px rgba(255,255,255,0.7);cursor: pointer;transition: 0.3s;}
+.music-btn:hover {background: #000;color: #fff;transform: scale(1.1);}
 </style>
 </head>
 <body>
@@ -81,85 +97,59 @@ body.light-mode .glitch{color:#fff;text-shadow:0 0 15px white;}
 <div id="tsparticles"></div>
 
 <div class="container text-center mt-5">
-  <div class="glass">
+  <div class="glass mb-4">
     <img src="https://img1.pixhost.to/images/8161/633955479_zion.jpg" alt="logo" class="logo mb-3">
-    
-<!-- Judul + Verified Badge -->
-<div class="d-flex justify-content-center align-items-center">
-  <h1 class="glitch mb-0">depppMarket</h1>
-  <i class="fas fa-check-circle ms-2" style="color:#1DA1F2; font-size:22px;"></i>
-</div>
-
-<!-- Tambahin teks verified by -->
-<div style="color:#ffffff; text-shadow:0 0 8px #ffffff, 0 0 15px #ffffff; font-size:13px; font-weight:bold; margin-top:5px;">
-  verified by Telegram Team <i class="fas fa-check-circle" style="color:#1DA1F2;"></i>
-</div>
-
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 class="glitch mb-0">depppMarket</h1>
+      <i class="fas fa-check-circle ms-2" style="color:#1DA1F2; font-size:22px;"></i>
+    </div>
+    <div style="color:#ffffff; text-shadow:0 0 8px #ffffff, 0 0 15px #ffffff; font-size:13px; font-weight:bold; margin-top:5px;">
+      verified by Telegram Team <i class="fas fa-check-circle" style="color:#1DA1F2;"></i>
+    </div>
     <div class="my-3" id="datetime">Loading...</div>
-    <p class="fw-bold">Deppp Market juga menyediakan jasa run bot, Nokos WhatsApp</p>
-    <div class="mt-4">
-      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#listModal">📦 List Produk</button>
-      <button class="btn btn-custom mb-3" data-bs-toggle="modal" data-bs-target="#jasaModal">🛠️ Jasa</button>
-      <a href="https://wa.me/255670454490" target="_blank" class="btn btn-custom mb-2"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
-      <a href="https://t.me/XdeppDev" target="_blank" class="btn btn-custom"><i class="fab fa-telegram"></i> Telegram Admin</a>
-    </div>
-    <div class="text-center mt-4" style="opacity:0.5;font-size:12px;color:#fff;">DEPPP MARKET</div>
   </div>
-</div>
 
-<!-- Modal Produk -->
-<div class="modal fade" id="listModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content p-4 glass">
-      <h5 class="modal-title text-center glitch">📦 Produk Deppp Market</h5>
-      <pre class="mt-3 text-light">
-Reseller 8K
-PT Panel 20K
-Owner Panel 20K
-TK Panel 25K
-
-RAM 5GB → 2K
-RAM 6GB → 3K
-RAM 7GB → 4K
-RAM 8GB → 5K
-RAM 9GB → 6K
-RAM 10GB → 7K
-RAM UNLIMITED → 8K
-      </pre>
-      <div class="text-center mt-3">
-        <button class="btn btn-custom" data-bs-dismiss="modal">⬅️ Kembali</button>
-      </div>
+  <!-- Produk -->
+  <div class="glass mb-4">
+    <h3 class="glitch mb-3">📦 PRODUK DEPPP MARKET</h3>
+    <div class="d-grid gap-3">
+      <div class="btn btn-custom btn-animate">Reseller 8K</div>
+      <div class="btn btn-custom btn-animate">PT Panel 20K</div>
+      <div class="btn btn-custom btn-animate">Owner Panel 20K</div>
+      <div class="btn btn-custom btn-animate">TK Panel 25K</div>
+      <div class="btn btn-custom btn-animate">RAM 5GB → 2K</div>
+      <div class="btn btn-custom btn-animate">RAM 6GB → 3K</div>
+      <div class="btn btn-custom btn-animate">RAM 7GB → 4K</div>
+      <div class="btn btn-custom btn-animate">RAM 8GB → 5K</div>
+      <div class="btn btn-custom btn-animate">RAM 9GB → 6K</div>
+      <div class="btn btn-custom btn-animate">RAM 10GB → 7K</div>
+      <div class="btn btn-custom btn-animate">RAM UNLIMITED → 8K</div>
     </div>
   </div>
-</div>
 
-<!-- Modal Jasa -->
-<div class="modal fade" id="jasaModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4 glass">
-      <h5 class="modal-title text-center glitch">🛠️ Jasa Deppp Market</h5>
-      <pre class="mt-3 text-light">
-✔️ Jasa Pembuatan Web Payment
-✔️ Jasa Rename SC
-✔️ Jasa Pembuatan Web Store
-✔️ Jasa Makan Mie Ayam
-✔️ Jasa Lain Sesuai Request
-      </pre>
-      <div class="text-center mt-3">
-        <button class="btn btn-custom" data-bs-dismiss="modal">⬅️ Kembali</button>
-      </div>
+  <!-- Jasa -->
+  <div class="glass">
+    <h3 class="glitch mb-3">🛠️ JASA DEPPP MARKET</h3>
+    <div class="d-grid gap-3">
+      <div class="btn btn-custom btn-animate">Jasa Pembuatan Web Payment</div>
+      <div class="btn btn-custom btn-animate">Jasa Rename SC</div>
+      <div class="btn btn-custom btn-animate">Jasa Pembuatan Web Store</div>
+      <div class="btn btn-custom btn-animate">Jasa Run Bot</div>
+      <div class="btn btn-custom btn-animate">Jasa Nokos WhatsApp</div>
+      <div class="btn btn-custom btn-animate">Jasa Gatau njir</div>
+      <div class="btn btn-custom btn-animate">Jasa Lain Sesuai Request</div>
     </div>
   </div>
 </div>
 
 <footer>depppMarket</footer>
 
+<!-- Floating Button -->
 <div class="fab-container d-md-none">
   <button class="fab-main" onclick="toggleFab()"><i class="fas fa-cog"></i></button>
   <div class="fab-options" id="fabOptions">
-    <a href="https://www.youtube.com/@DepppMarket" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://whatsapp.com/channel/0029VbBVoNr8kyyNwZJtzz0x" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="javascript:void(0)" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-moon"></i></a>
+    <a href="wa.me/6282221744770" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="t.me/XdeppDev" target="_blank"><i class="fab fa-telegram"></i></a>
   </div>
 </div>
 
@@ -178,11 +168,6 @@ function toggleFab(){
   const fab=document.getElementById("fabOptions");
   fab.style.display=(fab.style.display==="flex")?"none":"flex";
 }
-function toggleTheme(){
-  document.body.classList.toggle("light-mode");
-  const icon=document.getElementById("themeIcon");
-  icon.className=document.body.classList.contains("light-mode")?"fas fa-sun":"fas fa-moon";
-}
 function toggleMusic(){
   const music = document.getElementById("bgMusic");
   const icon = document.getElementById("musicIcon");
@@ -196,7 +181,12 @@ function toggleMusic(){
 }
 window.addEventListener("load",()=>{
   document.getElementById("preloader").style.display="none";
-  document.querySelectorAll(".glass").forEach(el=>el.classList.add("reveal"));
+  document.querySelectorAll(".glass").forEach((el,i)=>{
+    setTimeout(()=>el.classList.add("reveal"),500*i);
+  });
+  document.querySelectorAll(".btn-animate").forEach((btn,i)=>{
+    setTimeout(()=>btn.classList.add("show"),200*i);
+  });
 });
 setInterval(()=>{
   const now=new Date();
